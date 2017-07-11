@@ -1,7 +1,7 @@
 import ChainLoader from './chain-loader';
 
 export function createBabelLoader(
-  { target, production, useStyleLoader = false }, 
+  { target, production }, 
   options = {}, 
   cssLoaderProcessor = props => props
 ) {
