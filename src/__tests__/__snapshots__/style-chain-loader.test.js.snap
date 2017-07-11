@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cssLoader should increment every defined importLoaders 1`] = `
+Array [
+  Object {
+    "loader": "css-loader/locals",
+    "options": Object {
+      "importLoaders": 1,
+      "modules": true,
+    },
+  },
+  Object {
+    "loader": "scss",
+    "options": Object {},
+  },
+]
+`;
+
+exports[`cssLoader should modify name of css loader for server env 1`] = `
+Array [
+  Object {
+    "loader": "css-loader/locals",
+    "options": Object {
+      "importLoaders": 0,
+      "modules": true,
+    },
+  },
+]
+`;
+
+exports[`cssLoader should not modify name of css loader for not server env 1`] = `
+Array [
+  Object {
+    "loader": "css-loader",
+    "options": Object {
+      "importLoaders": 0,
+      "modules": true,
+    },
+  },
+]
+`;

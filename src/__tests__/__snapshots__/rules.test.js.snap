@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createLoader should override name with a function 1`] = `
+Object {
+  "loader": "name-override",
+  "options": Object {},
+}
+`;
+
+exports[`createLoader should override name with a string 1`] = `
+Object {
+  "loader": "override",
+  "options": Object {},
+}
+`;
+
+exports[`createLoader should return correct loader name 1`] = `"strange-name-2"`;
+
+exports[`createLoader should return correct options 1`] = `
+Object {
+  "loader": "name",
+  "options": Object {
+    "a": Object {
+      "option": true,
+    },
+    "b": "option",
+  },
+}
+`;
+
+exports[`createRule should assign default exclude value 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "use": Object {
+    "loader": "loader",
+  },
+}
+`;
+
+exports[`createRule should merge provided options 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Object {
+    "loader": "simple",
+  },
+}
+`;
