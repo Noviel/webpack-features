@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cssLoader should add style loader if flag is on 1`] = `
+Array [
+  Object {
+    "loader": "style-loader",
+    "options": Object {},
+  },
+  Object {
+    "loader": "css-loader",
+    "options": Object {
+      "importLoaders": 0,
+      "modules": true,
+    },
+  },
+]
+`;
+
 exports[`cssLoader should increment every defined importLoaders 1`] = `
 Array [
   Object {
@@ -35,6 +51,24 @@ Array [
     "options": Object {
       "importLoaders": 0,
       "modules": true,
+    },
+  },
+]
+`;
+
+exports[`cssLoader should use custom options 1`] = `
+Array [
+  Object {
+    "loader": "style-loader",
+    "options": Object {},
+  },
+  Object {
+    "loader": "css-loader",
+    "options": Object {
+      "importLoaders": 0,
+      "localIdentName": "[hash:base64]",
+      "minimize": true,
+      "modules": false,
     },
   },
 ]

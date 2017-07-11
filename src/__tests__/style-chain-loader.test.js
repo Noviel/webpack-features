@@ -21,4 +21,24 @@ describe('cssLoader', () => {
       .toMatchSnapshot();
   });
 
+  it('should add style loader if flag is on', () => {
+    expect(
+      createCSSLoader({ target: 'client', production: true, useStyleLoader: true })
+        .get()
+    )
+      .toMatchSnapshot();
+  });
+
+  it('should use custom options', () => {
+    expect(
+      createCSSLoader({ target: 'client', production: true, useStyleLoader: true }, {
+        modules: false,
+        localIdentName: '[hash:base64]',
+        minimize: true
+      })
+        .get()
+    )
+      .toMatchSnapshot();
+  });
+
 });

@@ -22,14 +22,24 @@ function processCSSLoaderForEnv(props, { target, production }) {
   return props;
 }
 
-export function createCSSLoader({ target, production }, options = {}) {
+export function createCSSLoader(
+  { target, production, useStyleLoader = false }, 
+  options = {}, 
+  cssLoaderProcessor = processCSSLoaderForEnv
+) {
   const loader = new StyleChainLoader({ target, production });
 
-  loader.add('css-loader', {
+  if (useStyleLoader) {
+    loader.add('style-loader');
+  }
+
+  const cssLoaderOptions = {
     modules: true,
     importLoaders: -1,
     ...options
-  }, processCSSLoaderForEnv);
+  };
+
+  loader.add('css-loader', cssLoaderOptions, cssLoaderProcessor);
 
   return loader;
 }
