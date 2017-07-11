@@ -23,7 +23,12 @@ export default class ChainLoader {
       finalProps = changePropsForEnv(finalProps, { target, production });
     }
 
-    this.loaders.push(createLoader(finalProps.name, { ...this.options, ...finalProps.options }));
+    this.loaders.push(
+      createLoader(finalProps.name, { 
+        ...this.options, 
+        ...finalProps.options 
+      })
+    );
 
     return this;
   }
