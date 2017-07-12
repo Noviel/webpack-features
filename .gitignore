@@ -1,6 +1,7 @@
 .idea/
 .vscode/
 dist/
+/es/
 *.swp
 *.retry
 *.iml
