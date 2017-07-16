@@ -1,4 +1,5 @@
 import ChainLoader from './chain-loader';
+import { isServer } from './target';
 
 export default class StyleChainLoader extends ChainLoader {
   add(name, options, changePropsForEnv) {
@@ -15,7 +16,7 @@ export default class StyleChainLoader extends ChainLoader {
 }
 
 function processCSSLoaderForEnv(props, { target, production }) {
-  if (target === 'server') {
+  if (isServer(target)) {
     props.name += '/locals';
   }
 
