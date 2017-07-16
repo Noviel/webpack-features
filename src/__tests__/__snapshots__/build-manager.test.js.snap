@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createBuildManager should add only client entries to client target 1`] = `
+Object {
+  "client": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should add only entries specified in BUILD_APPS 1`] = `
+Object {
+  "second": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\second.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should add only server entries to server target 1`] = `
+Object {
+  "server": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\server.js",
+  ],
+}
+`;

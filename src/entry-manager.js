@@ -4,7 +4,7 @@ import { createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
 
 const cwd = process.cwd();
 
-const createEntry = ({ 
+export const createEntry = ({ 
   name,
   pre = [],
   entry,
@@ -34,8 +34,8 @@ export default class EntryManager {
     this.plugins = plugins;
   }
 
-  add(entryDesc) {
-    this.entries.push(createEntry(entryDesc, this.plugins));
+  add(entry) {
+    this.entries.push(entry);
   }
 
   getEntries() {
