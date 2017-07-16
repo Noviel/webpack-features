@@ -4,10 +4,17 @@ import { createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
 
 const cwd = process.cwd();
 
-const createEntry = (
-  { name, pre = [], entry, production = true, development = true, htmlPluginProps = null }, 
-  { HtmlWebpackPlugin } = {}
-) => ({
+const createEntry = ({ 
+  name,
+  pre = [],
+  entry,
+  production = true,
+  development = true,
+  htmlPluginProps = null,
+  plugins
+}, { 
+  HtmlWebpackPlugin 
+} = {}) => ({
   name,
   entry: [
     ...pre,
@@ -15,13 +22,11 @@ const createEntry = (
   ],
 
   plugin: htmlPluginProps ? new HtmlWebpackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
+  plugins,
 
   production,
   development
 });
-
-const filter = (arr, production) =>
-  arr.filter(e => production ? e.production === production : e.development);
 
 export default class EntryManager {
   constructor({ plugins }) {
@@ -33,16 +38,21 @@ export default class EntryManager {
     this.entries.push(createEntry(entryDesc, this.plugins));
   }
 
-  getEntries({ production }) {
-    return filter(this.entries, production).reduce((acc, e) => { 
-      acc[e.name] = e.entry;
-      return acc;
-    }, {});
+  getEntries() {
+    return this.entries
+      .reduce((acc, e) => { 
+        acc[e.name] = e.entry;
+        return acc;
+      }, {});
   }
 
-  getPlugins({ production }) {
-    return filter(this.entries, production)
+  getPlugins() {
+    return this.entries
       .map(e => e.plugin)
       .filter(p => p);
+  }
+
+  getAllPlugins() {
+
   }
 }
