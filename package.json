@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Feature-based high level webpack configure helper",
   "main": "dist/index.js",
   "module": "es/index.js",
