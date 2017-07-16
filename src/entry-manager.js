@@ -4,14 +4,17 @@ import { createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
 
 const cwd = process.cwd();
 
-const createEntry = ({ name, pre = [], entry, production = true, development = true, htmlPluginProps = null }, pluginCreators = {}) => ({
+const createEntry = (
+  { name, pre = [], entry, production = true, development = true, htmlPluginProps = null }, 
+  { HtmlWebpackPlugin } = {}
+) => ({
   name,
   entry: [
     ...pre,
     path.join(cwd, entry) 
   ],
 
-  plugin: htmlPluginProps ? new pluginCreators.htmlWebpackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
+  plugin: htmlPluginProps ? new HtmlWebpackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
 
   production,
   development
@@ -27,7 +30,7 @@ export default class EntryManager {
   }
 
   add(entryDesc) {
-    this.entries.push(createEntry(entryDesc), this.plugins);
+    this.entries.push(createEntry(entryDesc, this.plugins));
   }
 
   getEntries({ production }) {
