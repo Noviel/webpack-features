@@ -11,7 +11,7 @@ const createEntry = ({ name, pre = [], entry, production = true, development = t
     path.join(cwd, entry) 
   ],
 
-  plugin: htmlPluginProps ? pluginCreators.htmlWepbackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
+  plugin: htmlPluginProps ? pluginCreators.htmlWebpackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
 
   production,
   development
