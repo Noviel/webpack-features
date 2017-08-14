@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
+import { default as createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
 
 const cwd = process.cwd();
 

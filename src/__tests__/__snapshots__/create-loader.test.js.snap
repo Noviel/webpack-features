@@ -27,22 +27,3 @@ Object {
   },
 }
 `;
-
-exports[`createRule should assign default exclude value 1`] = `
-Object {
-  "exclude": /node_modules/,
-  "use": Object {
-    "loader": "loader",
-  },
-}
-`;
-
-exports[`createRule should merge provided options 1`] = `
-Object {
-  "exclude": /node_modules/,
-  "test": /\\\\\\.jsx\\?\\$/,
-  "use": Object {
-    "loader": "simple",
-  },
-}
-`;

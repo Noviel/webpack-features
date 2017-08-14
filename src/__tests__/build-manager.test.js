@@ -43,7 +43,7 @@ describe('createBuildManager', () => {
 
   it('should add only entries specified in BUILD_APPS', () => {
     const bm = createBuildManager({
-      BUILD_APPS: 'second',
+      BUILD_APPS: 'second,third',
       target: 'server',
       production: true
     });
@@ -56,6 +56,11 @@ describe('createBuildManager', () => {
     bm.addServerEntry({
       name: 'second',
       entry: 'src/second.js'
+    });
+
+    bm.addServerEntry({
+      name: 'third',
+      entry: 'src/third.js'
     });
 
     expect(bm.entries())

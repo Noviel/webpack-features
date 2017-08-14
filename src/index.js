@@ -1,5 +1,5 @@
-export { createCSSLoader } from './style-chain-loader';
-export { createBabelLoader } from './babel-chain-loader';
+export { createCSSLoader } from './loaders/style-chain-loader';
+export { default as createBabelLoader } from './loaders/babel-chain-loader';
 
 export { isServer, isClient } from './target';
 

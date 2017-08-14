@@ -3,5 +3,7 @@ const aliases = {
   client: ['client', 'web', 'browser']
 };
 
-export const isServer = str => str === aliases.server.find(el => el === str);
-export const isClient = str => str === aliases.client.find(el => el === str);
+const isStrInList = list => str => list.indexOf(str) > -1;
+
+export const isServer = isStrInList(aliases.server); 
+export const isClient = isStrInList(aliases.client);

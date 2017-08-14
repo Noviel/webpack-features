@@ -1,4 +1,4 @@
-import { createLoader } from './rules';
+import createLoader from './create-loader';
 
 export default class ChainLoader {
   constructor({ target, production }, options = {}) {
@@ -17,16 +17,18 @@ export default class ChainLoader {
 
   add(name, options, changePropsForEnv) {
     const { target, production } = this;
-    let finalProps = { options, name };
+    let props = { options, name };
 
     if (typeof changePropsForEnv === 'function') {
-      finalProps = changePropsForEnv(finalProps, { target, production });
+      props = changePropsForEnv(props, { target, production });
     }
 
+    const { name: loaderName, options: loaderOptions } = props;
+
     this.loaders.push(
-      createLoader(finalProps.name, { 
+      createLoader(loaderName, { 
         ...this.options, 
-        ...finalProps.options 
+        ...loaderOptions 
       })
     );
 

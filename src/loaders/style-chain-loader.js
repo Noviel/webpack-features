@@ -1,5 +1,5 @@
 import ChainLoader from './chain-loader';
-import { isServer } from './target';
+import { isServer } from '../target';
 
 export default class StyleChainLoader extends ChainLoader {
   add(name, options, changePropsForEnv) {

@@ -1,6 +1,6 @@
 import path from 'path';
 
-export function createHtmlWebpackPluginOptions(name, optionsOverrides = {}) {
+export default function createHtmlWebpackPluginOptions(name, optionsOverrides = {}) {
   return {
     filename: `${name}.html`,
     template: path.join(process.cwd(), `${name}.html`),

@@ -13,6 +13,9 @@ Object {
   "second": Array [
     "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\second.js",
   ],
+  "third": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\third.js",
+  ],
 }
 `;
 

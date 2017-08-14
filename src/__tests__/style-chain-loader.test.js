@@ -1,15 +1,21 @@
-import { createCSSLoader } from '../style-chain-loader';
+import { createCSSLoader } from '../loaders/style-chain-loader';
 
 describe('cssLoader', () => {  
   
   it('should not modify name of css loader for not server env', () => {
-    expect(createCSSLoader({ target: 'client', production: true }).get())
-      .toMatchSnapshot();
+    const match = createCSSLoader({ target: 'client', production: true })
+      .get()[0]
+      .loader;
+
+    expect(match).toMatchSnapshot();
   });
 
   it('should modify name of css loader for server env', () => {
-    expect(createCSSLoader({ target: 'server', production: true }).get())
-      .toMatchSnapshot();
+    const match = createCSSLoader({ target: 'server', production: true })
+      .get()[0]
+      .loader;
+
+    expect(match).toMatchSnapshot();
   });
 
   it('should increment every defined importLoaders', () => {
@@ -17,6 +23,7 @@ describe('cssLoader', () => {
       createCSSLoader({ target: 'server', production: true })
         .add('scss')
         .get()
+        .map(v => v.options.importLoaders)
     )
       .toMatchSnapshot();
   });
@@ -24,7 +31,8 @@ describe('cssLoader', () => {
   it('should add style loader if flag is on', () => {
     expect(
       createCSSLoader({ target: 'client', production: true, useStyleLoader: true })
-        .get()
+        .get()[0]
+        .loader
     )
       .toMatchSnapshot();
   });
@@ -36,7 +44,8 @@ describe('cssLoader', () => {
         localIdentName: '[hash:base64]',
         minimize: true
       })
-        .get()
+        .get()[1]
+        .options
     )
       .toMatchSnapshot();
   });

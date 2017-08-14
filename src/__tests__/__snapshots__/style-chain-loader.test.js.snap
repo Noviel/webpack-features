@@ -1,75 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cssLoader should add style loader if flag is on 1`] = `
-Array [
-  Object {
-    "loader": "style-loader",
-    "options": Object {},
-  },
-  Object {
-    "loader": "css-loader",
-    "options": Object {
-      "importLoaders": 0,
-      "modules": true,
-    },
-  },
-]
-`;
+exports[`cssLoader should add style loader if flag is on 1`] = `"style-loader"`;
 
 exports[`cssLoader should increment every defined importLoaders 1`] = `
 Array [
-  Object {
-    "loader": "css-loader/locals",
-    "options": Object {
-      "importLoaders": 1,
-      "modules": true,
-    },
-  },
-  Object {
-    "loader": "scss",
-    "options": Object {},
-  },
+  1,
+  undefined,
 ]
 `;
 
-exports[`cssLoader should modify name of css loader for server env 1`] = `
-Array [
-  Object {
-    "loader": "css-loader/locals",
-    "options": Object {
-      "importLoaders": 0,
-      "modules": true,
-    },
-  },
-]
-`;
+exports[`cssLoader should modify name of css loader for server env 1`] = `"css-loader/locals"`;
 
-exports[`cssLoader should not modify name of css loader for not server env 1`] = `
-Array [
-  Object {
-    "loader": "css-loader",
-    "options": Object {
-      "importLoaders": 0,
-      "modules": true,
-    },
-  },
-]
-`;
+exports[`cssLoader should not modify name of css loader for not server env 1`] = `"css-loader"`;
 
 exports[`cssLoader should use custom options 1`] = `
-Array [
-  Object {
-    "loader": "style-loader",
-    "options": Object {},
-  },
-  Object {
-    "loader": "css-loader",
-    "options": Object {
-      "importLoaders": 0,
-      "localIdentName": "[hash:base64]",
-      "minimize": true,
-      "modules": false,
-    },
-  },
-]
+Object {
+  "importLoaders": 0,
+  "localIdentName": "[hash:base64]",
+  "minimize": true,
+  "modules": false,
+}
 `;

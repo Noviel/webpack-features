@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "1.4.8",
+  "version": "1.5.0",
   "description": "Feature-based high level webpack configure helper",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src",    
+    "lint": "eslint src",
     "build": "cross-env BABEL_ENV=commonjs rimraf dist/ && babel src --out-dir dist --ignore **/*.test.js,**/*.spec.js",
     "build:es": "cross-env BABEL_ENV=es babel --no-babelrc src --out-dir es --ignore **/*.test.js,**/*.spec.js --presets=stage-2",
     "prepublish": "yarn lint && yarn test && yarn build && yarn build:es",
@@ -30,7 +30,7 @@
     "babel-eslint": "7.2.3",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.0.5",
     "eslint": "3.19.0",
     "eslint-config-react-app": "^1.0.4",
     "eslint-plugin-flowtype": "2.33.0",

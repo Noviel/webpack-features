@@ -1,12 +1,12 @@
-import { createLoader, createRule } from '../rules';
+import createLoader from '../loaders/create-loader';
 
 describe('createLoader', () => {
-  it('should throw with undefined name', () => {
+  it('should throw with an undefined name', () => {
     expect(() => createLoader())
       .toThrow();
   });
 
-  it('should throw with non-string name', () => {
+  it('should throw with a non-string name', () => {
     expect(() => createLoader(420))
       .toThrow();
   });
@@ -30,32 +30,6 @@ describe('createLoader', () => {
 
   it('should return correct options', () => {
     expect(createLoader('name', { a: { option: true }, b: 'option' }))
-      .toMatchSnapshot();
-  });
-});
-
-describe('createRule', () => {
-  it('should throw with undefined loaders', () => {
-    expect(() => createRule())
-      .toThrow();
-  });
-
-  it('should assign default exclude value', () => {
-    expect(createRule({ loader: 'loader' }))
-      .toMatchSnapshot();
-  });
-
-  it('should merge provided options', () => {
-    expect(
-      createRule(
-        { 
-          loader: 'simple' 
-        }, 
-        {
-          test: /\.jsx?$/
-        }
-      )
-    )
       .toMatchSnapshot();
   });
 });
