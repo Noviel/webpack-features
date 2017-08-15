@@ -1,4 +1,4 @@
-import createRule from '../create-rule';
+import createRule from '../rules/create-rule';
 
 describe('createRule', () => {
   it('should throw with undefined loaders', () => {

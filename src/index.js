@@ -5,3 +5,5 @@ export { isServer, isClient } from './target';
 
 export { default as EntryManager } from './entry-manager';
 export { default as createBuildManager } from './build-manager';
+
+export { default as createRule } from './rules/create-rule';
