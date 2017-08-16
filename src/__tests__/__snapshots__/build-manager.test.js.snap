@@ -78,8 +78,8 @@ Object {
 
 exports[`createBuildManager should create plugins 1`] = `
 Array [
-  Object {
-    "HtmlWebpackPlugin": HtmlWebpackPlugin {
+  Array [
+    HtmlWebpackPlugin {
       "opts": Object {
         "chunks": Array [
           "manifest",
@@ -93,7 +93,7 @@ Array [
       },
       "plugin": "FakeHtmlWebpackPlugin",
     },
-  },
+  ],
 ]
 `;
 

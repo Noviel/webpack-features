@@ -57,10 +57,10 @@ export default class EntryManager {
               ? optionCreator(app.name, app.plugins[pluginsCurr])
               : optionCreator;
 
-            pluginsAcc[pluginsCurr] = new Plugin(options);
+            pluginsAcc.push(new Plugin(options));
           }
           return pluginsAcc;
-        }, {});
+        }, []);
       } else if (curr === 'pre') {
         acc[curr] = createPreEntries(app['pre'], env, preEntryReplacers);
       } else {
