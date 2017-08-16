@@ -4,38 +4,73 @@ import { default as createHtmlWebpackPluginOptions } from './html-webpack-plugin
 
 const cwd = process.cwd();
 
-export const createEntry = ({ 
-  name,
-  pre = [],
-  entry,
-  production = true,
-  development = true,
-  htmlPluginProps = null,
-  plugins
-}, { 
-  HtmlWebpackPlugin 
-} = {}) => ({
-  name,
-  entry: [
-    ...pre,
-    path.join(cwd, entry) 
-  ],
+export const createPreEntries = (list, { production }, preReplacers = {}) => 
+  list.reduce((acc, el) => {
+    if (el.startsWith('!dev?')) {
+      if (production) {
+        return acc;
+      }
+      el = el.substr(5);
+    } else if (el.startsWith('!prod?')) {
+      if (!production) {
+        return acc;
+      }
+      el = el.substr(6);
+    }
 
-  plugin: htmlPluginProps ? new HtmlWebpackPlugin(createHtmlWebpackPluginOptions(name, htmlPluginProps)) : null,
-  plugins,
+    if (el in preReplacers) {
+      const replaced = preReplacers[el]({ production });
+      if (Array.isArray(replaced)) {
+        acc.push(...replaced);
+      } else {
+        acc.push(replaced);
+      }
+    } else {
+      acc.push(el);
+    }
 
-  production,
-  development
-});
+    return acc;
+  }, []);
+
+const pluginOptionsCreators = {
+  HtmlWebpackPlugin: createHtmlWebpackPluginOptions
+};
 
 export default class EntryManager {
-  constructor({ plugins }) {
+  constructor(env, { plugins }) {
     this.entries = [];
     this.plugins = plugins;
+    this.env = env;
   }
 
-  add(entry) {
-    this.entries.push(entry);
+  createEntry(app, { preEntryReplacers }) {
+    const plugins = this.plugins;
+    const env = this.env;
+
+    const config = Object.keys(app).reduce((acc, curr) => {
+      if (curr === 'plugins') {
+        acc[curr] = Object.keys(curr).reduce((pluginsAcc, pluginsCurr) => {
+          if (pluginsCurr in plugins) {
+            pluginsAcc[pluginsCurr] = new plugins[pluginsCurr](pluginOptionsCreators(app.name, app['plugins'][pluginsCurr]));
+          }
+          return pluginsAcc;
+        }, {});
+      } else if (curr === 'pre') {
+        acc[curr] = createPreEntries(app['pre'], env, preEntryReplacers);
+      } else {
+        acc[curr] = app[curr];
+      }
+  
+      return acc;
+    }, {});
+
+    config.entry = [...config.pre, path.join(cwd, config.entry)];
+
+    return config;
+  } 
+  
+  add(config, replacers) {
+    this.entries.push(this.createEntry(config, replacers));
   }
 
   getEntries() {
