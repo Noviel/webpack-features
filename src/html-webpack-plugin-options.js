@@ -1,9 +1,9 @@
 import path from 'path';
 
-export default function createHtmlWebpackPluginOptions(name, optionsOverrides = {}) {
+export default function createHtmlWebpackPluginOptions(env, name, optionsOverrides = {}) {
   return {
     filename: `${name}.html`,
-    template: path.join(process.cwd(), `${name}.html`),
+    template: path.join(env.root, `${name}.html`),
     chunks: ['manifest', 'vendor', name],
     title: 'SPECIFY TITLE IN OPTIONS',
     inject: 'body',

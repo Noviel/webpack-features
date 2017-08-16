@@ -21,10 +21,10 @@ const validateAppConfig = config => {
 };
 
 const createBuildManager = (
-  { BUILD_APPS = '*', target, production }, 
+  { BUILD_APPS = '*', target, production, root = process.cwd() }, 
   { plugins = {}, pluginsOptionsCreators = {} } = {}
 ) => {
-  const entryManager = new EntryManager({ target, production }, { plugins, pluginsOptionsCreators });
+  const entryManager = new EntryManager({ target, production, root }, { plugins, pluginsOptionsCreators });
   const checkTarget = isServer(target) ? isServer : isClient;
   const appInList = app => BUILD_APPS === '*' || BUILD_APPS.indexOf(app) > -1;
 

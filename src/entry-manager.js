@@ -2,8 +2,6 @@ import path from 'path';
 
 import { default as createHtmlWebpackPluginOptions } from './html-webpack-plugin-options';
 
-const cwd = process.cwd();
-
 export const createPreEntries = (list, { production }, preReplacers = {}) => 
   list.reduce((acc, el) => {
     if (el.startsWith('!dev?')) {
@@ -54,7 +52,7 @@ export default class EntryManager {
             const Plugin = plugins[pluginsCurr];
             const optionCreator = pluginsOptionsCreators[pluginsCurr];
             const options = typeof optionCreator === 'function'
-              ? optionCreator(app.name, app.plugins[pluginsCurr])
+              ? optionCreator(env, app.name, app.plugins[pluginsCurr])
               : optionCreator;
 
             pluginsAcc.push(new Plugin(options));
@@ -71,7 +69,7 @@ export default class EntryManager {
     }, {});
 
     const pre = config.pre || [];
-    config.entry = [...pre, path.join(cwd, config.entry)];
+    config.entry = [...pre, path.join(env.root, config.entry)];
 
     return config;
   } 
