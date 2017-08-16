@@ -1,20 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`createBuildManager should add dev pre-entries in development mode 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "hot-reload",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
+  ],
+}
+`;
+
 exports[`createBuildManager should add only client entries to client target 1`] = `
 Object {
+  "admin": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\admin.js",
+  ],
   "client": Array [
     "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client.js",
+  ],
+  "widget": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\widget.js",
   ],
 }
 `;
 
 exports[`createBuildManager should add only entries specified in BUILD_APPS 1`] = `
 Object {
-  "second": Array [
-    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\second.js",
+  "admin": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\admin.js",
   ],
-  "third": Array [
-    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\third.js",
+  "widget": Array [
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\widget.js",
   ],
 }
 `;
@@ -23,6 +40,79 @@ exports[`createBuildManager should add only server entries to server target 1`] 
 Object {
   "server": Array [
     "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\server.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should add pre-entries 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should add prod pre-entries in production mode 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "optimizer",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should apply preEntryReplacers 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "replaced-entry-dev",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should create plugins 1`] = `
+Array [
+  Object {
+    "HtmlWebpackPlugin": HtmlWebpackPlugin {
+      "opts": Object {
+        "chunks": Array [
+          "manifest",
+          "vendor",
+          "app",
+        ],
+        "filename": "index.html",
+        "inject": "body",
+        "template": "src/client/index.html",
+        "title": "SPECIFY TITLE IN OPTIONS",
+      },
+      "plugin": "FakeHtmlWebpackPlugin",
+    },
+  },
+]
+`;
+
+exports[`createBuildManager should not add dev pre-entries in production mode 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
+  ],
+}
+`;
+
+exports[`createBuildManager should not add prod pre-entries in development mode 1`] = `
+Object {
+  "app": Array [
+    "babel-polyfill",
+    "bootstrap",
+    "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\client\\\\index.js",
   ],
 }
 `;
