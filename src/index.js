@@ -7,3 +7,5 @@ export { default as EntryManager } from './entry-manager';
 export { default as createBuildManager } from './build-manager';
 
 export { default as createRule } from './rules/create-rule';
+
+export { default as bootstrapLoader } from './loaders/bootstrap-loader';
