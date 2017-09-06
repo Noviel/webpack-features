@@ -4,7 +4,7 @@ Feature-based high level webpack configure helper.
 
 ## bI?
 
-Webpack features gives you tools for creating modular reusable webpack configurations.
+Webpack features gives you a tool for creating modular reusable webpack configurations.
 
 ## Install
 
@@ -59,10 +59,32 @@ export default function({ target, production }) {
 }
 ```
 
+### Create application config
+
+```javascript
+// config.apps.js
+const app = {
+  name: 'app',
+  target: 'client',
+  entry: 'src/client/index.js',
+  pre: ['babel-polyfill', '!dev?hot-reload', 'bootstrap'],
+  plugins: {
+    HtmlWebpackPlugin: {
+      template: 'index.html',
+      filename: 'index.html'
+    }
+  }
+};
+
+export default app;
+```
+
+There can be multiple application config objects - which of its will be used for creation of the webpack entry.
+
 ### Create common webpack config with Build Manager
 
 Build manager is responsible for managment of entry points and their plugins.
-Webpack features has built-in helper for configuring `HtmlWebpackPlugin`, so you can provide to it only non-standard properties.
+Webpack features has a built-in helper for configuring `HtmlWebpackPlugin`, so you can provide to it only non-standard properties.
 
 ```javascript
 // config.common.js
@@ -70,44 +92,30 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { createBuildManager } from 'webpack-features';
 import createBabelRule from './rules/babel';
 import createCSSRule from './rules/css';
+import apps from './config.apps';
 
-export default function(env) {
-  const buildManager = createBuildManager(env, {
+export default function({ BUILD_APPS, target, production, root }) {
+  const env = { target, production };
+  const buildManager = createBuildManager({
+    BUILD_APPS,
+    target,
+    production,
+    root
+  }, {
     plugins: { HtmlWebpackPlugin }
   });
 
-  const preEntries = ['babel-polyfill'];
-
-  if (!env.production) {
-    // you can add development entries here (hot-reload, logging, e.t.c)
-    preEntries.push(...getFakeDevEntriesReplaceThisIfYouCopyPast());
-  }
-
-  buildManager.addClientEntry({
-    name: 'app',
-    pre: preEntries,
-    entry: 'src/client/index.js',
-    htmlPluginProps: {
-      template: path.join(cwd, 'src/client/index.html'),
-      filename: 'index.html'
-    }
-  });
-
-  buildManager.addServerEntry({
-    name: 'server',
-    entry: 'src/server/index.js',
-  });
+  buildManager.addEntries(apps);
 
   return {
     plugins: buildManager.plugins(),
-    entry: buildManager.entries(),
+    entries: buildManager.entries(),
     rules: [createBabelRule(env), createCSSRule(env)]
   };
 }
 ```
 
-Work of the Build Manager depends on provided `env`. It must contain `target` and `production` fields.
-Build Manager won't include entries that are not meet the criteria. Common config is a good place for conditional entries for development or production builds. If you have a separated frontend and backend - you should use two Build Managers for the each case.
+Build Manager won't include entries that are not meet the criteria - it should be included in `BUILD_APPS` and have the same `target` as the one provided to the manager.
 
 ### Use created common config
 
@@ -116,13 +124,14 @@ Build Manager won't include entries that are not meet the criteria. Common confi
 import path from 'path';
 import createConfig from './config.common.js';
 
-const { plugins, entry, rules } = createConfig({
+const { plugins, entries, rules } = createConfig({
+  BUILD_APPS: 'app',
   target: 'client',
   production: true
 });
 
 const webpackConfig = {
-  entry,
+  entry: entries,
   output: {
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
@@ -140,7 +149,6 @@ const webpackConfig = {
 }
 
 export default webpackConfig;
-
 ```
 
 Change `target` to 'server' in server config:
