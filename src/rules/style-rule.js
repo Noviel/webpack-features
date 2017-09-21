@@ -1,4 +1,4 @@
-import { createCSSLoader } from '../style-chain-loader';
+import { createCSSLoader } from '../loaders/style-chain-loader';
 
 export const createStyleRule = ({ target, production }, { 
   preprocessor,
@@ -42,7 +42,6 @@ export const createStyleRule = ({ target, production }, {
     options.exclude = /emotion\.css$/;
   } else {
     if (preprocessor !== 'emotion') {
-      console.log('excluding', modulesPath);
       options.exclude = modulesPath;
     }
   }
