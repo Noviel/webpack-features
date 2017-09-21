@@ -3,12 +3,12 @@ export const wrapLoaders = loaders => ({
   use: loaders[0].loader === 'style-loader' ? loaders.slice(1) : loaders
 });
 
-const create = ExtractTextPlugin => ({ target, production }) =>
+const create = ExtractTextPlugin => ({ target, production, ...rest }) =>
   production
   ? [new ExtractTextPlugin({
-      filename: '[name].[contenthash].css',
       disable: !production,
-      allChunks: true
+      allChunks: true,
+      ...rest
     })] 
   : [];
 
