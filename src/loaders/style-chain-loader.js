@@ -34,13 +34,15 @@ export function createCSSLoader(
     loader.add('style-loader');
   }
 
-  const cssLoaderOptions = {
-    modules: true,
-    importLoaders: -1,
-    ...options
-  };
-
-  loader.add('css-loader', cssLoaderOptions, cssLoaderProcessor);
+  loader.add(
+    'css-loader', 
+    {
+      modules: true,
+      importLoaders: -1,
+      ...options
+    }, 
+    cssLoaderProcessor
+  );
 
   return loader;
 }

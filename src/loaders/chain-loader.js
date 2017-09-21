@@ -23,12 +23,10 @@ export default class ChainLoader {
       props = changePropsForEnv(props, { target, production });
     }
 
-    const { name: loaderName, options: loaderOptions } = props;
-
     this.loaders.push(
-      createLoader(loaderName, { 
+      createLoader(props.name, { 
         ...this.options, 
-        ...loaderOptions 
+        ...props.options 
       })
     );
 
