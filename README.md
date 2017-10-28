@@ -231,7 +231,7 @@ Should be included in the Webpack's config for browsers. It mocks some node modu
 
 ### define
 
-Adds DefinePlugin
+Compile-time code replacement. See [DefinePlugin](https://webpack.js.org/plugins/define-plugin/).
 
 ```javascript
 define(options)
@@ -240,15 +240,20 @@ define(options)
 Parameters:
 
 - **options**: `object`
-  - **env**: `boolean|any`, defines `NODE_ENV`. If `true` provided `env.production` will be used, `false` - `NODE_ENV` will not be defined, any other - will set `NODE_ENV` to **env**. **default**: true
-  - **...defines**: `values`. Every key will be defined to it's value.
+  - **NODE_ENV**: `false|any`, defines `process.env.NODE_ENV`. `false` - `NODE_ENV` will not be defined, otherwise will set `NODE_ENV` to provided one. **default**: based on `env.production`, so if you need to define correct `NODE_ENV`, omit this key.
+  - **...defines**: `values`. Every key will be defined as `process.env.key` to it's value.
+  - **__prefix**: `string`, will be added to the every key as a prefix. It is not the best idea to override it, but it is possible. The prefix for **NODE_ENV** will still stay the default one. **default**: `'process.env.'`
 
 ```javascript
 define({
-  env: 'test',
+  NODE_ENV: 'test',
   API_URL: 'http://api-provider.com/',
-  EXPERIMENTAL_FEATURE: true,
 })
+// in client code:
+console.log(process.env.NODE_ENV)
+// -> will be transpiled to console.log('test')
+console.log(process.env.API_URL)
+// -> console.log('http://api-provider.com/')
 ```
 
 ## Example
