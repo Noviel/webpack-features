@@ -7,7 +7,7 @@ import createProductionPlugins from './production';
 import createJSRule from './javascript';
 import initStyles from './styles';
 import addEmotion from './emotion';
-import createImagesRule from './images';
+import createMediaRule from './media';
 
 import createNamedModulesPlugins from './named-modules';
 import define from './define';
@@ -61,8 +61,8 @@ export default env => {
       externalFeature(env, options, state);
     },
 
-    images(...args) {
-      return { module: { rules: [createImagesRule(env, ...args)] } };
+    media(...args) {
+      return { module: { rules: createMediaRule(env, ...args) } };
     },
 
     entry(...args) {

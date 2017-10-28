@@ -171,21 +171,21 @@ styles({
 })
 ```
 
-### images
+### media
 
-Loads `.jpg`, `.png`, `.gif`, `.svg` files.
+Loads media files.
 
-`images(options)`
+`media(options)`
 
 Parameters:
 
 - **limit**: `integer`, if the file is smaller then a limit, it will be encoded as a DataURL. **default**: 10000
-- **name**: `string`, modifies name of the file. **default**: for `production` `'[name].[ext]'`, otherwise `'images/[hash].[ext]'`
+- **name**: `string`, modifies name of the file. **default**: for `production` `'[name].[ext]'`, otherwise `'media/[hash:8].[ext]'`
 
 See [url-loader](https://github.com/webpack-contrib/url-loader) for more info.
 
 ```javascript
-images({ limit: 4096, name: 'assets/img/[hash].[ext]' })
+media({ limit: 4096, name: 'assets/media/[hash:8].[ext]' })
 ```
 
 ### emotion
@@ -286,7 +286,7 @@ const {
   styles,
   production,
   namedModules,
-  images,
+  media,
   emotion,
 } = createFeatures(env);
 
@@ -300,7 +300,7 @@ module.exports = createConfig(
     cssModules: 'both',
   }),
   emotion(),
-  images(),
+  media(),
   {
     output: {
       path: dist,
