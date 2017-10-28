@@ -26,7 +26,7 @@ const createRule = (
     options: {
       sourceMap: !production,
       minimize: production,
-      modules: cssModules.use,
+      modules: cssModules,
       localIdentName: production
         ? '[hash:base64]'
         : '[path][name]__[local]--[hash:base64:5]',
@@ -79,11 +79,11 @@ export default (
     postcss = postcss({ target, production });
   }
 
-  preprocessors.forEach(preprocessor => {
-    const useCSSModules = cssModules === 'both' || cssModules === 'only';
-    const useGlobalCSS =
-      cssModules === 'both' || cssModules === 'exclude' || true;
+  const useCSSModules = cssModules === 'both' || cssModules === 'only';
+  const useGlobalCSS =
+    cssModules === 'both' || cssModules === 'exclude' || true;
 
+  preprocessors.forEach(preprocessor => {
     const options = {
       preprocessor,
       extract,
