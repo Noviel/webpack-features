@@ -6,6 +6,7 @@ import createProductionPlugins from './production';
 
 import createJSRule from './javascript';
 import initStyles from './styles';
+import addEmotion from './emotion';
 import createImagesRule from './images';
 
 import createNamedModulesPlugins from './named-modules';
@@ -45,6 +46,10 @@ export default env => {
 
     styles(...args) {
       initStyles(env, ...args, state);
+    },
+
+    emotion({ plugin }) {
+      addEmotion({ plugin });
     },
 
     feature(externalFeature, options) {
