@@ -69,7 +69,7 @@ export default (
     extract = target.browsers && production,
     extractPlugin = extract,
     postcss = require('./postcss.config.js'),
-  },
+  } = {},
   state
 ) => {
   const rules = [];
