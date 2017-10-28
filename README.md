@@ -4,9 +4,9 @@ Feature-based webpack configurator with built-in React support.
 
 ## Content
 
-- [Installation](#Installation)
-- [Usage](#Usage)
-  - [Initializing](#Initializing)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Initializing](#initializing)
   - Features
     - [createConfig](#createconfig)
     - [entry](#entry)
@@ -18,7 +18,7 @@ Feature-based webpack configurator with built-in React support.
     - [namedModules](#namedmodules)
     - [node](#node)
     - [browser](#browser)
-  - [Example](#Example)
+  - [Example](#example)
 
 ## Installation
 
