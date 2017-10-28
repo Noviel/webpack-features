@@ -1719,15 +1719,6 @@ emotion-utils@^8.0.9:
   version "8.0.9"
   resolved "https://registry.yarnpkg.com/emotion-utils/-/emotion-utils-8.0.9.tgz#458c7676de2f5206b0b796f7c96c53a5970ed9f2"
 
-emotion@^8.0.9:
-  version "8.0.9"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-8.0.9.tgz#788cf2c3ccd59becbd3e78eb01bef22ff20cf381"
-  dependencies:
-    babel-plugin-emotion "^8.0.9"
-    emotion-utils "^8.0.9"
-    stylis "^3.3.2"
-    stylis-rule-sheet "^0.0.5"
-
 encoding@^0.1.11:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
@@ -4829,14 +4820,6 @@ style-loader@^0.19.0:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-stylis-rule-sheet@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.5.tgz#ebae935cc1f6fb31b9b62dba47f2ea8b833dad9f"
-
-stylis@^3.3.2:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.4.0.tgz#55c6530ebceeca5976d54fb4adc67578afee828d"
-
 sugarss@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-1.0.0.tgz#65e51b3958432fb70d5451a68bb33e32d0cf1ef7"
@@ -5153,6 +5136,10 @@ webpack-merge@^4.1.0:
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
   dependencies:
     lodash "^4.17.4"
+
+webpack-node-externals@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.6.0.tgz#232c62ec6092b100635a3d29d83c1747128df9bd"
 
 webpack-sources@^1.0.1:
   version "1.0.1"
