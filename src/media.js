@@ -1,7 +1,7 @@
 export default (env, { limit = 10000, name, ...rest } = {}) => {
   if (!name) {
     if (env.production) {
-      name = 'media/[hash:8].[ext]';
+      name = 'media/[name].[hash:8].[ext]';
     } else {
       name = '[name].[ext]';
     }
