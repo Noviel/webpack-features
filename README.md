@@ -15,7 +15,7 @@ Feature-based webpack configurator with built-in React support.
     - [images](#images)
     - [emotion](#emotion)
     - [production](#production)
-    - [namedModules](#namedModules)
+    - [namedModules](#namedmodules)
     - [node](#node)
     - [browser](#browser)
   - [Example](#Example)
