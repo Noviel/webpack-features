@@ -49,8 +49,8 @@ export default env => {
       );
     },
 
-    styles(...args) {
-      initStyles(env, ...args, state);
+    styles(options) {
+      initStyles(env, options, state);
     },
 
     emotion() {
