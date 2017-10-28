@@ -15,6 +15,10 @@ import State from './lib/state';
 export default env => {
   const state = new State();
 
+  if (!env.publicPath) {
+    env.publicPath = '/';
+  }
+
   return {
     createConfig(...features) {
       const config = merge([state.get(), ...features]);

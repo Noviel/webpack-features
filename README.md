@@ -24,11 +24,12 @@ Package's default export is an initializing function.
 
 Parameters:
 
-- **env**: object, required
-  - **target**: object, required
-    - **browsers**: 'modern'|'legacy'|string
-    - **node**: string
-  - **production**: boolean, required
+- **env**: `object`, required
+  - **target**: `object`, required
+    - **browsers**: `'modern'|'legacy'|string`
+    - **node**: `string`
+  - **production**: `boolean`, required
+  - **publicPath**: `string`. Used in some features to determine location for their output. Usually should be the same as `output.publicPath` in the webpack config. **default**: `'/'`
 
 Returns: object with features
 
@@ -41,6 +42,7 @@ const createFeatures = require('webpack-features');
 const env = {
   target: { browsers: 'modern' },
   production: process.env.NODE_ENV === 'production',
+  publicPath: '/',
 };
 
 const features = createFeatures(env);
@@ -60,7 +62,7 @@ Main function that creates complete final webpack config. It merges all provided
 
 Parameters:
 
-- **args**: list of features, objects to be merged
+- **args**: list of features and/or objects to be merged
 
 ```javascript
 const { createConfig, entry } = createFeatures(env);
@@ -68,7 +70,7 @@ const { createConfig, entry } = createFeatures(env);
 module.exports = createConfig(
   // feature
   entry({ index: './src/index.js' }),
-  // standard webpack config object
+  // object with the standard webpack config part
   {
     output: {
       path: DIST_PATH,
@@ -86,11 +88,11 @@ Include entries to the config.
 
 Parameters:
 
-- **entries**: object where keys are entries names and values are strings or arrays of strings with paths. required
-- **options**: object
-  - **polyfill**: boolean - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
-  - **hot**: boolean - should include hot reloading support. **default**: `true` if `development` and any browsers target
-  - **react**: boolean - should include react-specific entries for hot reloading if the last is active. **default**: `true`
+- **entries**: `object` where keys are entries names and values are strings or arrays of strings with paths. required
+- **options**: `object`
+  - **polyfill**: `boolean` - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
+  - **hot**: `boolean` - should include hot reloading support. **default**: `true` if `development` and any browsers target
+  - **react**: `boolean` - should include react-specific entries for hot reloading if the last is active. **default**: `true`
 
 ```javascript
 entry({ index: './src/index.js' }, { polyfill: true, hot: true, react: true }),
@@ -102,13 +104,13 @@ Includes in the config support of a modern javascript syntax. It uses `babel` an
 
 Parameters:
 
-- **options**: object
-  - **plugins**: array of strings - additional `babel` plugins.
-  - **syntaxEnhance**: boolean - should include non-standard language features. Includes `transform-object-rest-spread`, `transform-class-properties`, `syntax-dynamic-import`. **default**: true
-  - **eslint** - should include `eslint` for linting before transpiling. **default**: true
-  - **react** - should include `react` syntax support. **default**: true
-  - **flow** - should include `flow` support. **default**: true
-  - **modules** - transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` enforced for node
+- **options**: `object`
+  - **plugins**: `array of strings`, additional `babel` plugins.
+  - **syntaxEnhance**: `boolean`, should include non-standard language features. Includes `transform-object-rest-spread`, `transform-class-properties`, `syntax-dynamic-import`. **default**: true
+  - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
+  - **react**: `boolean`, should include `react` syntax support. **default**: true
+  - **flow**: `boolean`, should include `flow` support. **default**: true
+  - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` enforced for node
 
 ```javascript
 javascript({
@@ -127,11 +129,11 @@ Adds support for CSS, Scss and less files.
 Parameters:
 
 - **options**: object
-  - **preprocessors** - array of preprocessors, can include `'css'`, `'scss'`, `'less'`. **default**: ['css']
+  - **preprocessors** - `array of strings`, can include `'css'`, `'scss'`, `'less'`. **default**: ['css']
   - **cssModules** - one of: `'both'` - use global CSS and CSS Modules, `'only'` - only CSS Modules, `'exclude'` - only global CSS. **default**: 'both'
-  - **extract** - boolean, should extract styles to external file. **default**: true if `production` and browsers target
-  - **extractPlugin** - boolean, should use `extract-text-webpack-plugin`. **default**: same as **extract**
-  - **postcss** - `false` means do not use postcss. Otherwise it should be a callback that returns a postcss config. It will be called as `postcss({ target, production })`, so you can conditionally include/exclude postcss parts. **default**: config with `precss` and `autoprefixer` based on browsers target.
+  - **extract** - `boolean`, should extract styles to external file. **default**: true if `production` and browsers target
+  - **extractPlugin** - `boolean`, should use `extract-text-webpack-plugin`. **default**: same as **extract**
+  - **postcss** - `false` means do not use postcss. Otherwise it should be a `callback` that returns a postcss config. It will be called as `postcss({ target, production })`, so you can conditionally include/exclude postcss parts. **default**: config with `precss` and `autoprefixer` based on browsers target.
 
 **Important note**: CSS Modules (if enabled) will be applied to files with extension `.module.{css|less|scss}` only.
 
@@ -158,8 +160,8 @@ Loads `.jpg`, `.png`, `.gif`, `.svg` files.
 
 Parameters:
 
-- **limit**: integer, if the file is smaller then a limit, it will be encoded as a DataURL. **default**: 10000
-- **name**: string, modifies name of the file. **default**: for `production` `'[name].[ext]'`, otherwise `'images/[hash].[ext]'`
+- **limit**: `integer`, if the file is smaller then a limit, it will be encoded as a DataURL. **default**: 10000
+- **name**: `string`, modifies name of the file. **default**: for `production` `'[name].[ext]'`, otherwise `'images/[hash].[ext]'`
 
 See [url-loader](https://github.com/webpack-contrib/url-loader) for more info.
 
@@ -183,10 +185,10 @@ Adds optimizations for production bundles.
 
 Parameters:
 
-- **options**: object
-  - **vendor**: boolean, extract `node_modules` to the separate bundle. **default**: true for browsers
-  - **manifest**: boolean, extract Webpack's runtime to the separate bundle. **default**: **vendor**
-  - **uglify**: boolean, should uglify code. **defualt**: true
+- **options**: `object`
+  - **vendor**: `boolean`, extract `node_modules` to the separate bundle. **default**: true for browsers
+  - **manifest**: `boolean`, extract Webpack's runtime to the separate bundle. **default**: **vendor**
+  - **uglify**: `boolean`, should uglify code. **defualt**: true
 
 ### namedModules
 
