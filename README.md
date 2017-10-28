@@ -1,6 +1,6 @@
 # Webpack Features
 
-Feature-based webpack configurator with built-in `react` support.
+Feature-based webpack configurator with built-in React support.
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
   "name": "webpack-features",
-  "version": "2.1.3",
-  "description": "Feature-based high level webpack configure helper",
+  "version": "2.1.4",
+  "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -13,7 +13,7 @@
     "prettify": "yarn run prettier --write \"src/**/*.js\"",
     "build": "rimraf dist/ && babel src --out-dir dist --ignore **/*.test.js,**/*.spec.js",
     "build:es": "rimraf es/ && cross-env BABEL_ENV=es babel src --out-dir es --ignore **/*.test.js,**/*.spec.js",
-    "prepublishOnly": "yarn lint && yarn test && yarn build"
+    "prepublishOnly": "yarn lint && yarn prettify && yarn test && yarn build"
   },
   "engines": {
     "node": ">=8.0.0"
