@@ -49,7 +49,7 @@ export default env => {
     },
 
     emotion({ plugin }) {
-      addEmotion({ plugin });
+      addEmotion(env, { plugin }, state);
     },
 
     feature(externalFeature, options) {
