@@ -18,6 +18,7 @@ Feature-based webpack configurator with built-in React support.
     - [namedModules](#namedmodules)
     - [node](#node)
     - [browser](#browser)
+    - [define](#define)
   - [Example](#example)
 
 ## Installation
@@ -227,6 +228,28 @@ node()
 ### browser
 
 Should be included in the Webpack's config for browsers. It mocks some node modules that should not being used in browsers. See [here](https://github.com/facebookincubator/create-react-app/blob/aa322d0893dd0f789d4dbb7ff1878096c69edf1c/packages/react-scripts/config/webpack.config.prod.js#L357).
+
+### define
+
+Adds DefinePlugin
+
+```javascript
+define(options)
+```
+
+Parameters:
+
+- **options**: `object`
+  - **env**: `boolean|any`, defines `NODE_ENV`. If `true` provided `env.production` will be used, `false` - `NODE_ENV` will not be defined, any other - will set `NODE_ENV` to **env**. **default**: true
+  - **...defines**: `values`. Every key will be defined to it's value.
+
+```javascript
+define({
+  env: 'test',
+  API_URL: 'http://api-provider.com/',
+  EXPERIMENTAL_FEATURE: true,
+})
+```
 
 ## Example
 

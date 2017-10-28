@@ -10,6 +10,7 @@ import addEmotion from './emotion';
 import createImagesRule from './images';
 
 import createNamedModulesPlugins from './named-modules';
+import define from './define';
 import State from './lib/state';
 
 export default env => {
@@ -70,6 +71,10 @@ export default env => {
 
     production(...args) {
       return { plugins: createProductionPlugins(env, ...args) };
+    },
+
+    define(defines) {
+      return { plugins: [define(env, defines, state)] };
     },
 
     namedModules(...args) {
