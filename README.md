@@ -1,12 +1,8 @@
-# Webpack features
+# Webpack Features
 
-Feature-based high level webpack configure helper.
+Feature-based webpack configurator with built-in `react` support.
 
-## bI?
-
-Webpack features gives you a tool for creating modular reusable webpack configurations.
-
-## Install
+## Installation
 
 ```sh
 yarn add webpack-features --dev
@@ -20,142 +16,105 @@ npm install webpack-features --save-dev
 
 ## Usage
 
-### Create Babel Rule
+### Initializing
 
 ```javascript
-// rules/babel.js
-import { createBabelLoader } from 'webpack-features';
+// webpack.config.js
+const initFeatures = require('webpack-features');
 
-export default function({ target, production }) {
-  const loader = createBabelLoader({ target, production });
-
-  return [{
-    test: /\.jsx?$/,
-    exclude: /node_modules/,
-    use: [...loader.get()]
-  }];
-}
-```
-
-### Create CSS Rule
-
-```javascript
-// rules/css.js
-import { createCSSLoader } from 'webpack-features';
-
-export default function({ target, production }) {
-  const envOptions = { target, production, useStyleLoader: true };
-  const cssOptions = {
-    minimize: production,
-    modules: false
-  };
-
-  const loader = createCSSLoader(envOptions, cssOptions);
-
-  const cssRule = {
-    test: /\.css$/i,
-    use: [...loader.get()]
-  };
-}
-```
-
-### Create application config
-
-```javascript
-// config.apps.js
-const app = {
-  name: 'app',
-  target: 'client',
-  entry: 'src/client/index.js',
-  pre: ['babel-polyfill', '!dev?hot-reload', 'bootstrap'],
-  plugins: {
-    HtmlWebpackPlugin: {
-      template: 'index.html',
-      filename: 'index.html'
-    }
-  }
+const env = {
+  target: { browsers: 'modern' },
+  production: process.env.NODE_ENV === 'production',
 };
 
-export default app;
+const features = initFeatures(env);
 ```
 
-There can be multiple application config objects - which of its will be used for creation of the webpack entry.
+Parameters:
 
-### Create common webpack config with Build Manager
+- **env**: object, required
+  - **target**: object, required
+    - **browsers**: 'modern'|'legacy'|string
+    - **node**: string
+  - **production**: boolean, required
 
-Build manager is responsible for managment of entry points and their plugins.
-Webpack features has a built-in helper for configuring `HtmlWebpackPlugin`, so you can provide to it only non-standard properties.
+`env` defines an environment for which the config should be created. `env.target` must be **either** `{ browsers: string }` or `{ node: string }`, not both simultaneously.
+
+A common practice is destructuring result of initializing to get everything you need.
 
 ```javascript
-// config.common.js
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { createBuildManager } from 'webpack-features';
-import createBabelRule from './rules/babel';
-import createCSSRule from './rules/css';
-import apps from './config.apps';
-
-export default function({ BUILD_APPS, target, production, root }) {
-  const env = { target, production };
-  const buildManager = createBuildManager({
-    BUILD_APPS,
-    target,
-    production,
-    root
-  }, {
-    plugins: { HtmlWebpackPlugin }
-  });
-
-  buildManager.addEntries(apps);
-
-  return {
-    plugins: buildManager.plugins(),
-    entries: buildManager.entries(),
-    rules: [createBabelRule(env), createCSSRule(env)]
-  };
-}
+const { createConfig, entry, javascript, styles } = initFeatures(env);
 ```
 
-Build Manager won't include entries that are not meet the criteria - it should be included in `BUILD_APPS` and have the same `target` as the one provided to the manager.
+### createConfig(features)
 
-### Use created common config
+Main function that creates complete final webpack config. It merges all provided `features`. Can accept native Webpack's config object's parts.
 
 ```javascript
-// config.client.babel.js
-import path from 'path';
-import createConfig from './config.common.js';
+const { createConfig, entry } = initFeatures(env);
 
-const { plugins, entries, rules } = createConfig({
-  BUILD_APPS: 'app',
-  target: 'client',
-  production: true
-});
-
-const webpackConfig = {
-  entry: entries,
-  output: {
-    filename: '[name].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  module: {
-    rules
-  },
-  plugins: {
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    ...plugins
+module.exports = createConfig(
+  // feature
+  entry({ index: './src/index.js' }),
+  // standard webpack config object
+  {
+    output: {
+      path: DIST_PATH,
+      filename: '[name].js',
+    },
   }
-}
-
-export default webpackConfig;
+);
 ```
 
-Change `target` to 'server' in server config:
+### entry(entries, options)
+
+Include entries to the config.
+
+Parameters:
+
+- **entries**: object where keys are entries names and values are strings or arrays of strings with paths. required
+- **options**: object
+  - **polyfill**: boolean - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
+  - **hot**: boolean - should include hot reloading support. **default**: `true` if `development` and any browsers target
+  - **react**: boolean - should include react-specific entries for hot reloading if the last is active. **default**: `true`
 
 ```javascript
-const { plugins, entry, rules } = createConfig({
-  target: 'server',
-  production: true
-});
+
+const { createConfig, entry } = initFeatures(env);
+
+const config = createConfig(
+  entry({ index: './src/index.js' }, { polyfill: true, hot: true, react: true }),
+)
+```
+
+### javascript(options)
+
+Includes in the config support of a modern javascript syntax. It uses `babel` and `babel-preset-env`. Preset's config depends on the provided `env.target`
+
+Parameters:
+
+- **options**: object
+  - **plugins**: array of strings - additional `babel` plugins.
+  - **syntaxEnhance**: boolean - should include non-standard language features. Includes `transform-object-rest-spread`, `transform-class-properties`, `syntax-dynamic-import`. **default**: true
+  - **eslint** - should include `eslint` for linting before transpiling. **default**: true
+  - **react** - should include `react` syntax support. **default**: true
+  - **flow** - should include `flow` support. **default**: true
+  - **modules** - transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` enforced for node
+
+```javascript
+const { createConfig, javascript } = initFeatures(env);
+
+const config = createConfig(
+  javascript({
+    // for exmaple: we do not want include every extended syntax plugin, but want this one
+    plugins: ['transform-object-rest-spread'],
+    syntaxEnhance: false,
+  }),
+)
+```
+
+### styles
+
+```javascript
+
 ```
