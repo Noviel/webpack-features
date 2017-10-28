@@ -1,4 +1,4 @@
-export default ({ target, production }, {} = {}, state) => {
+export default ({ target, production }, options, state) => {
   const babelLoaders = state.loaders(({ loader }) => loader === 'babel-loader');
 
   for (const loader of babelLoaders) {

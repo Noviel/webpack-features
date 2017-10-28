@@ -48,8 +48,8 @@ export default env => {
       initStyles(env, ...args, state);
     },
 
-    emotion({ plugin }) {
-      addEmotion(env, { plugin }, state);
+    emotion() {
+      addEmotion(env, undefined, state);
     },
 
     feature(externalFeature, options) {
