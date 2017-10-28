@@ -16,7 +16,7 @@ const createRule = (
 
   const excludeModules = `^(?!.*\.module).*`;
 
-  const test = cssModules.use
+  const test = cssModules
     ? new RegExp(`.module${extension}$`, 'i')
     : new RegExp(`${excludeModules}${extension}$`, 'i');
   /* eslint-enable no-useless-escape */
@@ -65,7 +65,7 @@ export default (
   { target, production },
   {
     preprocessors = ['css'],
-    cssModules: { usage = 'both', path } = {},
+    cssModules = 'both',
     extract = target.browsers && production,
     extractPlugin = extract,
     postcss = require('./postcss.config.js'),
@@ -80,22 +80,22 @@ export default (
   }
 
   preprocessors.forEach(preprocessor => {
-    const useCSSModules = usage === 'both' || usage === 'only';
-    const useGlobalCSS = usage === 'both' || usage === 'exclude' || true;
+    const useCSSModules = cssModules === 'both' || cssModules === 'only';
+    const useGlobalCSS =
+      cssModules === 'both' || cssModules === 'exclude' || true;
 
     const options = {
       preprocessor,
       extract,
-      cssModules: { use: true, path },
       postcss,
     };
 
     if (useCSSModules) {
-      options.cssModules = { use: true, path };
+      options.cssModules = true;
       rules.push(createRule({ target, production }, options));
     }
     if (useGlobalCSS) {
-      options.cssModules = { use: false, path };
+      options.cssModules = false;
       rules.push(createRule({ target, production }, options));
     }
   });

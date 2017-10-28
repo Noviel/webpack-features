@@ -1,9 +1,9 @@
 export default (env, { limit = 10000, name, ...rest } = {}) => {
   if (!name) {
-    if (!env.production) {
-      name = '[name].[ext]';
-    } else {
+    if (env.production) {
       name = 'images/[hash].[ext]';
+    } else {
+      name = '[name].[ext]';
     }
   }
 

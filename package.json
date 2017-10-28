@@ -10,6 +10,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src",
+    "prettify": "yarn run prettier --write \"src/**/*.js\"",
     "build": "rimraf dist/ && babel src --out-dir dist --ignore **/*.test.js,**/*.spec.js",
     "build:es": "rimraf es/ && cross-env BABEL_ENV=es babel src --out-dir es --ignore **/*.test.js,**/*.spec.js",
     "prepublishOnly": "yarn lint && yarn test && yarn build"

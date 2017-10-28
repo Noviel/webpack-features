@@ -72,10 +72,8 @@ export default env => {
       return { plugins: createNamedModulesPlugins(env, ...args) };
     },
 
-    node() {
+    browser() {
       return {
-        target: 'node',
-        externals: [nodeExternals()],
         node: {
           dgram: 'empty',
           fs: 'empty',
@@ -83,6 +81,13 @@ export default env => {
           tls: 'empty',
           child_process: 'empty',
         },
+      };
+    },
+
+    node() {
+      return {
+        target: 'node',
+        externals: [nodeExternals()],
       };
     },
   };
