@@ -8,7 +8,7 @@ Feature-based webpack configurator with built-in React support.
 - [Usage](#Usage)
   - [Initializing](#Initializing)
   - Features
-    - [createConfig](#createConfig)
+    - [createConfig](#createconfig)
     - [entry](#entry)
     - [javascript](#javascript)
     - [styles](#styles)
