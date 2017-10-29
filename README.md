@@ -214,8 +214,13 @@ Parameters:
 Add readable consistent names for chunks and modules.
 
 ```javascript
-namedModules()
+namedModules(options)
 ```
+
+Parameters:
+
+- **options**: `object`
+  - **chunkName**: `function(chunk)`, chunk naming function.
 
 ### node
 
