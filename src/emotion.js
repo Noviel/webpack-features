@@ -1,10 +1,10 @@
-export default ({ target, production }, options, state) => {
+export default ({ target, production }, { extractStatic } = {}, state) => {
   const babelLoaders = state.loaders(({ loader }) => loader === 'babel-loader');
 
   for (const loader of babelLoaders) {
     loader.options.plugins.unshift([
       'emotion',
-      { extractStatic: target.browsers && production },
+      { extractStatic: extractStatic || (target.browsers && production) },
     ]);
   }
 };
