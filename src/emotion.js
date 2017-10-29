@@ -4,7 +4,12 @@ export default ({ target, production }, { extractStatic } = {}, state) => {
   for (const loader of babelLoaders) {
     loader.options.plugins.unshift([
       'emotion',
-      { extractStatic: extractStatic || (target.browsers && production) },
+      {
+        extractStatic:
+          extractStatic !== undefined
+            ? extractStatic
+            : target.browsers && production,
+      },
     ]);
   }
 };
