@@ -26,9 +26,7 @@ const createBabelLoader = (
     babelrc: false,
     presets: createPresetsList({ env: { ...target, modules }, react, flow }),
     plugins: []
-      .concat(
-        hot && react ? 'react-hot-loader/babel' : []
-      )
+      .concat(hot && react ? 'react-hot-loader/babel' : [])
       .concat(syntaxExtend ? syntaxExtendPlugins : [])
       .concat(plugins)
       .concat(hot && react ? 'transform-es2015-classes' : [])
