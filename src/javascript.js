@@ -19,7 +19,7 @@ const createEslintLoader = options => ({
 
 const createBabelLoader = (
   { target, production },
-  { modules, react, flow, plugins, syntaxExtend }
+  { modules, react, flow, plugins, syntaxExtend, hot }
 ) => ({
   loader: 'babel-loader',
   options: {
@@ -27,12 +27,12 @@ const createBabelLoader = (
     presets: createPresetsList({ env: { ...target, modules }, react, flow }),
     plugins: []
       .concat(
-        !production && target.browsers && react ? 'react-hot-loader/babel' : []
+        hot && react ? 'react-hot-loader/babel' : []
       )
       .concat(syntaxExtend ? syntaxExtendPlugins : [])
       .concat(plugins)
-      .concat(!production ? 'transform-es2015-classes' : [])
-      .concat(!production && react ? 'transform-react-jsx-source' : []),
+      .concat(hot && react ? 'transform-es2015-classes' : [])
+      .concat(hot && react ? 'transform-react-jsx-source' : []),
   },
 });
 

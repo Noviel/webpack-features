@@ -33,6 +33,7 @@ export default env => {
         modules = false,
         react = true,
         syntaxExtend = true,
+        hot = !env.production && !!env.target.browsers,
         plugins = [],
       } = {}
     ) {
@@ -44,6 +45,7 @@ export default env => {
           react,
           plugins,
           syntaxExtend,
+          hot,
         },
         state
       );
