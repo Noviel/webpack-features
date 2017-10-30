@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const webpack = require('webpack');
-const features = require('../config');
+import fs from 'fs';
+import path from 'path';
+import webpack from 'webpack';
+import initFeatures from '../config';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 const noopFeature = () => ({});
 
@@ -48,7 +48,7 @@ module.exports = ({
     namedModules,
     production: createProduction,
     node: createNode,
-  } = features(env);
+  } = initFeatures(env);
 
   return createConfig(
     ...[
