@@ -129,8 +129,8 @@ Parameters:
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
   - **flow**: `boolean`, should include `flow` support. **default**: true
-  - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` enforced for node
-  - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target.
+  - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
+  - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
 
 ```javascript
 javascript({

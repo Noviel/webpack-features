@@ -1,7 +1,11 @@
 import { getBrowsers, getNode } from './targets';
 
 const createBabelEnvPresetOptions = (
-  { browsers = false, node = false, modules = false } = {},
+  {
+    browsers = false,
+    node = false,
+    modules = !!node ? 'commonjs' : false,
+  } = {},
   overrides
 ) => {
   if (!browsers && !node) {
@@ -26,10 +30,6 @@ const createBabelEnvPresetOptions = (
 
   if (node) {
     targets.node = getNode(node);
-
-    if (modules !== 'commonjs') {
-      modules = 'commonjs';
-    }
   }
 
   return {
