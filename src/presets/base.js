@@ -9,11 +9,11 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 const noopFeature = () => ({});
 
 module.exports = ({
+  entry,
   production = process.env.NODE_ENV === 'production',
   node = false,
   browser = !node,
   hot = false,
-  entry,
   defines = {},
   template = './src/index.html',
   publicPath = '/',
@@ -72,7 +72,7 @@ module.exports = ({
           )
           .concat(hot ? new webpack.HotModuleReplacementPlugin() : [])
           .concat(
-            browser
+            browser && template
               ? new HtmlWebpackPlugin({
                   template,
                   filename: `${hot ? '' : '../'}index.html`,
