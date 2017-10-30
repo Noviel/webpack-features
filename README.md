@@ -19,6 +19,8 @@ Feature-based webpack configurator with built-in React support.
     - [node](#node)
     - [browser](#browser)
     - [define](#define)
+  - Presets
+    - [Base](#base)
   - [Example](#example)
 
 ## Installation
@@ -262,6 +264,57 @@ console.log(process.env.API_URL)
 // -> console.log('http://api-provider.com/')
 ```
 
+## Presets
+
+Presets are the complete sets of features with defined default parameters, which made them usefull without much configuring.
+
+### Base
+
+Ready to use preset for React applications.
+
+```javascript
+// webpack.config.client.js
+const { basePreset } = require('webpack-features');
+
+module.exports = basePreset({
+  entry: { index: './src/index.js' }
+});
+```
+
+The only required parameter is `entry`. It should be an object where keys are entry names and values are entry paths.
+
+All list of options with default values:
+
+```javascript
+basePreset({
+  entry,
+  production = process.env.NODE_ENV === 'production',
+
+  // selects the target, one of these should be `true`
+  node = false,
+  browser = !node,
+
+  // enables hot reloading
+  hot = false,
+
+  // list of the defines for `define` feature
+  defines = {},
+
+  // will be used in html-webpack-plugin as a template
+  // set to falsy value to not use html-webpack-plugin
+  template = './src/index.html',
+
+  // absolute path of the project root directory
+  rootPath = fs.realpathSync(process.cwd()),
+
+  // webpack's publich path
+  publicPath = '/',
+
+  // path for built assets output
+  distPath = path.resolve(rootPath, browser ? 'static/dist' : 'server'),
+});
+```
+
 ## Example
 
 ```javascript
@@ -271,6 +324,8 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const createFeatures = require('webpack-features');
 
 const root = ROOT_PATH;
 const dist = DIST_PATH;
@@ -283,7 +338,6 @@ const env = {
   publicPath,
 };
 
-const createFeatures = require('webpack-features');
 
 const {
   createConfig,
