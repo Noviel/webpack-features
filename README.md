@@ -310,8 +310,8 @@ basePreset({
   // webpack's publich path
   publicPath = '/',
 
-  // path for built assets output
-  distPath = path.resolve(rootPath, browser ? 'static/dist' : 'server'),
+  // relative path for a built assets output
+  distPath = browser ? 'static/dist' : 'server',
 });
 ```
 

@@ -18,7 +18,7 @@ module.exports = ({
   template = './src/index.html',
   publicPath = '/',
   rootPath = fs.realpathSync(process.cwd()),
-  distPath = path.resolve(rootPath, browser ? 'static/dist' : 'server'),
+  distPath = browser ? 'static/dist' : 'server',
 }) => {
   const env = {
     publicPath,
@@ -85,7 +85,7 @@ module.exports = ({
         output: {
           // https://reactjs.org/docs/cross-origin-errors.html
           crossOriginLoading: env.production ? false : 'anonymous',
-          path: env.distPath,
+          path: path.resolve(rootPath, distPath),
           publicPath: browser ? env.publicPath : '/',
           filename:
             env.production && browser ? '[name].[chunkhash].js' : '[name].js',
