@@ -155,6 +155,7 @@ Parameters:
   - **cssModules** - one of: `'both'` - use global CSS and CSS Modules, `'only'` - only CSS Modules, `'exclude'` - only global CSS. **default**: 'both'
   - **extract** - `boolean`, should extract styles to external file. **default**: true if `production` and browsers target
   - **extractPlugin** - `boolean`, should use `extract-text-webpack-plugin`. **default**: same as **extract**
+  - **extractFilename** - `string`, name of the file for extraction. **default**: `'[name].[contenthash].css'`
   - **postcss** - `false` means do not use postcss. Otherwise it should be a `callback` that returns a postcss config. It will be called as `postcss({ target, production })`, so you can conditionally include/exclude postcss parts. **default**: config with `precss` and `autoprefixer` based on browsers target.
 
 **Important note**: CSS Modules (if enabled) will be applied to files with extension `.module.{css|less|scss}` only.

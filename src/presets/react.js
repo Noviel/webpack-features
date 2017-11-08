@@ -63,11 +63,18 @@ module.exports = (
     ...[
       createEntry(entry, { hot }),
       javascript(),
-      styles({ preprocessors: ['css'].concat(cssPreprocessor || []) }),
+      styles({
+        preprocessors: ['css'].concat(cssPreprocessor || []),
+        extractFilename: library ? '[name].css' : undefined,
+      }),
       media(),
       namedModules(),
       define(defines),
-      createProduction({ uglify: browser && env.production }),
+      createProduction({
+        vendor: !library && browser && env.production,
+        manifest: !library && browser && env.production,
+        uglify: browser && env.production,
+      }),
       node ? createNode() : noopFeature(),
       library
         ? {

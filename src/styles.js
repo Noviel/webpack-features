@@ -86,6 +86,7 @@ export default (
     cssModules = 'both',
     extract = target.browsers && production,
     extractPlugin = extract,
+    extractFilename = '[name].[contenthash].css',
     postcss = require('./postcss.config.js'),
   } = {},
   state
@@ -121,7 +122,7 @@ export default (
   if (extractPlugin) {
     plugins.push(
       new ExtractTextPlugin({
-        filename: '[name].[contenthash].css',
+        filename: extractFilename,
       })
     );
   }
