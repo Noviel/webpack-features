@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -47,7 +47,7 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
-    "eslint": "4.1.1",
+    "eslint": "^4.10.0",
     "eslint-loader": "^1.9.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
