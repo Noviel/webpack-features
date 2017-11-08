@@ -22,6 +22,10 @@ export default env => {
   }
 
   return {
+    getState() {
+      return state.get();
+    },
+
     createConfig(...features) {
       const config = merge([state.get(), ...features]);
       return config;

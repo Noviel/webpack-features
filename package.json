@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "es/index.js",
