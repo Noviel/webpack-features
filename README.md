@@ -20,7 +20,7 @@ Feature-based webpack configurator with built-in React support.
     - [browser](#browser)
     - [define](#define)
   - Presets
-    - [Base](#base)
+    - [React](#react)
   - [Example](#example)
 
 ## Installation
@@ -268,15 +268,15 @@ console.log(process.env.API_URL)
 
 Presets are the complete sets of features with defined default parameters, which made them usefull without much configuring.
 
-### Base
+### React
 
 Ready to use preset for React applications.
 
 ```javascript
 // webpack.config.client.js
-const { basePreset } = require('webpack-features');
+const { presetReact } = require('webpack-features');
 
-module.exports = basePreset({
+module.exports = presetReact({
   entry: { index: './src/index.js' }
 });
 ```
@@ -286,40 +286,48 @@ The only required parameter is `entry`. It should be an object where keys are en
 All list of options with default values:
 
 ```javascript
-basePreset({
-  entry,
-  production = process.env.NODE_ENV === 'production',
+presetReact(
+  {
+    entry,
+    production = process.env.NODE_ENV === 'production',
 
-  // selects the target, one of these should be `true`
-  node = false,
-  browser = !node,
+    // selects the target, one of these should be `true`
+    node = false,
+    browser = !node,
 
-  // enables hot reloading
-  hot = false,
+    // enables hot reloading
+    hot = false,
 
-  // list of the defines for `define` feature
-  defines = {},
+    // list of the defines for `define` feature
+    defines = {},
 
-  // will be used in html-webpack-plugin as a template
-  // set to falsy value to not use html-webpack-plugin
-  template = './src/index.html',
+    // will be used in html-webpack-plugin as a template
+    // set to falsy value to not use html-webpack-plugin
+    template = './src/index.html',
 
-  // absolute path of the project root directory
-  rootPath = fs.realpathSync(process.cwd()),
+    // absolute path of the project root directory
+    rootPath = fs.realpathSync(process.cwd()),
 
-  // webpack's publich path
-  publicPath = '/',
+    // webpack's publich path
+    publicPath = '/',
 
-  // relative path for a built assets output
-  distPath = browser ? 'static/dist' : 'server',
+    // relative path for a built assets output
+    distPath = browser ? 'static/dist' : 'server',
 
-  // css preprocessor
-  // should be one of:
-  // - null - for vanilla CSS
-  // - scss
-  // - less
-  cssPreprocessor = null,
-});
+    // css preprocessor
+    // should be one of:
+    // - null - for vanilla CSS
+    // - scss
+    // - less
+    cssPreprocessor = null,
+
+    // string will be used as a library name,
+    // allow to create React-based libraries
+    library = false
+  },
+  // additional Webpack configuration. It will be merged with other options.
+  extend = {}
+);
 ```
 
 ## Example

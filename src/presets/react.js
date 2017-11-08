@@ -8,20 +8,24 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 const noopFeature = () => ({});
 
-module.exports = ({
-  entry,
-  production = process.env.NODE_ENV === 'production',
-  node = false,
-  browser = !node,
-  hot = false,
-  defines = {},
-  template = './src/index.html',
-  publicPath = '/',
-  rootPath = fs.realpathSync(process.cwd()),
-  distPath = browser ? 'static/dist' : 'server',
-  cssPreprocessor = null,
-  emotion = false,
-}) => {
+module.exports = (
+  {
+    entry,
+    production = process.env.NODE_ENV === 'production',
+    node = false,
+    browser = !node,
+    hot = false,
+    defines = {},
+    template = './src/index.html',
+    publicPath = '/',
+    rootPath = fs.realpathSync(process.cwd()),
+    distPath = browser ? 'static/dist' : 'server',
+    cssPreprocessor = null,
+    emotion = false,
+    library = false,
+  },
+  extend = {}
+) => {
   const env = {
     publicPath,
     distPath,
@@ -30,6 +34,9 @@ module.exports = ({
   };
 
   if (node) {
+    if (library) {
+      throw new Error(`'library' should be used only for browsers target`);
+    }
     env.target = { node: 'current' };
   } else if (browser) {
     env.target = production ? { browsers: 'legacy' } : { browsers: 'modern' };
@@ -41,6 +48,7 @@ module.exports = ({
 
   const {
     createConfig,
+    output,
     entry: createEntry,
     javascript,
     styles,
@@ -62,6 +70,30 @@ module.exports = ({
       define(defines),
       createProduction({ uglify: browser && env.production }),
       node ? createNode() : noopFeature(),
+      library
+        ? {
+            externals: [
+              {
+                react: {
+                  root: 'React',
+                  commonjs2: 'react',
+                  commonjs: 'react',
+                  amd: 'react',
+                },
+                'react-dom': {
+                  root: 'ReactDOM',
+                  commonjs2: 'react-dom',
+                  commonjs: 'react-dom',
+                  amd: 'react-dom',
+                },
+              },
+            ],
+          }
+        : noopFeature(),
+      output({
+        library,
+        filename: library ? '[name].js' : undefined,
+      }),
       {
         plugins: []
           .concat(
@@ -83,22 +115,12 @@ module.exports = ({
       },
       {
         devtool: env.production ? 'source-map' : 'cheap-module-source-map',
-        output: {
-          // https://reactjs.org/docs/cross-origin-errors.html
-          crossOriginLoading: env.production ? false : 'anonymous',
-          path: path.resolve(rootPath, distPath),
-          publicPath: browser ? env.publicPath : '/',
-          filename:
-            env.production && browser ? '[name].[chunkhash].js' : '[name].js',
-          chunkFilename: env.production
-            ? '[name].[chunkhash].chunk.js'
-            : '[name].chunk.js',
-        },
         stats: {
           children: false,
           modules: false,
         },
       },
+      ...extend,
     ].concat(emotion ? createEmotion() : [])
   );
 };

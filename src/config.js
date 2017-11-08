@@ -4,6 +4,7 @@ import nodeExternals from 'webpack-node-externals';
 import createEntry from './entry';
 import createProductionPlugins from './production';
 
+import addOutput from './output';
 import createJSRule from './javascript';
 import initStyles from './styles';
 import addEmotion from './emotion';
@@ -24,6 +25,10 @@ export default env => {
     createConfig(...features) {
       const config = merge([state.get(), ...features]);
       return config;
+    },
+
+    output(options) {
+      return addOutput(env, options, state);
     },
 
     javascript(options) {
