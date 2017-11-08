@@ -34,7 +34,19 @@ const createBabelLoader = (
   },
 });
 
-module.exports = ({ target, production }, { eslint, ...options }, state) => {
+module.exports = (
+  { target, production },
+  {
+    eslint = true,
+    flow = true,
+    modules = false,
+    react = true,
+    syntaxExtend = true,
+    hot = !production && !!target.browsers,
+    plugins = [],
+  } = {},
+  state
+) => {
   state.addRules({
     test: /\.jsx?$/,
     exclude: /node_modules/,
@@ -46,7 +58,7 @@ module.exports = ({ target, production }, { eslint, ...options }, state) => {
             target,
             production,
           },
-          options
+          { modules, react, flow, plugins, syntaxExtend, hot }
         )
       )
       .concat(eslint ? createEslintLoader(eslint) : []),

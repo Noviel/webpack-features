@@ -1,6 +1,10 @@
-const hotReloadEntry = 'webpack-hot-middleware/client';
-const reactHotEntry = 'react-hot-loader/patch';
-const polyfillEntry = 'babel-polyfill';
+const builtinEntries = {
+  hot: {
+    webpack: 'webpack-hot-middleware/client',
+    react: 'react-hot-loader/patch',
+  },
+  polyfill: 'babel-polyfill',
+};
 
 export default (
   { target, production },
@@ -11,15 +15,21 @@ export default (
     react = true,
   } = {}
 ) => {
-  const result = {};
+  if (Array.isArray(entries) || typeof entries === 'string') {
+    entries = {
+      index: entries,
+    };
+  } else if (!entries || typeof entries !== 'object') {
+    throw new Error(`'entries' should be an object, an array or a string`);
+  }
 
-  Object.keys(entries).forEach(v => {
-    result[v] = []
-      .concat(polyfill ? polyfillEntry : [])
-      .concat(hot && react ? reactHotEntry : [])
-      .concat(hot ? hotReloadEntry : [])
-      .concat(entries[v]);
-  });
+  return Object.keys(entries).reduce((acc, curr) => {
+    acc[curr] = []
+      .concat(polyfill ? builtinEntries.polyfill : [])
+      .concat(hot && react ? builtinEntries.hot.react : [])
+      .concat(hot ? builtinEntries.hot.webpack : [])
+      .concat(entries[curr]);
 
-  return result;
+    return acc;
+  }, {});
 };

@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "2.5.4",
+  "version": "2.6.0",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -20,7 +20,7 @@
   },
   "jest": {
     "rootDir": "",
-    "testRegex": "(src).*(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$"
+    "testRegex": "(src).*((\\.|/)(test|spec))\\.jsx?$"
   },
   "devDependencies": {
     "cross-env": "^5.0.5",

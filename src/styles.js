@@ -45,6 +45,24 @@ const createRule = (
     loaders = loaders.concat({ loader: 'postcss-loader', options: postcss });
   }
 
+  if (preprocessor === 'scss') {
+    loaders[0].options.importLoaders++;
+    loaders = loaders.concat({
+      loader: 'sass-loader',
+      options: {
+        sourceMap: !production,
+      },
+    });
+  } else if (preprocessor === 'less') {
+    loaders[0].options.importLoaders++;
+    loaders = loaders.concat({
+      loader: 'less-loader',
+      options: {
+        sourceMap: !production,
+      },
+    });
+  }
+
   if (extract) {
     loaders = ExtractTextPlugin.extract({
       fallback: 'style-loader',

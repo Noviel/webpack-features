@@ -26,29 +26,8 @@ export default env => {
       return config;
     },
 
-    javascript(
-      {
-        eslint = true,
-        flow = true,
-        modules = false,
-        react = true,
-        syntaxExtend = true,
-        hot = !env.production && !!env.target.browsers,
-        plugins = [],
-      } = {}
-    ) {
-      createJSRule(
-        env,
-        {
-          eslint,
-          modules,
-          react,
-          plugins,
-          syntaxExtend,
-          hot,
-        },
-        state
-      );
+    javascript(options) {
+      createJSRule(env, options, state);
     },
 
     styles(options) {
