@@ -312,6 +312,13 @@ basePreset({
 
   // relative path for a built assets output
   distPath = browser ? 'static/dist' : 'server',
+
+  // css preprocessor
+  // should be one of:
+  // - null - for vanilla CSS
+  // - scss
+  // - less
+  cssPreprocessor = null,
 });
 ```
 

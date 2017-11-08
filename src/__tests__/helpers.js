@@ -1,4 +1,4 @@
-const envs = {
+export const envs = {
   modernBrowsersDev: {
     target: { browsers: 'modern' },
     production: false,
@@ -25,10 +25,10 @@ const envs = {
   },
 };
 
-const captionForEnv = env => {
+export const captionForEnv = env => {
   return `for ${env.target.browsers} browsers in ${env.production
     ? 'production'
     : 'development'} mode`;
 };
 
-const createTestForEnv = env => {};
+export const createTestForEnv = env => {};

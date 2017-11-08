@@ -19,6 +19,7 @@ module.exports = ({
   publicPath = '/',
   rootPath = fs.realpathSync(process.cwd()),
   distPath = browser ? 'static/dist' : 'server',
+  cssPreprocessor = null,
 }) => {
   const env = {
     publicPath,
@@ -54,7 +55,7 @@ module.exports = ({
     ...[
       createEntry(entry, { hot }),
       javascript(),
-      styles(),
+      styles({ preprocessors: ['css'].concat(cssPreprocessor || []) }),
       emotion(),
       media(),
       namedModules(),
