@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 import webpack from 'webpack';
 import initFeatures from '../config';
 
