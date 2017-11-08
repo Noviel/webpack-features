@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -35,7 +35,6 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "emotion": "^8.0.9",
     "webpack": "^3.8.1"
   },
   "dependencies": {
@@ -70,5 +69,8 @@
     "url-loader": "^0.6.2",
     "webpack-merge": "^4.1.0",
     "webpack-node-externals": "^1.6.0"
+  },
+  "optionalDependencies": {
+    "emotion": "^8.0.10"
   }
 }

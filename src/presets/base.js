@@ -20,6 +20,7 @@ module.exports = ({
   rootPath = fs.realpathSync(process.cwd()),
   distPath = browser ? 'static/dist' : 'server',
   cssPreprocessor = null,
+  emotion = false,
 }) => {
   const env = {
     publicPath,
@@ -44,7 +45,7 @@ module.exports = ({
     javascript,
     styles,
     media,
-    emotion,
+    emotion: createEmotion,
     define,
     namedModules,
     production: createProduction,
@@ -56,7 +57,6 @@ module.exports = ({
       createEntry(entry, { hot }),
       javascript(),
       styles({ preprocessors: ['css'].concat(cssPreprocessor || []) }),
-      emotion(),
       media(),
       namedModules(),
       define(defines),
@@ -99,6 +99,6 @@ module.exports = ({
           modules: false,
         },
       },
-    ]
+    ].concat(emotion ? createEmotion() : [])
   );
 };
