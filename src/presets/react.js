@@ -119,7 +119,9 @@ module.exports = (
           modules: false,
         },
       },
-      ...extend,
+      {
+        ...extend,
+      },
     ].concat(emotion ? createEmotion() : [])
   );
 };
