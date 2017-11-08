@@ -324,7 +324,10 @@ presetReact(
 
     // string will be used as a library name,
     // allow to create React-based libraries
-    library = false
+    library = false,
+
+    // should add polyfills for legacy browsers support
+    legacy = false,
   },
   // additional Webpack configuration. It will be merged with other options.
   extend = {}

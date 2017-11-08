@@ -22,6 +22,7 @@ module.exports = (
     cssPreprocessor = null,
     emotion = false,
     library = false,
+    legacy = false,
   },
   extend = {}
 ) => {
@@ -38,7 +39,7 @@ module.exports = (
     }
     env.target = { node: 'current' };
   } else if (browser) {
-    env.target = production ? { browsers: 'legacy' } : { browsers: 'modern' };
+    env.target = legacy ? { browsers: 'legacy' } : { browsers: 'modern' };
   } else {
     throw new Error(
       `Target is not defined. Either 'browser' or 'node' should be true.`
