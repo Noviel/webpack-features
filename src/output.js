@@ -26,8 +26,8 @@ export default (
   };
 
   if (typeof library === 'string') {
-    result.library = library;
-    result.libraryTarget = libraryTarget;
+    result.output.library = library;
+    result.output.libraryTarget = libraryTarget;
   }
 
   return result;
