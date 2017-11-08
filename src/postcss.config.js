@@ -7,6 +7,7 @@ module.exports = ({ target, production }) => ({
       browsers: getBrowsers(target.browsers) || '',
     }),
   ],
+  sourceMap: !production,
 });
 
 exports.default = module.exports;
