@@ -7,7 +7,7 @@ export default (env, { limit = 10000, name, ...rest } = {}) => {
     }
   }
 
-  return [
+  const rules = [
     {
       test: /\.(jpe?g|png|gif|svg)$/i,
       use: {
@@ -35,4 +35,6 @@ export default (env, { limit = 10000, name, ...rest } = {}) => {
       },
     },
   ];
+
+  return { module: { rules } };
 };

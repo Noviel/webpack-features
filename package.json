@@ -1,18 +1,19 @@
 {
   "name": "webpack-features",
-  "version": "2.7.6",
+  "version": "3.0.0",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "module": "dist/index.js",
+  "jsnext:main": "dist/index.js",
   "author": "Aleksandr Snov <snov.contact@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch --coverage=false",
     "lint": "eslint src",
+    "types": "flow",
     "prettify": "yarn run prettier --write \"src/**/*.js\"",
-    "build": "rimraf dist/ && babel src --out-dir dist --ignore **/*.test.js,**/*.spec.js",
-    "build:es": "rimraf es/ && cross-env BABEL_ENV=es babel src --out-dir es --ignore **/*.test.js,**/*.spec.js",
+    "build": "rimraf dist/ && babel src --out-dir dist --ignore __tests__,**/*.test.js,**/*.spec.js",
     "prepublishOnly": "yarn lint && yarn prettify && yarn test && yarn build"
   },
   "engines": {
@@ -20,14 +21,24 @@
   },
   "jest": {
     "rootDir": "",
-    "testRegex": "(src).*((\\.|/)(test|spec))\\.jsx?$"
+    "testRegex": "(src).*((\\.|/)(test|spec))\\.jsx?$",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/.coverage/**"
+    ],
+    "coverageDirectory": ".coverage"
   },
   "devDependencies": {
     "cross-env": "^5.0.5",
     "eslint-config-dqnt": "^2.1.0",
+    "flow-bin": "^0.59.0",
     "jest": "^20.0.4",
     "prettier": "^1.7.4",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "webpack": "^3.8.1"
   },
   "peerDependencies": {
     "webpack": "^3.8.1"
@@ -35,7 +46,6 @@
   "dependencies": {
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "7.2.3",
     "babel-plugin-emotion": "^8.0.9",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",

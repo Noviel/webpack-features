@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`define should add primitive values to definitions 1`] = `
+Object {
+  "process.env.NODE_ENV": "\\"production\\"",
+  "process.env.SECOND": "true",
+  "process.env.THIRD": "\\"THIRD\\"",
+  "process.env.VALUE": "100",
+}
+`;
+
+exports[`define should set a prefix for the every definition except NODE_ENV 1`] = `
+Object {
+  "custom_prefix.VALUE": "500",
+  "process.env.NODE_ENV": "\\"production\\"",
+}
+`;

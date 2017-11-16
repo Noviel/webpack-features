@@ -23,13 +23,15 @@ export default (
     throw new Error(`'entries' should be an object, an array or a string`);
   }
 
-  return Object.keys(entries).reduce((acc, curr) => {
-    acc[curr] = []
-      .concat(polyfill ? builtinEntries.polyfill : [])
-      .concat(hot && react ? builtinEntries.hot.react : [])
-      .concat(hot ? builtinEntries.hot.webpack : [])
-      .concat(entries[curr]);
+  return {
+    entry: Object.keys(entries).reduce((acc, curr) => {
+      acc[curr] = []
+        .concat(polyfill ? builtinEntries.polyfill : [])
+        .concat(hot && react ? builtinEntries.hot.react : [])
+        .concat(hot ? builtinEntries.hot.webpack : [])
+        .concat(entries[curr]);
 
-    return acc;
-  }, {});
+      return acc;
+    }, {}),
+  };
 };

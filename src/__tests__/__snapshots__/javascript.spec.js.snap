@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`javascript should apply a plugin that adds a field 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "myField": Object {
+    "value": 100,
+  },
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "last 2 Chrome versions",
+                  "not Chrome < 60",
+                  "last 2 Safari versions",
+                  "not Safari < 10.1",
+                  "last 2 iOS versions",
+                  "not iOS < 10.3",
+                  "last 2 Firefox versions",
+                  "not Firefox < 54",
+                  "last 2 Edge versions",
+                  "not Edge < 15",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should apply a plugin that overrides any field 1`] = `
+Object {
+  "exclude": null,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "last 2 Chrome versions",
+                  "not Chrome < 60",
+                  "last 2 Safari versions",
+                  "not Safari < 10.1",
+                  "last 2 iOS versions",
+                  "not iOS < 10.3",
+                  "last 2 Firefox versions",
+                  "not Firefox < 54",
+                  "last 2 Edge versions",
+                  "not Edge < 15",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should return a valid rule with default paremeters for current node in production mode 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "node": "current",
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should return a valid rule with default paremeters for legacy browsers in development mode 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "react-hot-loader/babel",
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+          "transform-es2015-classes",
+          "transform-react-jsx-source",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "> 1%",
+                  "last 2 versions",
+                  "Firefox ESR",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should return a valid rule with default paremeters for legacy browsers in production mode 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "> 1%",
+                  "last 2 versions",
+                  "Firefox ESR",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should return a valid rule with default paremeters for modern browsers in development mode 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "react-hot-loader/babel",
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+          "transform-es2015-classes",
+          "transform-react-jsx-source",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "last 2 Chrome versions",
+                  "not Chrome < 60",
+                  "last 2 Safari versions",
+                  "not Safari < 10.1",
+                  "last 2 iOS versions",
+                  "not iOS < 10.3",
+                  "last 2 Firefox versions",
+                  "not Firefox < 54",
+                  "last 2 Edge versions",
+                  "not Edge < 15",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`javascript should return a valid rule with default paremeters for modern browsers in production mode 1`] = `
+Object {
+  "exclude": /node_modules/,
+  "test": /\\\\\\.jsx\\?\\$/,
+  "use": Array [
+    Object {
+      "loader": "babel-loader",
+      "options": Object {
+        "babelrc": false,
+        "plugins": Array [
+          "transform-object-rest-spread",
+          "transform-class-properties",
+          "syntax-dynamic-import",
+        ],
+        "presets": Array [
+          Array [
+            "env",
+            Object {
+              "modules": false,
+              "targets": Object {
+                "browsers": Array [
+                  "last 2 Chrome versions",
+                  "not Chrome < 60",
+                  "last 2 Safari versions",
+                  "not Safari < 10.1",
+                  "last 2 iOS versions",
+                  "not iOS < 10.3",
+                  "last 2 Firefox versions",
+                  "not Firefox < 54",
+                  "last 2 Edge versions",
+                  "not Edge < 15",
+                ],
+              },
+              "useBuiltIns": true,
+            },
+          ],
+          "react",
+          "flow",
+        ],
+      },
+    },
+    Object {
+      "loader": "eslint-loader",
+      "options": Object {},
+    },
+  ],
+}
+`;

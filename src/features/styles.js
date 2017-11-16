@@ -80,22 +80,22 @@ const createRule = (
 };
 
 export default (
-  { target, production },
+  env,
   {
     preprocessors = ['css'],
     cssModules = 'both',
-    extract = target.browsers && production,
+    extract = env.target.browsers && env.production,
     extractPlugin = extract,
     extractFilename = '[name].[contenthash].css',
-    postcss = require('./postcss.config.js'),
-  } = {},
-  state
+    postcss = require('../lib/postcss.config.js'),
+  },
+  { plugins, next }
 ) => {
   const rules = [];
-  const plugins = [];
+  const webpackPlugins = [];
 
   if (postcss) {
-    postcss = postcss({ target, production });
+    postcss = postcss(env);
   }
 
   const useCSSModules = cssModules === 'both' || cssModules === 'only';
@@ -111,22 +111,26 @@ export default (
 
     if (useCSSModules) {
       options.cssModules = true;
-      rules.push(createRule({ target, production }, options));
+      rules.push(createRule(env, options));
     }
     if (useGlobalCSS) {
       options.cssModules = false;
-      rules.push(createRule({ target, production }, options));
+      rules.push(createRule(env, options));
     }
   });
 
   if (extractPlugin) {
-    plugins.push(
+    webpackPlugins.push(
       new ExtractTextPlugin({
         filename: extractFilename,
       })
     );
   }
 
-  state.addRules(rules);
-  state.addPlugins(plugins);
+  return next(env, plugins, {
+    module: {
+      rules,
+    },
+    plugins: webpackPlugins,
+  });
 };

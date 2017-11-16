@@ -1,3 +1,5 @@
+import applyPlugins from '../lib/apply-plugins';
+
 export const envs = {
   modernBrowsersDev: {
     target: { browsers: 'modern' },
@@ -25,8 +27,22 @@ export const envs = {
   },
 };
 
+export const defaultEnv = envs.modernBrowsersProd;
+
+export const callFeature = (
+  feature,
+  options = {},
+  plugins = [],
+  env = defaultEnv
+) => feature(env, options, { plugins, next: applyPlugins });
+
+const targetName = target =>
+  target.browsers
+    ? `${target.browsers} browsers`
+    : target.node ? `${target.node} node` : 'unknown taget';
+
 export const captionForEnv = env => {
-  return `for ${env.target.browsers} browsers in ${env.production
+  return `for ${targetName(env.target)} in ${env.production
     ? 'production'
     : 'development'} mode`;
 };

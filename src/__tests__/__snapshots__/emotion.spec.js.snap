@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`emotion should add emotion to the plugins list of the babel-loader's options 1`] = `
+Array [
+  Array [
+    "emotion",
+    Object {
+      "extractStatic": false,
+    },
+  ],
+  "transform-object-rest-spread",
+  "transform-class-properties",
+  "syntax-dynamic-import",
+]
+`;

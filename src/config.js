@@ -1,93 +1,70 @@
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
-import createEntry from './entry';
-import createProductionPlugins from './production';
+import applyPlugin from './lib/apply-plugins';
 
-import addOutput from './output';
-import createJSRule from './javascript';
-import initStyles from './styles';
-import addEmotion from './emotion';
-import createMediaRule from './media';
-
-import createNamedModulesPlugins from './named-modules';
-import define from './define';
-import State from './lib/state';
+import createEntry from './features/entry';
+import createProductionPlugins from './features/production';
+import addOutput from './features/output';
+import createJSRule from './features/javascript';
+import initStyles from './features/styles';
+import createMediaRule from './features/media';
+import createNamedModulesPlugins from './features/named-modules';
+import define from './features/define';
 
 export default env => {
-  const state = new State();
-
-  if (!env.publicPath) {
+  if (env.rootPath === undefined) {
+    env.rootPath = process.cwd();
+  }
+  if (env.publicPath === undefined) {
     env.publicPath = '/';
   }
+  if (env.distPath === undefined) {
+    env.distPath = 'dist';
+  }
+
+  const browser = () => ({
+    node: {
+      dgram: 'empty',
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty',
+      child_process: 'empty',
+    },
+  });
+
+  const node = () => ({
+    target: 'node',
+    externals: [nodeExternals()],
+  });
+
+  const features = {
+    output: { fn: addOutput },
+    javascript: { fn: createJSRule },
+    styles: { fn: initStyles },
+    media: { fn: createMediaRule },
+    entry: { fn: createEntry },
+    production: { fn: createProductionPlugins },
+    define: { fn: define },
+    namedModules: { fn: createNamedModulesPlugins },
+    browser: { fn: browser },
+    node: { fn: node },
+  };
+
+  const wrap = ({ fn }) => (options = {}, plugins = []) =>
+    fn(env, options, { plugins, next: applyPlugin });
+
+  const wrappedFeatures = Object.keys(features).reduce((acc, curr) => {
+    acc[curr] = wrap(features[curr]);
+    return acc;
+  }, {});
 
   return {
-    getState() {
-      return state.get();
-    },
-
     createConfig(...features) {
-      const config = merge([state.get(), ...features]);
+      const config = merge(...features);
       return config;
     },
 
-    output(options) {
-      return addOutput(env, options, state);
-    },
-
-    javascript(options) {
-      createJSRule(env, options, state);
-    },
-
-    styles(options) {
-      initStyles(env, options, state);
-    },
-
-    emotion(options) {
-      addEmotion(env, options, state);
-    },
-
-    feature(externalFeature, options) {
-      externalFeature(env, options, state);
-    },
-
-    media(...args) {
-      return { module: { rules: createMediaRule(env, ...args) } };
-    },
-
-    entry(...args) {
-      return { entry: createEntry(env, ...args) };
-    },
-
-    production(...args) {
-      return { plugins: createProductionPlugins(env, ...args) };
-    },
-
-    define(defines) {
-      return { plugins: [define(env, defines, state)] };
-    },
-
-    namedModules(...args) {
-      return { plugins: createNamedModulesPlugins(env, ...args) };
-    },
-
-    browser() {
-      return {
-        node: {
-          dgram: 'empty',
-          fs: 'empty',
-          net: 'empty',
-          tls: 'empty',
-          child_process: 'empty',
-        },
-      };
-    },
-
-    node() {
-      return {
-        target: 'node',
-        externals: [nodeExternals()],
-      };
-    },
+    ...wrappedFeatures,
   };
 };

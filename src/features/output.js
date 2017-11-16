@@ -1,4 +1,5 @@
 import path from 'path';
+import applyPlugins from '../lib/apply-plugins';
 
 export default (
   { target, production, rootPath, distPath, publicPath },
@@ -11,7 +12,8 @@ export default (
       : '[name].chunk.js',
     library = false,
     libraryTarget = 'umd',
-  } = {}
+  },
+  { plugins, next }
 ) => {
   const result = {
     output: {
@@ -30,5 +32,9 @@ export default (
     result.output.libraryTarget = libraryTarget;
   }
 
-  return result;
+  return applyPlugins(
+    { target, production, rootPath, distPath, publicPath },
+    plugins,
+    result
+  );
 };

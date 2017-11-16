@@ -4,8 +4,8 @@ import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 module.exports = (
   { target },
   { vendor = !!target.browsers, manifest = vendor, uglify = true } = {}
-) =>
-  []
+) => ({
+  plugins: []
     .concat(
       vendor
         ? new webpack.optimize.CommonsChunkPlugin({
@@ -33,4 +33,5 @@ module.exports = (
             },
           })
         : []
-    );
+    ),
+});

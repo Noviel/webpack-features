@@ -53,7 +53,6 @@ module.exports = (
     javascript,
     styles,
     media,
-    emotion: createEmotion,
     define,
     namedModules,
     production: createProduction,
@@ -63,7 +62,10 @@ module.exports = (
   return createConfig(
     ...[
       createEntry(entry, { hot }),
-      javascript(),
+      javascript(
+        {},
+        [].concat(emotion ? require('../plugins/emotion').default() : [])
+      ),
       styles({
         preprocessors: ['css'].concat(cssPreprocessor || []),
         extractFilename: library ? '[name].css' : undefined,
@@ -130,6 +132,6 @@ module.exports = (
       {
         ...extend,
       },
-    ].concat(emotion ? createEmotion() : [])
+    ]
   );
 };

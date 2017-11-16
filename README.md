@@ -50,11 +50,13 @@ Parameters:
     - **browsers**: `'modern'|'legacy'|string`
     - **node**: `string`
   - **production**: `boolean`, required
-  - **publicPath**: `string`. Used in some features to determine location for their output. Usually should be the same as `output.publicPath` in the webpack config. **default**: `'/'`
+  - **rootPath**: `string`, absolute path to the project's root, **default**: `process.cwd()`
+  - **publicPath**: `string`, **default**: `'/'`
+  - **distPath**: `string`, relative path for output assets, **default**: `'dist'`
 
 Returns: object with features
 
-`env` defines an environment for which the config should be created. `env.target` must be **either** `{ browsers: string }` or `{ node: string }`, not both simultaneously.
+`env` defines an environment for which the config should be created. `env.target` must be **either** `{ browsers: <string> }` or `{ node: <string> }`, not both simultaneously.
 
 ```javascript
 // webpack.config.js
@@ -126,7 +128,7 @@ Includes in the config support of a modern javascript syntax. It uses `babel` an
 Parameters:
 
 - **options**: `object`
-  - **plugins**: `array of strings`, additional `babel` plugins.
+  - **babelPlugins**: `array of strings`, additional `babel` plugins.
   - **syntaxEnhance**: `boolean`, should include non-standard language features. Includes `transform-object-rest-spread`, `transform-class-properties`, `syntax-dynamic-import`. **default**: true
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
@@ -137,7 +139,7 @@ Parameters:
 ```javascript
 javascript({
   // for exmaple: we do not want include every extended syntax plugin, but want this one
-  plugins: ['transform-object-rest-spread'],
+  babelPlugins: ['transform-object-rest-spread'],
   syntaxEnhance: false,
 })
 ```
@@ -251,7 +253,7 @@ Parameters:
 - **options**: `object`
   - **NODE_ENV**: `false|any`, defines `process.env.NODE_ENV`. `false` - `NODE_ENV` will not be defined, otherwise will set `NODE_ENV` to provided one. **default**: based on `env.production`, so if you need to define correct `NODE_ENV`, omit this key.
   - **...defines**: `values`. Every key will be defined as `process.env.key` to it's value.
-  - **__prefix**: `string`, will be added to the every key as a prefix. It is not the best idea to override it, but it is possible. The prefix for **NODE_ENV** will still stay the default one. **default**: `'process.env.'`
+  - **$prefix**: `string`, will be added to the every key as a prefix. It is not the best idea to override it, but it is possible. The prefix for **NODE_ENV** will still stay the default one. **default**: `'process.env.'`
 
 ```javascript
 define({
