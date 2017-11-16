@@ -35,7 +35,7 @@
     "cross-env": "^5.0.5",
     "eslint-config-dqnt": "^2.1.0",
     "flow-bin": "^0.59.0",
-    "jest": "^20.0.4",
+    "jest": "^21.2.1",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.1",
     "webpack": "^3.8.1"
@@ -75,6 +75,8 @@
     "webpack-node-externals": "^1.6.0"
   },
   "optionalDependencies": {
-    "emotion": "^8.0.10"
+    "emotion": "^8.0.10",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
   }
 }
