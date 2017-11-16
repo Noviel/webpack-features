@@ -1,6 +1,6 @@
-import define from '../features/define';
+import define from '../define';
 
-import { callFeature, envs } from './helpers';
+import { callFeature, envs } from '../../fixtures';
 
 describe('define', () => {
   it('should set correct NODE_ENV based on the `env.production`', () => {

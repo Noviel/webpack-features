@@ -1,4 +1,4 @@
-import entry from '../features/entry';
+import entry from '../entry';
 
 const envs = {
   modernBrowsersDev: {

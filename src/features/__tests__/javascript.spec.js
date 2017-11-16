@@ -1,5 +1,5 @@
-import javascript from '../features/javascript';
-import { callFeature, envs, captionForEnv } from './helpers';
+import javascript from '../javascript';
+import { callFeature, envs, captionForEnv } from '../../fixtures';
 
 describe('javascript', () => {
   // test for every { production, target } combination

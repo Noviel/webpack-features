@@ -1,4 +1,4 @@
-import createBEPO from '../lib/babel-env-preset-options';
+import createBEPO from '../babel-env-preset-options';
 
 describe('createBabelEnvPresetOptions', () => {
   it('should throw with no target specified', () => {

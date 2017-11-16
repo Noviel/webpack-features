@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,8 +13,8 @@
     "lint": "eslint src",
     "types": "flow",
     "prettify": "yarn run prettier --write \"src/**/*.js\"",
-    "build": "rimraf dist/ && babel src --out-dir dist --ignore __tests__,**/*.test.js,**/*.spec.js",
-    "prepublishOnly": "yarn lint && yarn prettify && yarn test && yarn build"
+    "build": "rimraf dist/ && babel src --out-dir dist --ignore fixtures,__tests__,**/*.test.js,**/*.spec.js",
+    "prepublishOnly": "yarn prettify && yarn lint && yarn test && yarn build"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -40,9 +40,7 @@
     "rimraf": "^2.6.1",
     "webpack": "^3.8.1"
   },
-  "peerDependencies": {
-    "webpack": "^3.8.1"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.26.0",

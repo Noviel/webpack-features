@@ -1,6 +1,6 @@
-import emotion from '../plugins/emotion';
-import javascript from '../features/javascript';
-import { callFeature } from './helpers';
+import emotion from '../emotion';
+import javascript from '../../features/javascript';
+import { callFeature } from '../../fixtures';
 
 describe(`emotion`, () => {
   it(`should add emotion to the plugins list of the babel-loader's options`, () => {

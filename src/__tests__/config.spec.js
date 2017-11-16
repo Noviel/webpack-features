@@ -1,5 +1,5 @@
 import configure from '../config';
-import { envs } from './helpers';
+import { envs } from '../fixtures';
 
 let config = undefined;
 

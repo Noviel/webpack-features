@@ -1,4 +1,4 @@
-import presetReact from '../presets/react';
+import presetReact from '../react';
 
 describe(`presetReact`, () => {
   it(`should be good`, () => {
