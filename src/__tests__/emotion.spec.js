@@ -4,8 +4,8 @@ import { callFeature } from './helpers';
 
 describe(`emotion`, () => {
   it(`should add emotion to the plugins list of the babel-loader's options`, () => {
-    expect(
-      callFeature(javascript, {}, [emotion()]).use[0].options.plugins
-    ).toMatchSnapshot();
+    const result = callFeature(javascript, {}, [emotion()]).module.rules[0]
+      .use[0].options.plugins;
+    expect(result).toMatchSnapshot();
   });
 });
