@@ -4,7 +4,7 @@ module.exports = ({ target, production }) => ({
   plugins: [
     require('precss'),
     require('autoprefixer')({
-      browsers: getTargetValue(target),
+      [target.name]: getTargetValue(target),
     }),
   ],
   sourceMap: !production,
