@@ -1,51 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createBabelEnvPresetOptions should correctly use overrides 1`] = `
-Object {
-  "modules": "umd",
-  "targets": Object {
-    "browsers": Array [
-      "last 2 Chrome versions",
-      "not Chrome < 60",
-      "last 2 Safari versions",
-      "not Safari < 10.1",
-      "last 2 iOS versions",
-      "not iOS < 10.3",
-      "last 2 Firefox versions",
-      "not Firefox < 54",
-      "last 2 Edge versions",
-      "not Edge < 15",
-    ],
-  },
-  "useBuiltIns": false,
-}
-`;
-
-exports[`createBabelEnvPresetOptions should provide correct options if both browser and node targets are on 1`] = `
-Object {
-  "modules": "commonjs",
-  "targets": Object {
-    "browsers": Array [
-      "last 2 Chrome versions",
-      "not Chrome < 60",
-      "last 2 Safari versions",
-      "not Safari < 10.1",
-      "last 2 iOS versions",
-      "not iOS < 10.3",
-      "last 2 Firefox versions",
-      "not Firefox < 54",
-      "last 2 Edge versions",
-      "not Edge < 15",
-    ],
-    "node": "8.4",
-  },
-  "useBuiltIns": true,
-}
-`;
-
 exports[`createBabelEnvPresetOptions should set a correct node target 1`] = `"7.2"`;
 
-exports[`createBabelEnvPresetOptions should set a default node target if one is not provided 1`] = `"8.4"`;
+exports[`createBabelEnvPresetOptions should set a default node target for \`true\` 1`] = `"8.4"`;
 
 exports[`createBabelEnvPresetOptions should set correct legacy browsers targets 1`] = `
 Array [
@@ -70,7 +27,7 @@ Array [
 ]
 `;
 
-exports[`createBabelEnvPresetOptions should use modern browsers list for truthy \`browsers\` values 1`] = `
+exports[`createBabelEnvPresetOptions should use modern browsers list for \`true\` value 1`] = `
 Array [
   "last 2 Chrome versions",
   "not Chrome < 60",

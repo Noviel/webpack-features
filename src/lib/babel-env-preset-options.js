@@ -1,42 +1,22 @@
-import { getBrowsers, getNode } from './targets';
+// @flow
+import { getTargetValue } from './targets';
+import type { Target } from './types';
 
-const createBabelEnvPresetOptions = (
-  {
-    browsers = false,
-    node = false,
-    modules = !!node ? 'commonjs' : false,
-  } = {},
-  overrides
-) => {
-  if (!browsers && !node) {
-    throw new Error(
-      `Incorrect targets - either 'browsers' or 'node' should be selected`
-    );
-  }
+type Options = {
+  target: Target,
+  modules: false | string,
+};
 
-  const targets = {};
-
-  if (browsers) {
-    const browsersTarget = getBrowsers(browsers);
-
-    if (!browsersTarget) {
-      throw new Error(
-        `Wrong browsers targets. Expected ${'"legacy"'}|${'"modern"'}|boolean|string but got ${browsers}`
-      );
-    }
-
-    targets.browsers = browsersTarget;
-  }
-
-  if (node) {
-    targets.node = getNode(node);
-  }
+const createBabelEnvPresetOptions = (options: Options): { [string]: any } => {
+  const { target, modules = target.name === 'node' ? 'commonjs' : false } =
+    options || {};
 
   return {
-    targets,
+    targets: {
+      [target.name]: getTargetValue(target),
+    },
     modules,
     useBuiltIns: true,
-    ...overrides,
   };
 };
 

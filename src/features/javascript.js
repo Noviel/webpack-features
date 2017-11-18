@@ -20,7 +20,7 @@ export default (
     modules = false,
     react = true,
     syntaxExtend = true,
-    hot = !env.production && !!env.target.browsers,
+    hot = !env.production && env.target.name === 'browsers',
     babelPlugins = [],
   } = {},
   { plugins = [], next }
@@ -37,7 +37,7 @@ export default (
           options: {
             babelrc: false,
             presets: createPresetsList({
-              env: { ...target, modules },
+              env: { target, modules },
               react,
               flow,
             }),

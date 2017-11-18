@@ -3,7 +3,7 @@ import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 module.exports = (
   { target },
-  { vendor = !!target.browsers, manifest = vendor, uglify = true } = {}
+  { vendor = target.name === 'browsers', manifest = vendor, uglify = true } = {}
 ) => ({
   plugins: []
     .concat(

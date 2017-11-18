@@ -4,7 +4,7 @@ import applyPlugins from '../lib/apply-plugins';
 export default (
   { target, production, rootPath, distPath, publicPath },
   {
-    filename = production && !!target.browsers
+    filename = production && target.name === 'browsers'
       ? '[name].[chunkhash].js'
       : '[name].js',
     chunkFilename = production
@@ -21,7 +21,7 @@ export default (
       crossOriginLoading: production ? false : 'anonymous',
       path: path.resolve(rootPath, distPath),
       // use `/` as a public path for node
-      publicPath: !target.browsers ? '/' : publicPath,
+      publicPath: target.name === 'node' ? '/' : publicPath,
       filename,
       chunkFilename,
     },

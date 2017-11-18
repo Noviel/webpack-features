@@ -1,7 +1,7 @@
 // @flow
 import webpack from 'webpack';
 
-import type { Env, ExtendOption } from '../lib/types';
+import type { Env, PluginExtendOptions } from '../lib/types';
 
 export type options = {|
   $prefix: string,
@@ -20,7 +20,7 @@ export default (
     NODE_ENV = production ? 'production' : 'development',
     ...defines
   }: options = {},
-  { plugins = [], next }: ExtendOption
+  { plugins = [], next }: PluginExtendOptions
 ): result => {
   const definitions = {};
 

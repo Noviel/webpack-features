@@ -1,31 +1,6 @@
 import entry from '../entry';
 
-const envs = {
-  modernBrowsersDev: {
-    target: { browsers: 'modern' },
-    production: false,
-  },
-
-  modernBrowsersProd: {
-    target: { browsers: 'modern' },
-    production: true,
-  },
-
-  legacyBrowsersDev: {
-    target: { browsers: 'legacy' },
-    production: false,
-  },
-
-  legacyBrowsersProd: {
-    target: { browsers: 'legacy' },
-    production: true,
-  },
-
-  nodeProd: {
-    target: { node: 'current' },
-    production: true,
-  },
-};
+import { envs } from '../../fixtures';
 
 describe('entry', () => {
   describe('should produce correct entries with default options', () => {

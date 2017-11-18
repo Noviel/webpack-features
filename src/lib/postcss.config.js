@@ -1,10 +1,10 @@
-import { getBrowsers } from './targets';
+import { getTargetValue } from './targets';
 
 module.exports = ({ target, production }) => ({
   plugins: [
     require('precss'),
     require('autoprefixer')({
-      browsers: getBrowsers(target.browsers) || '',
+      browsers: getTargetValue(target),
     }),
   ],
   sourceMap: !production,

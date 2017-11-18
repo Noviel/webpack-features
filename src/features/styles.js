@@ -22,7 +22,7 @@ const createRule = (
   /* eslint-enable no-useless-escape */
 
   const cssLoader = {
-    loader: `css-loader${target.node ? '/locals' : ''}`,
+    loader: `css-loader${target.name === 'node' ? '/locals' : ''}`,
     options: {
       sourceMap: !production,
       minimize: production,
@@ -68,7 +68,7 @@ const createRule = (
       fallback: 'style-loader',
       use: loaders,
     });
-  } else if (target.browsers) {
+  } else if (target.name === 'browsers') {
     loaders.unshift(styleLoader);
   }
 
@@ -84,7 +84,7 @@ export default (
   {
     preprocessors = ['css'],
     cssModules = 'both',
-    extract = env.target.browsers && env.production,
+    extract = env.target.name === 'browsers' && env.production,
     extractPlugin = extract,
     extractFilename = '[name].[contenthash].css',
     postcss = require('../lib/postcss.config.js'),

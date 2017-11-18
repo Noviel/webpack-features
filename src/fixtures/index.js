@@ -1,28 +1,66 @@
+// @flow
 import applyPlugins from '../lib/apply-plugins';
 
-export const envs = {
+import type { Env, Target } from '../lib/types';
+
+export const targets: { [string]: { [string]: Target } } = {
+  browsers: {
+    trueValue: {
+      name: 'browsers',
+      value: true,
+    },
+    modern: {
+      name: 'browsers',
+      value: 'modern',
+    },
+    legacy: {
+      name: 'browsers',
+      value: 'legacy',
+    },
+    custom: {
+      name: 'browsers',
+      value: 'Chrome > 60',
+    },
+  },
+  node: {
+    trueValue: {
+      name: 'node',
+      value: true,
+    },
+    current: {
+      name: 'node',
+      value: 'current',
+    },
+    custom: {
+      name: 'node',
+      value: '6.7.0',
+    },
+  },
+};
+
+export const envs: { [string]: Env } = {
   modernBrowsersDev: {
-    target: { browsers: 'modern' },
+    target: targets.browsers.modern,
     production: false,
   },
 
   modernBrowsersProd: {
-    target: { browsers: 'modern' },
+    target: targets.browsers.modern,
     production: true,
   },
 
   legacyBrowsersProd: {
-    target: { browsers: 'legacy' },
+    target: targets.browsers.legacy,
     production: true,
   },
 
   legacyBrowsersDev: {
-    target: { browsers: 'legacy' },
+    target: targets.browsers.legacy,
     production: false,
   },
 
   nodeProd: {
-    target: { node: 'current' },
+    target: targets.node.current,
     production: true,
   },
 };
@@ -30,21 +68,22 @@ export const envs = {
 export const defaultEnv = envs.modernBrowsersProd;
 
 export const callFeature = (
-  feature,
-  options = {},
-  plugins = [],
-  env = defaultEnv
+  feature: any,
+  options: any = {},
+  plugins: any = [],
+  env: Env = defaultEnv
 ) => feature(env, options, { plugins, next: applyPlugins });
 
-const targetName = target =>
-  target.browsers
-    ? `${target.browsers} browsers`
-    : target.node ? `${target.node} node` : 'unknown taget';
+const targetName = (target: Target): string => {
+  return `${typeof target.value === 'string'
+    ? `${target.value}`
+    : ''} ${target.name}`;
+};
 
-export const captionForEnv = env => {
+export const captionForEnv = (env: Env) => {
   return `for ${targetName(env.target)} in ${env.production
     ? 'production'
     : 'development'} mode`;
 };
 
-export const createTestForEnv = env => {};
+export const createTestForEnv = (env: Env) => {};

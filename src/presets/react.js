@@ -37,9 +37,12 @@ module.exports = (
     if (library) {
       throw new Error(`'library' should be used only for browsers target`);
     }
-    env.target = { node: 'current' };
+    env.target = { name: 'node', value: 'current' };
   } else if (browser) {
-    env.target = legacy ? { browsers: 'legacy' } : { browsers: 'modern' };
+    env.target = {
+      name: 'browsers',
+      value: legacy ? 'legacy' : 'modern',
+    };
   } else {
     throw new Error(
       `Target is not defined. Either 'browser' or 'node' should be true.`

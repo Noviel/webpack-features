@@ -10,8 +10,8 @@ export default (
   { target, production },
   entries,
   {
-    polyfill = target.browsers === 'legacy',
-    hot = !!(!production && target.browsers),
+    polyfill = target.name === 'browsers' && target.value === 'legacy',
+    hot = !production && target.name === 'browsers',
     react = true,
   } = {}
 ) => {

@@ -1,4 +1,7 @@
-const targets = {
+// @flow
+import type { TargetValue, Target } from './types';
+
+export const targets = {
   browsers: {
     modern: [
       'last 2 Chrome versions',
@@ -14,26 +17,24 @@ const targets = {
     ],
     legacy: ['> 1%', 'last 2 versions', 'Firefox ESR'],
   },
-  defaultNode: '8.4',
+  node: '8.4',
 };
 
-export function getBrowsers(value) {
-  if (value === true) {
-    value = 'modern';
+export function getTargetValue(target: Target): TargetValue {
+  if (target.value === true) {
+    if (target.name === 'node') {
+      return targets.node;
+    } else {
+      return targets.browsers['modern'];
+    }
+  } else {
+    if (
+      target.name === 'browsers' &&
+      (target.value === 'modern' || target.value === 'legacy')
+    ) {
+      return targets.browsers[target.value];
+    } else {
+      return target.value;
+    }
   }
-  if (value === 'legacy' || value === 'modern') {
-    return targets.browsers[value];
-  } else if (typeof value === 'string') {
-    return value;
-  }
-  return null;
-}
-
-export function getNode(value) {
-  if (value === true) {
-    return targets.defaultNode;
-  } else if (typeof value === 'string') {
-    return value;
-  }
-  return null;
 }
