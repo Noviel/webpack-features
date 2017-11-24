@@ -9,6 +9,22 @@ Object {
 }
 `;
 
+exports[`define should apply a plugin 1`] = `
+Object {
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+  ],
+  "target": Object {
+    "name": "browsers",
+    "value": "modern",
+  },
+}
+`;
+
 exports[`define should set a prefix for the every definition except NODE_ENV 1`] = `
 Object {
   "custom_prefix.VALUE": "500",

@@ -1,4 +1,6 @@
 // @flow
+export type Exact<T> = T & $Shape<T>;
+
 export type TargetInput = true | string;
 export type TargetValue = ?(string[] | string);
 
@@ -7,15 +9,15 @@ export type NodeTarget = { name: 'node', value: TargetInput };
 
 export type Target = NodeTarget | BrowsersTarget;
 
-export type Env = {|
+export type EnvInexact = {
   production: boolean,
   target: Target,
   rootPath?: string,
   publicPath?: string,
   distPath?: string,
-|};
+};
 
-export type Exact<T> = T & $Shape<T>;
+export type Env = Exact<EnvInexact>;
 
 export type Plugin = (Env, any) => any;
 

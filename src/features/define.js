@@ -1,36 +1,40 @@
 // @flow
 import webpack from 'webpack';
 
-import type { Env, PluginExtendOptions } from '../lib/types';
+import type { Exact, Env, PluginExtendOptions } from '../lib/types';
 
-export type options = {|
+type _Options = {
   $prefix: string,
   NODE_ENV: string,
   [string]: any,
-|};
+};
 
-export type result = {|
+export type Options = Exact<_Options>;
+
+export type Result = {|
   plugins: [webpack.DefinePlugin],
 |};
 
 export default (
-  { production }: Env,
+  env: Env,
   {
     $prefix = 'process.env.',
-    NODE_ENV = production ? 'production' : 'development',
+    NODE_ENV = env.production ? 'production' : 'development',
     ...defines
-  }: options = {},
-  { plugins = [], next }: PluginExtendOptions
-): result => {
+  }: Options = {},
+  { plugins, next }: PluginExtendOptions
+): Result => {
   const definitions = {};
 
   if (NODE_ENV) {
     definitions['process.env.NODE_ENV'] = JSON.stringify(NODE_ENV);
   }
 
-  Object.keys(defines).forEach(key => {
+  Object.keys(defines).forEach((key: string) => {
     definitions[`${$prefix}${key}`] = JSON.stringify(defines[key]);
   });
 
-  return { plugins: [new webpack.DefinePlugin(definitions)] };
+  return next(env, plugins, {
+    plugins: [new webpack.DefinePlugin(definitions)],
+  });
 };

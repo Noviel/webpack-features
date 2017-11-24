@@ -3,6 +3,12 @@ import applyPlugins from '../lib/apply-plugins';
 
 import type { Env, Target } from '../lib/types';
 
+const paths = {
+  rootPath: process.cwd(),
+  publicPath: '/',
+  distPath: 'dist',
+};
+
 export const targets: { [string]: { [string]: Target } } = {
   browsers: {
     trueValue: {
@@ -42,26 +48,31 @@ export const envs: { [string]: Env } = {
   modernBrowsersDev: {
     target: targets.browsers.modern,
     production: false,
+    ...paths,
   },
 
   modernBrowsersProd: {
     target: targets.browsers.modern,
     production: true,
+    ...paths,
   },
 
   legacyBrowsersProd: {
     target: targets.browsers.legacy,
     production: true,
+    ...paths,
   },
 
   legacyBrowsersDev: {
     target: targets.browsers.legacy,
     production: false,
+    ...paths,
   },
 
   nodeProd: {
     target: targets.node.current,
     production: true,
+    ...paths,
   },
 };
 

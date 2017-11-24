@@ -40,4 +40,13 @@ describe('define', () => {
         .definitions
     ).toMatchSnapshot();
   });
+
+  it(`should apply a plugin`, () => {
+    const plugin = (env, input) => ({
+      ...input,
+      target: env.target,
+    });
+
+    expect(callFeature(define, {}, [plugin])).toMatchSnapshot();
+  });
 });

@@ -1,8 +1,21 @@
-export default ({ extractStatic = false } = {}) => (
-  { target, production },
-  result
+// @flow
+import type { Env } from '../lib/types';
+
+type Options = {
+  extractStatic?: boolean,
+};
+
+type Input = {
+  module: {
+    rules: any,
+  },
+};
+
+export default ({ extractStatic = false }: Options = {}) => (
+  { target, production }: Env,
+  input: Input
 ) => {
-  const babelLoaders = result.module.rules[0].use.filter(
+  const babelLoaders = input.module.rules[0].use.filter(
     ({ loader }) => loader === 'babel-loader'
   );
 
@@ -15,5 +28,5 @@ export default ({ extractStatic = false } = {}) => (
     ]);
   }
 
-  return result;
+  return input;
 };

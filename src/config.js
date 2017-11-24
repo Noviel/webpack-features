@@ -1,3 +1,4 @@
+// @flow
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
@@ -12,7 +13,7 @@ import createMediaRule from './features/media';
 import createNamedModulesPlugins from './features/named-modules';
 import define from './features/define';
 
-import type { Env } from './lib/types';
+import type { Env, PluginExtendOptions } from './lib/types';
 
 const browser = () => ({
   node: {
@@ -30,31 +31,23 @@ const node = () => ({
 });
 
 export default (env: Env) => {
-  if (env.rootPath === undefined) {
-    env.rootPath = process.cwd();
-  }
-  if (env.publicPath === undefined) {
-    env.publicPath = '/';
-  }
-  if (env.distPath === undefined) {
-    env.distPath = 'dist';
-  }
-
   const features = {
-    output: { fn: addOutput },
-    javascript: { fn: createJSRule },
-    styles: { fn: initStyles },
-    media: { fn: createMediaRule },
-    entry: { fn: createEntry },
-    production: { fn: createProductionPlugins },
-    define: { fn: define },
-    namedModules: { fn: createNamedModulesPlugins },
-    browser: { fn: browser },
-    node: { fn: node },
+    output: addOutput,
+    javascript: createJSRule,
+    styles: initStyles,
+    media: createMediaRule,
+    entry: createEntry,
+    production: createProductionPlugins,
+    define,
+    namedModules: createNamedModulesPlugins,
+    browser,
+    node,
   };
 
-  const wrap = ({ fn }) => (options = {}, plugins = []) =>
-    fn(env, options, { plugins, next: applyPlugin });
+  const wrap = (fn: (Env, any, PluginExtendOptions) => any) => (
+    options: any = {},
+    plugins: any[] = []
+  ) => fn(env, options, { plugins, next: applyPlugin });
 
   const wrappedFeatures = Object.keys(features).reduce((acc, curr) => {
     acc[curr] = wrap(features[curr]);
@@ -62,9 +55,8 @@ export default (env: Env) => {
   }, {});
 
   return {
-    createConfig(...features) {
-      const config = merge(...features);
-      return config;
+    createConfig(...features: any[]) {
+      return merge(...features);
     },
 
     ...wrappedFeatures,
