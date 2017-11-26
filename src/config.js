@@ -2,7 +2,7 @@
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
-import applyPlugin from './lib/apply-plugins';
+import applyPlugin from './lib/applyPlugins';
 
 import createEntry from './features/entry';
 import createProductionPlugins from './features/production';
@@ -10,7 +10,7 @@ import addOutput from './features/output';
 import createJSRule from './features/javascript';
 import initStyles from './features/styles';
 import createMediaRule from './features/media';
-import createNamedModulesPlugins from './features/named-modules';
+import createNamedModulesPlugins from './features/namedModules';
 import define from './features/define';
 
 import type { Env, PluginExtendOptions } from './lib/types';

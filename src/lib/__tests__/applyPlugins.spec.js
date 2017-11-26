@@ -1,5 +1,5 @@
 // @flow
-import applyPlugins from '../apply-plugins';
+import applyPlugins from '../applyPlugins';
 import { defaultEnv, envs } from '../../fixtures';
 
 const configPart = { prop: 420 };

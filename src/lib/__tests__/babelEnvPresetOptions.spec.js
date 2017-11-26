@@ -1,4 +1,4 @@
-import createBEPO from '../babel-env-preset-options';
+import createBEPO from '../babelEnvPresetOptions';
 
 describe('createBabelEnvPresetOptions', () => {
   it('should set correct default values for unspecified parameters', () => {

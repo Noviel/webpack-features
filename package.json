@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -14,7 +14,7 @@
     "types": "flow",
     "prettify": "yarn run prettier --write \"{src,scripts}/**/*.js\"",
     "build": "rimraf dist/ && babel src --out-dir dist --ignore fixtures,__tests__,**/*.test.js,**/*.spec.js && yarn add-flow-types",
-    "add-flow-types": "node scripts/add-flow-types.js",
+    "add-flow-types": "node scripts/addFlowTypes.js",
     "prepublishOnly": "yarn prettify && yarn lint && yarn test && yarn build"
   },
   "engines": {
