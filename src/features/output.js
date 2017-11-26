@@ -1,5 +1,5 @@
 import path from 'path';
-import applyPlugins from '../lib/apply-plugins';
+import applyPlugins from '../lib/applyPlugins';
 
 export default (
   { target, production, rootPath, distPath, publicPath },

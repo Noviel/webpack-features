@@ -1,5 +1,5 @@
 // @flow
-import applyPlugins from '../lib/apply-plugins';
+import applyPlugins from '../lib/applyPlugins';
 
 import type { Env, Target } from '../lib/types';
 

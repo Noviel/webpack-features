@@ -1,4 +1,4 @@
-import createBabelEnvPresetOptions from '../lib/babel-env-preset-options';
+import createBabelEnvPresetOptions from '../lib/babelEnvPresetOptions';
 
 const syntaxExtendPlugins = [
   'transform-object-rest-spread',
