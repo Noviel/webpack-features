@@ -2,11 +2,13 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const createRule = (
   { production, target },
-  { preprocessor, cssModules, extract, postcss }
+  { preprocessor, cssModules, extract, postcss, exclude }
 ) => {
-  const options = {
-    exclude: [/node_modules/],
-  };
+  const options = {};
+
+  if (exclude) {
+    options.exclude = exclude;
+  }
 
   /* eslint-disable no-useless-escape */
   const extension =
@@ -88,6 +90,7 @@ export default (
     extractPlugin = extract,
     extractFilename = '[name].[contenthash].css',
     postcss = require('../lib/postcss.config.js'),
+    exclude = [/node_modules/],
   },
   { plugins, next }
 ) => {
@@ -107,6 +110,7 @@ export default (
       preprocessor,
       extract,
       postcss,
+      exclude,
     };
 
     if (useCSSModules) {

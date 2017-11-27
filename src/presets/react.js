@@ -20,6 +20,7 @@ module.exports = (
     rootPath = fs.realpathSync(process.cwd()),
     distPath = browser ? 'static/dist' : 'server',
     cssPreprocessor = null,
+    cssExclude = false,
     emotion = false,
     library = false,
     legacy = false,
@@ -72,6 +73,7 @@ module.exports = (
       styles({
         preprocessors: ['css'].concat(cssPreprocessor || []),
         extractFilename: library ? '[name].css' : undefined,
+        exclude: cssExclude,
       }),
       media(),
       namedModules(),

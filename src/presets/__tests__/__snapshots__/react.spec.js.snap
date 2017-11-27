@@ -62,9 +62,6 @@ Object {
         ],
       },
       Object {
-        "exclude": Array [
-          /node_modules/,
-        ],
         "test": /\\.module\\.css\\$\\$/i,
         "use": Array [
           Object {
@@ -94,9 +91,6 @@ Object {
         ],
       },
       Object {
-        "exclude": Array [
-          /node_modules/,
-        ],
         "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$\\$/i,
         "use": Array [
           Object {
@@ -281,9 +275,6 @@ Object {
         ],
       },
       Object {
-        "exclude": Array [
-          /node_modules/,
-        ],
         "test": /\\.module\\.css\\$\\$/i,
         "use": Array [
           Object {
@@ -313,9 +304,6 @@ Object {
         ],
       },
       Object {
-        "exclude": Array [
-          /node_modules/,
-        ],
         "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$\\$/i,
         "use": Array [
           Object {
