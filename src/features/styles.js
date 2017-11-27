@@ -1,5 +1,16 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+export const createTestRegExp = (preprocessor, cssModules) => {
+  /* eslint-disable no-useless-escape */
+  const extension = `\.${preprocessor || 'css'}`;
+
+  return new RegExp(
+    `${cssModules ? `\.module` : `^(?!.*\.module).*`}${extension}$`,
+    'i'
+  );
+  /* eslint-enable no-useless-escape */
+};
+
 const createRule = (
   { production, target },
   { preprocessor, cssModules, extract, postcss, exclude }
@@ -9,19 +20,6 @@ const createRule = (
   if (exclude) {
     options.exclude = exclude;
   }
-
-  /* eslint-disable no-useless-escape */
-  const extension =
-    preprocessor === 'scss'
-      ? `\.scss`
-      : preprocessor === 'less' ? `\.less` : `\.css$`;
-
-  const excludeModules = `^(?!.*\.module).*`;
-
-  const test = cssModules
-    ? new RegExp(`.module${extension}$`, 'i')
-    : new RegExp(`${excludeModules}${extension}$`, 'i');
-  /* eslint-enable no-useless-escape */
 
   const cssLoader = {
     loader: `css-loader${target.name === 'node' ? '/locals' : ''}`,
@@ -75,7 +73,7 @@ const createRule = (
   }
 
   return {
-    test,
+    test: createTestRegExp(preprocessor, cssModules),
     use: loaders,
     ...options,
   };

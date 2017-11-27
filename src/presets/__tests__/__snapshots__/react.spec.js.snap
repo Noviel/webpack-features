@@ -62,7 +62,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\.module\\.css\\$\\$/i,
+        "test": /\\.module\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -91,7 +91,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$\\$/i,
+        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -275,7 +275,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\.module\\.css\\$\\$/i,
+        "test": /\\.module\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -304,7 +304,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$\\$/i,
+        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
