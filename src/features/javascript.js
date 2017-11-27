@@ -22,6 +22,7 @@ export default (
     syntaxExtend = true,
     hot = !env.production && env.target.name === 'browsers',
     babelPlugins = [],
+    exclude = /node_modules/,
   } = {},
   { plugins = [], next }
 ) => {
@@ -29,7 +30,7 @@ export default (
   const rules = [
     {
       test: /\.jsx?$/,
-      exclude: /node_modules/,
+      exclude,
 
       use: []
         .concat({

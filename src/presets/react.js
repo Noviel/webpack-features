@@ -21,6 +21,7 @@ module.exports = (
     distPath = browser ? 'static/dist' : 'server',
     cssPreprocessor = null,
     cssExclude = false,
+    babelExclude = /node_modules/,
     emotion = false,
     library = false,
     legacy = false,
@@ -67,7 +68,9 @@ module.exports = (
     ...[
       createEntry(entry, { hot }),
       javascript(
-        {},
+        {
+          exclude: babelExclude,
+        },
         [].concat(emotion ? require('../plugins/emotion').default() : [])
       ),
       styles({

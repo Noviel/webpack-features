@@ -135,6 +135,7 @@ Parameters:
   - **flow**: `boolean`, should include `flow` support. **default**: true
   - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
   - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
+  - **exclude**: items to exclude from loading. **default**: `/node_modules/`
 
 ```javascript
 javascript({
@@ -327,8 +328,11 @@ presetReact(
     // - less
     cssPreprocessor = null,
 
-    // patterns to exclude from loader
+    // patterns to exclude from style loaders
     cssExclude = false,
+
+    // patterns to exclude from babel transformations
+    babelExclude = /node_modules/
 
     // string will be used as a library name,
     // allow to create React-based libraries
