@@ -90,7 +90,7 @@ export default (
     extractPlugin = extract,
     extractFilename = '[name].[contenthash].css',
     postcss = require('../lib/postcss.config.js'),
-    exclude = [/node_modules/],
+    exclude = false,
   },
   { plugins, next }
 ) => {
