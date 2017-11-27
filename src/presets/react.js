@@ -78,7 +78,9 @@ module.exports = (
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
       }),
-      media(),
+      media({
+        limit: library ? undefined : 10000,
+      }),
       namedModules(),
       define(defines),
       createProduction({

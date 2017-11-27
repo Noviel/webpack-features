@@ -1,4 +1,4 @@
-export default (env, { limit = 10000, name, ...rest } = {}) => {
+export default (env, { limit, name, ...rest } = {}) => {
   if (!name) {
     if (env.production) {
       name = 'media/[name].[hash:8].[ext]';
