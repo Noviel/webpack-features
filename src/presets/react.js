@@ -25,6 +25,7 @@ module.exports = (
     emotion = false,
     library = false,
     legacy = false,
+    externals = [],
   },
   extend = {}
 ) => {
@@ -62,6 +63,7 @@ module.exports = (
     namedModules,
     production: createProduction,
     node: createNode,
+    externals: createExternals,
   } = initFeatures(env);
 
   return createConfig(
@@ -89,26 +91,7 @@ module.exports = (
         uglify: browser && env.production,
       }),
       node ? createNode() : noopFeature(),
-      library
-        ? {
-            externals: [
-              {
-                react: {
-                  root: 'React',
-                  commonjs2: 'react',
-                  commonjs: 'react',
-                  amd: 'react',
-                },
-                'react-dom': {
-                  root: 'ReactDOM',
-                  commonjs2: 'react-dom',
-                  commonjs: 'react-dom',
-                  amd: 'react-dom',
-                },
-              },
-            ],
-          }
-        : noopFeature(),
+      createExternals({ react: library }),
       output({
         library,
         filename: library ? '[name].js' : undefined,

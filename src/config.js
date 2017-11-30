@@ -1,6 +1,5 @@
 // @flow
 import merge from 'webpack-merge';
-import nodeExternals from 'webpack-node-externals';
 
 import applyPlugin from './lib/applyPlugins';
 
@@ -12,6 +11,7 @@ import initStyles from './features/styles';
 import createMediaRule from './features/media';
 import createNamedModulesPlugins from './features/namedModules';
 import define from './features/define';
+import externals from './features/externals';
 
 import type { Env, PluginExtendOptions } from './lib/types';
 
@@ -27,7 +27,6 @@ const browser = () => ({
 
 const node = () => ({
   target: 'node',
-  externals: [nodeExternals()],
 });
 
 export default (env: Env) => {
@@ -42,6 +41,7 @@ export default (env: Env) => {
     namedModules: createNamedModulesPlugins,
     browser,
     node,
+    externals,
   };
 
   const wrap = (fn: (Env, any, PluginExtendOptions) => any) => (

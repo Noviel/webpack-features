@@ -19,6 +19,7 @@ Feature-based webpack configurator with built-in React support.
     - [node](#node)
     - [browser](#browser)
     - [define](#define)
+    - [externals](#externals)
   - Presets
     - [React](#react)
   - [Example](#example)
@@ -234,7 +235,7 @@ Parameters:
 
 ### node
 
-Should be included in the Webpack's config for node. It excludes `node_modules` from being bundled.
+Set Webpack's target to `node`.
 
 ```javascript
 node()
@@ -269,6 +270,35 @@ console.log(process.env.NODE_ENV)
 // -> will be transpiled to console.log('test')
 console.log(process.env.API_URL)
 // -> console.log('http://api-provider.com/')
+```
+
+### externals
+
+Add externals. Should be added to config for node to exclude `node_modules` from being bundled.
+
+```javascript
+externals(options)
+```
+
+Parameters:
+
+- **options**: `object`
+  - **react**: `boolean`, add react to externals. Usefull for libraries. **default**: `false`
+  - **list**: `array`, additional list of externals. **default**: `[]`
+
+```javascript
+externals({
+  react: true
+  list: [
+    {
+      lodash : {
+        commonjs: "lodash",
+        amd: "lodash",
+        root: "_" // indicates global variable
+      }
+    }
+  ]
+})
 ```
 
 ## Presets
@@ -340,6 +370,10 @@ presetReact(
 
     // should add polyfills for legacy browsers support
     legacy = false,
+
+    // list of external imports that should not be bundled
+    // for example: `node_modules` for node target will be added to externals automatically
+    externals = [],
   },
   // additional Webpack configuration. It will be merged with other options.
   extend = {}

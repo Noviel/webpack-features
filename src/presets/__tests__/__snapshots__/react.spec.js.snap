@@ -10,6 +10,7 @@ Object {
       "index.js",
     ],
   },
+  "externals": Array [],
   "module": Object {
     "rules": Array [
       Object {
@@ -217,6 +218,7 @@ Object {
       "index.js",
     ],
   },
+  "externals": Array [],
   "module": Object {
     "rules": Array [
       Object {
