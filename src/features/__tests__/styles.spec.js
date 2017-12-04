@@ -17,21 +17,6 @@ describe(`createTestRegExp`, () => {
       expect(test.test('index.less')).toBe(true);
       expect(test.test('some-filename.hash420.less')).toBe(true);
     });
-
-    it(`should not match filenames with '.module' before an extension`, () => {
-      let test = createTestRegExp('css', false);
-
-      expect(test.test('index.module.css')).toBe(false);
-      expect(test.test('some-filename.hash420.module.css')).toBe(false);
-
-      test = createTestRegExp('scss', false);
-      expect(test.test('index.module.scss')).toBe(false);
-      expect(test.test('some-filename.hash420.module.scss')).toBe(false);
-
-      test = createTestRegExp('less', false);
-      expect(test.test('index.module.less')).toBe(false);
-      expect(test.test('some-filename.hash420.module.less')).toBe(false);
-    });
   });
 
   describe(`cssModules is 'true'`, () => {

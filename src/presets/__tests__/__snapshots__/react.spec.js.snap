@@ -63,7 +63,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -75,7 +75,7 @@ Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
               "minimize": false,
-              "modules": true,
+              "modules": false,
               "sourceMap": true,
             },
           },
@@ -92,7 +92,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$/i,
+        "test": /\\.module\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -104,7 +104,7 @@ Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
               "minimize": false,
-              "modules": false,
+              "modules": true,
               "sourceMap": true,
             },
           },
@@ -277,7 +277,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -289,7 +289,7 @@ Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
               "minimize": false,
-              "modules": true,
+              "modules": false,
               "sourceMap": true,
             },
           },
@@ -306,7 +306,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?!\\.\\*\\.module\\)\\.\\*\\.css\\$/i,
+        "test": /\\.module\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -318,7 +318,7 @@ Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
               "minimize": false,
-              "modules": false,
+              "modules": true,
               "sourceMap": true,
             },
           },
