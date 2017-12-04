@@ -63,60 +63,64 @@ Object {
         ],
       },
       Object {
-        "test": /\\.css\\$/i,
-        "use": Array [
+        "oneOf": Array [
           Object {
-            "loader": "style-loader",
-            "options": Object {},
+            "test": /\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": false,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
           },
           Object {
-            "loader": "css-loader",
-            "options": Object {
-              "importLoaders": 1,
-              "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-              "minimize": false,
-              "modules": false,
-              "sourceMap": true,
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-              "sourceMap": true,
-            },
-          },
-        ],
-      },
-      Object {
-        "test": /\\.module\\.css\\$/i,
-        "use": Array [
-          Object {
-            "loader": "style-loader",
-            "options": Object {},
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "importLoaders": 1,
-              "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-              "minimize": false,
-              "modules": true,
-              "sourceMap": true,
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-              "sourceMap": true,
-            },
+            "test": /\\.module\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": true,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
           },
         ],
       },
@@ -277,60 +281,64 @@ Object {
         ],
       },
       Object {
-        "test": /\\.css\\$/i,
-        "use": Array [
+        "oneOf": Array [
           Object {
-            "loader": "style-loader",
-            "options": Object {},
+            "test": /\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": false,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
           },
           Object {
-            "loader": "css-loader",
-            "options": Object {
-              "importLoaders": 1,
-              "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-              "minimize": false,
-              "modules": false,
-              "sourceMap": true,
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-              "sourceMap": true,
-            },
-          },
-        ],
-      },
-      Object {
-        "test": /\\.module\\.css\\$/i,
-        "use": Array [
-          Object {
-            "loader": "style-loader",
-            "options": Object {},
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "importLoaders": 1,
-              "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-              "minimize": false,
-              "modules": true,
-              "sourceMap": true,
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-              "sourceMap": true,
-            },
+            "test": /\\.module\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": true,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
           },
         ],
       },
