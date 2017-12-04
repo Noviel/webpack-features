@@ -65,7 +65,7 @@ const createRule = (
       fallback: 'style-loader',
       use: loaders,
     });
-  } else {
+  } else if (target.name === 'browsers') {
     loaders.unshift(styleLoader);
   }
 
