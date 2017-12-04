@@ -17,8 +17,18 @@ const reactExternals = [
   },
 ];
 
-export default ({ target, production }, { react = false, list = [] }) => {
-  const builtInExternals = target.name === 'node' ? [nodeExternals()] : [];
+export default (
+  { target, production },
+  { react = false, list = [], whitelist = [/\.(?!(?:jsx?|json)$).{1,5}$/i] }
+) => {
+  const builtInExternals =
+    target.name === 'node'
+      ? [
+          nodeExternals({
+            whitelist,
+          }),
+        ]
+      : [];
 
   return {
     externals: builtInExternals

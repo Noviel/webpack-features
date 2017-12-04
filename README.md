@@ -285,6 +285,7 @@ Parameters:
 - **options**: `object`
   - **react**: `boolean`, add react to externals. Usefull for libraries. **default**: `false`
   - **list**: `array`, additional list of externals. **default**: `[]`
+  - **whitelist**: `array`, these entries will be bundled. **default**: `[/\.(?!(?:jsx?|json)$).{1,5}$/i]` to bundle any non-JS files from `node_modules`
 
 ```javascript
 externals({
