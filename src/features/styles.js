@@ -108,12 +108,12 @@ export default (
       exclude,
     };
 
-    if (useGlobalCSS) {
-      options.cssModules = false;
-      rules.push(createRule(env, options));
-    }
     if (useCSSModules) {
       options.cssModules = true;
+      rules.push(createRule(env, options));
+    }
+    if (useGlobalCSS) {
+      options.cssModules = false;
       rules.push(createRule(env, options));
     }
   });
