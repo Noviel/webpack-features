@@ -10,6 +10,10 @@ Object {
             "test": /\\.module\\.css\\$/i,
             "use": Array [
               Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
                 "loader": "css-loader/locals",
                 "options": Object {
                   "importLoaders": 1,
@@ -34,6 +38,10 @@ Object {
           Object {
             "test": /\\.css\\$/i,
             "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
               Object {
                 "loader": "css-loader/locals",
                 "options": Object {
