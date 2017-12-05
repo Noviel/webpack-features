@@ -12,141 +12,143 @@ Object {
   },
   "externals": Array [],
   "module": Object {
-    "rules": Object {
-      "oneOf": Array [
-        Object {
-          "exclude": /node_modules/,
-          "test": /\\\\\\.jsx\\?\\$/,
-          "use": Array [
-            Object {
-              "loader": "babel-loader",
-              "options": Object {
-                "babelrc": false,
-                "plugins": Array [
-                  "react-hot-loader/babel",
-                  "transform-object-rest-spread",
-                  "transform-class-properties",
-                  "syntax-dynamic-import",
-                  "transform-es2015-classes",
-                  "transform-react-jsx-source",
-                ],
-                "presets": Array [
-                  Array [
-                    "env",
-                    Object {
-                      "modules": false,
-                      "targets": Object {
-                        "browsers": Array [
-                          "last 2 Chrome versions",
-                          "not Chrome < 60",
-                          "last 2 Safari versions",
-                          "not Safari < 10.1",
-                          "last 2 iOS versions",
-                          "not iOS < 10.3",
-                          "last 2 Firefox versions",
-                          "not Firefox < 54",
-                          "last 2 Edge versions",
-                          "not Edge < 15",
-                        ],
-                      },
-                      "useBuiltIns": true,
-                    },
+    "rules": Array [
+      Object {
+        "oneOf": Array [
+          Object {
+            "exclude": /node_modules/,
+            "test": /\\\\\\.jsx\\?\\$/,
+            "use": Array [
+              Object {
+                "loader": "babel-loader",
+                "options": Object {
+                  "babelrc": false,
+                  "plugins": Array [
+                    "react-hot-loader/babel",
+                    "transform-object-rest-spread",
+                    "transform-class-properties",
+                    "syntax-dynamic-import",
+                    "transform-es2015-classes",
+                    "transform-react-jsx-source",
                   ],
-                  "react",
-                  "flow",
-                ],
+                  "presets": Array [
+                    Array [
+                      "env",
+                      Object {
+                        "modules": false,
+                        "targets": Object {
+                          "browsers": Array [
+                            "last 2 Chrome versions",
+                            "not Chrome < 60",
+                            "last 2 Safari versions",
+                            "not Safari < 10.1",
+                            "last 2 iOS versions",
+                            "not iOS < 10.3",
+                            "last 2 Firefox versions",
+                            "not Firefox < 54",
+                            "last 2 Edge versions",
+                            "not Edge < 15",
+                          ],
+                        },
+                        "useBuiltIns": true,
+                      },
+                    ],
+                    "react",
+                    "flow",
+                  ],
+                },
               },
-            },
-            Object {
-              "loader": "eslint-loader",
-              "options": Object {},
-            },
-          ],
-        },
-        Object {
-          "test": /\\.module\\.css\\$/i,
-          "use": Array [
-            Object {
-              "loader": "style-loader",
-              "options": Object {},
-            },
-            Object {
-              "loader": "css-loader",
+              Object {
+                "loader": "eslint-loader",
+                "options": Object {},
+              },
+            ],
+          },
+          Object {
+            "test": /\\.module\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": true,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
+          },
+          Object {
+            "test": /\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": false,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
+          },
+          Object {
+            "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+            "use": Object {
+              "loader": "url-loader",
               "options": Object {
-                "importLoaders": 1,
-                "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-                "minimize": false,
-                "modules": true,
-                "sourceMap": true,
+                "emitFile": true,
+                "limit": 10000,
+                "name": "[name].[ext]",
+                "publicPath": "/",
               },
-            },
-            Object {
-              "loader": "postcss-loader",
-              "options": Object {
-                "plugins": Array [
-                  [Function],
-                  [Function],
-                ],
-                "sourceMap": true,
-              },
-            },
-          ],
-        },
-        Object {
-          "test": /\\.css\\$/i,
-          "use": Array [
-            Object {
-              "loader": "style-loader",
-              "options": Object {},
-            },
-            Object {
-              "loader": "css-loader",
-              "options": Object {
-                "importLoaders": 1,
-                "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-                "minimize": false,
-                "modules": false,
-                "sourceMap": true,
-              },
-            },
-            Object {
-              "loader": "postcss-loader",
-              "options": Object {
-                "plugins": Array [
-                  [Function],
-                  [Function],
-                ],
-                "sourceMap": true,
-              },
-            },
-          ],
-        },
-        Object {
-          "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
-          "use": Object {
-            "loader": "url-loader",
-            "options": Object {
-              "emitFile": true,
-              "limit": 10000,
-              "name": "[name].[ext]",
-              "publicPath": "/",
             },
           },
-        },
-        Object {
-          "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
-          "use": Object {
-            "loader": "file-loader",
-            "options": Object {
-              "emitFile": true,
-              "limit": 10000,
-              "name": "[name].[ext]",
-              "publicPath": "/",
+          Object {
+            "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
+            "use": Object {
+              "loader": "file-loader",
+              "options": Object {
+                "emitFile": true,
+                "limit": 10000,
+                "name": "[name].[ext]",
+                "publicPath": "/",
+              },
             },
           },
-        },
-      ],
-    },
+        ],
+      },
+    ],
   },
   "output": Object {
     "chunkFilename": "[name].chunk.js",
@@ -222,147 +224,149 @@ Object {
   },
   "externals": Array [],
   "module": Object {
-    "rules": Object {
-      "oneOf": Array [
-        Object {
-          "exclude": /node_modules/,
-          "test": /\\\\\\.jsx\\?\\$/,
-          "use": Array [
-            Object {
-              "loader": "babel-loader",
-              "options": Object {
-                "babelrc": false,
-                "plugins": Array [
-                  Array [
-                    "emotion",
-                    Object {
-                      "extractStatic": false,
-                    },
-                  ],
-                  "react-hot-loader/babel",
-                  "transform-object-rest-spread",
-                  "transform-class-properties",
-                  "syntax-dynamic-import",
-                  "transform-es2015-classes",
-                  "transform-react-jsx-source",
-                ],
-                "presets": Array [
-                  Array [
-                    "env",
-                    Object {
-                      "modules": false,
-                      "targets": Object {
-                        "browsers": Array [
-                          "last 2 Chrome versions",
-                          "not Chrome < 60",
-                          "last 2 Safari versions",
-                          "not Safari < 10.1",
-                          "last 2 iOS versions",
-                          "not iOS < 10.3",
-                          "last 2 Firefox versions",
-                          "not Firefox < 54",
-                          "last 2 Edge versions",
-                          "not Edge < 15",
-                        ],
+    "rules": Array [
+      Object {
+        "oneOf": Array [
+          Object {
+            "exclude": /node_modules/,
+            "test": /\\\\\\.jsx\\?\\$/,
+            "use": Array [
+              Object {
+                "loader": "babel-loader",
+                "options": Object {
+                  "babelrc": false,
+                  "plugins": Array [
+                    Array [
+                      "emotion",
+                      Object {
+                        "extractStatic": false,
                       },
-                      "useBuiltIns": true,
-                    },
+                    ],
+                    "react-hot-loader/babel",
+                    "transform-object-rest-spread",
+                    "transform-class-properties",
+                    "syntax-dynamic-import",
+                    "transform-es2015-classes",
+                    "transform-react-jsx-source",
                   ],
-                  "react",
-                  "flow",
-                ],
+                  "presets": Array [
+                    Array [
+                      "env",
+                      Object {
+                        "modules": false,
+                        "targets": Object {
+                          "browsers": Array [
+                            "last 2 Chrome versions",
+                            "not Chrome < 60",
+                            "last 2 Safari versions",
+                            "not Safari < 10.1",
+                            "last 2 iOS versions",
+                            "not iOS < 10.3",
+                            "last 2 Firefox versions",
+                            "not Firefox < 54",
+                            "last 2 Edge versions",
+                            "not Edge < 15",
+                          ],
+                        },
+                        "useBuiltIns": true,
+                      },
+                    ],
+                    "react",
+                    "flow",
+                  ],
+                },
               },
-            },
-            Object {
-              "loader": "eslint-loader",
-              "options": Object {},
-            },
-          ],
-        },
-        Object {
-          "test": /\\.module\\.css\\$/i,
-          "use": Array [
-            Object {
-              "loader": "style-loader",
-              "options": Object {},
-            },
-            Object {
-              "loader": "css-loader",
+              Object {
+                "loader": "eslint-loader",
+                "options": Object {},
+              },
+            ],
+          },
+          Object {
+            "test": /\\.module\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": true,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
+          },
+          Object {
+            "test": /\\.css\\$/i,
+            "use": Array [
+              Object {
+                "loader": "style-loader",
+                "options": Object {},
+              },
+              Object {
+                "loader": "css-loader",
+                "options": Object {
+                  "importLoaders": 1,
+                  "localIdentName": "[path][name]__[local]--[hash:base64:5]",
+                  "minimize": false,
+                  "modules": false,
+                  "sourceMap": true,
+                },
+              },
+              Object {
+                "loader": "postcss-loader",
+                "options": Object {
+                  "plugins": Array [
+                    [Function],
+                    [Function],
+                  ],
+                  "sourceMap": true,
+                },
+              },
+            ],
+          },
+          Object {
+            "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+            "use": Object {
+              "loader": "url-loader",
               "options": Object {
-                "importLoaders": 1,
-                "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-                "minimize": false,
-                "modules": true,
-                "sourceMap": true,
+                "emitFile": true,
+                "limit": 10000,
+                "name": "[name].[ext]",
+                "publicPath": "/",
               },
-            },
-            Object {
-              "loader": "postcss-loader",
-              "options": Object {
-                "plugins": Array [
-                  [Function],
-                  [Function],
-                ],
-                "sourceMap": true,
-              },
-            },
-          ],
-        },
-        Object {
-          "test": /\\.css\\$/i,
-          "use": Array [
-            Object {
-              "loader": "style-loader",
-              "options": Object {},
-            },
-            Object {
-              "loader": "css-loader",
-              "options": Object {
-                "importLoaders": 1,
-                "localIdentName": "[path][name]__[local]--[hash:base64:5]",
-                "minimize": false,
-                "modules": false,
-                "sourceMap": true,
-              },
-            },
-            Object {
-              "loader": "postcss-loader",
-              "options": Object {
-                "plugins": Array [
-                  [Function],
-                  [Function],
-                ],
-                "sourceMap": true,
-              },
-            },
-          ],
-        },
-        Object {
-          "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
-          "use": Object {
-            "loader": "url-loader",
-            "options": Object {
-              "emitFile": true,
-              "limit": 10000,
-              "name": "[name].[ext]",
-              "publicPath": "/",
             },
           },
-        },
-        Object {
-          "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
-          "use": Object {
-            "loader": "file-loader",
-            "options": Object {
-              "emitFile": true,
-              "limit": 10000,
-              "name": "[name].[ext]",
-              "publicPath": "/",
+          Object {
+            "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
+            "use": Object {
+              "loader": "file-loader",
+              "options": Object {
+                "emitFile": true,
+                "limit": 10000,
+                "name": "[name].[ext]",
+                "publicPath": "/",
+              },
             },
           },
-        },
-      ],
-    },
+        ],
+      },
+    ],
   },
   "output": Object {
     "chunkFilename": "[name].chunk.js",
