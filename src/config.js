@@ -56,7 +56,13 @@ export default (env: Env) => {
 
   return {
     createConfig(...features: any[]) {
-      return merge(...features);
+      const config = merge(...features);
+      const rules = [...config.module.rules];
+      config.module.rules = {
+        oneOf: rules,
+      };
+
+      return config;
     },
 
     ...wrappedFeatures,

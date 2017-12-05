@@ -128,11 +128,7 @@ export default (
 
   return next(env, plugins, {
     module: {
-      rules: [
-        {
-          oneOf: rules,
-        },
-      ],
+      rules,
     },
     plugins: webpackPlugins,
   });
