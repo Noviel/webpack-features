@@ -92,7 +92,7 @@ module.exports = (
         uglify: browser && env.production,
       }),
       node ? createNode() : noopFeature(),
-      createExternals({ react: library, list: externals }),
+      createExternals({ react: library, list: externals, modulesDir }),
       output({
         library,
         filename: library ? '[name].js' : undefined,
