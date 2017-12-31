@@ -19,12 +19,18 @@ const reactExternals = [
 
 export default (
   { target, production },
-  { react = false, list = [], whitelist = [/\.(?!(?:jsx?|json)$).{1,5}$/i] }
+  {
+    react = false,
+    list = [],
+    whitelist = [/\.(?!(?:jsx?|json)$).{1,5}$/i],
+    modulesDir = 'node_modules',
+  }
 ) => {
   const builtInExternals =
     target.name === 'node'
       ? [
           nodeExternals({
+            modulesDir,
             whitelist,
           }),
         ]

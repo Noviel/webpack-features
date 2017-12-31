@@ -26,6 +26,7 @@ module.exports = (
     library = false,
     legacy = false,
     externals = [],
+    modulesDir = 'node_modules',
   },
   extend = {}
 ) => {

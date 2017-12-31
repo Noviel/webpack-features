@@ -286,6 +286,7 @@ Parameters:
   - **react**: `boolean`, add react to externals. Usefull for libraries. **default**: `false`
   - **list**: `array`, additional list of externals. **default**: `[]`
   - **whitelist**: `array`, these entries will be bundled. **default**: `[/\.(?!(?:jsx?|json)$).{1,5}$/i]` to bundle any non-JS files from `node_modules`
+  - **modulesDir**: `string`, path to `node_modules`. **default**: `node_modules`
 
 ```javascript
 externals({
@@ -375,6 +376,9 @@ presetReact(
     // list of external imports that should not be bundled
     // for example: `node_modules` for node target will be added to externals automatically
     externals = [],
+
+    // path to `node_modules` to exclude them if needed
+    modulesDir = 'node_modules'
   },
   // additional Webpack configuration. It will be merged with other options.
   extend = {}
