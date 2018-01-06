@@ -86,15 +86,15 @@ export const callFeature = (
 ) => feature(env, options, { plugins, next: applyPlugins });
 
 const targetName = (target: Target): string => {
-  return `${typeof target.value === 'string'
-    ? `${target.value}`
-    : ''} ${target.name}`;
+  return `${typeof target.value === 'string' ? `${target.value}` : ''} ${
+    target.name
+  }`;
 };
 
 export const captionForEnv = (env: Env) => {
-  return `for ${targetName(env.target)} in ${env.production
-    ? 'production'
-    : 'development'} mode`;
+  return `for ${targetName(env.target)} in ${
+    env.production ? 'production' : 'development'
+  } mode`;
 };
 
 export const createTestForEnv = (env: Env) => {};

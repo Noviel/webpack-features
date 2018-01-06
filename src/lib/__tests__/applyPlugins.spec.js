@@ -29,14 +29,12 @@ describe(`applyPlugins`, () => {
   });
 
   it(`should correctly apply multiple plugins`, () => {
-    const plugins = [
-      100,
-      'universe',
-      { inner: 'Magnolia' },
-    ].map((value, index) => (env, result) => ({
-      ...result,
-      [`propFromPlugin${index}`]: value,
-    }));
+    const plugins = [100, 'universe', { inner: 'Magnolia' }].map(
+      (value, index) => (env, result) => ({
+        ...result,
+        [`propFromPlugin${index}`]: value,
+      })
+    );
 
     expect(applyPlugins(defaultEnv, plugins, configPart)).toEqual({
       prop: 420,

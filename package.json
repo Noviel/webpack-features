@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.2.10",
+  "version": "3.2.11",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -36,8 +36,8 @@
   "devDependencies": {
     "cross-env": "^5.0.5",
     "eslint-config-dqnt": "^2.1.0",
-    "flow-bin": "^0.59.0",
-    "jest": "^21.2.1",
+    "flow-bin": "^0.62.0",
+    "jest": "^22.0.4",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.1",
     "webpack": "^3.8.1"

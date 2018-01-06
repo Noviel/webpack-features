@@ -20,9 +20,3 @@ Object {
   ],
 }
 `;
-
-exports[`externals should apply custom 'node_modules' path 1`] = `
-Array [
-  [Function],
-]
-`;
