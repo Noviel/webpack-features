@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.2.12",
+  "version": "3.2.13",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "cross-env": "^5.0.5",
+    "eslint": "^4.15.0",
     "eslint-config-dqnt": "^2.1.0",
     "flow-bin": "^0.62.0",
     "jest": "^22.0.4",
@@ -58,7 +59,6 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
-    "eslint": "^4.10.0",
     "eslint-loader": "^1.9.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
