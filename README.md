@@ -148,14 +148,14 @@ javascript({
 
 ### styles
 
-Adds support for CSS, Scss and less files.
+Adds support for CSS and optionally for Scss and less.
 
 `styles(options)`
 
 Parameters:
 
 - **options**: object
-  - **preprocessors** - `array of strings`, can include `'css'`, `'scss'`, `'less'`. **default**: ['css']
+  - **preprocessors** - `array of strings`, can include `'scss'`, `'less'`. **default**: []
   - **cssModules** - one of: `'both'` - use global CSS and CSS Modules, `'only'` - only CSS Modules, `'exclude'` - only global CSS. **default**: 'both'
   - **extract** - `boolean`, should extract styles to external file. **default**: true if `production` and browsers target
   - **extractPlugin** - `boolean`, should use `extract-text-webpack-plugin`. **default**: same as **extract**
@@ -167,7 +167,7 @@ Parameters:
 
 ```javascript
 styles({
-  preprocessors: ['css', 'scss'],
+  preprocessors: ['scss'],
   cssModules: 'only',
   extract: false,
 
@@ -357,7 +357,7 @@ presetReact(
     // should be an array of strings
     // empty array - vanilla CSS
     // can contain 'scss' and 'less'
-    cssPreprocessors = null,
+    cssPreprocessors = [],
 
     // patterns to exclude from style loaders
     cssExclude = false,

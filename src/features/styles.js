@@ -79,7 +79,7 @@ const createRule = (
 export default (
   env,
   {
-    preprocessors = ['css'],
+    preprocessors = [],
     cssModules = 'both',
     extract = env.target.name === 'browsers' && env.production,
     extractPlugin = extract,
@@ -91,6 +91,10 @@ export default (
 ) => {
   const rules = [];
   const webpackPlugins = [];
+
+  if (preprocessors.indexOf('css') < 0) {
+    preprocessors.unshift('css');
+  }
 
   if (postcss) {
     postcss = postcss(env);

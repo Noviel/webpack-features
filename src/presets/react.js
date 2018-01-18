@@ -77,7 +77,7 @@ module.exports = (
         [].concat(emotion ? require('../plugins/emotion').default() : [])
       ),
       styles({
-        preprocessors: ['css'].concat(cssPreprocessors),
+        preprocessors: cssPreprocessors,
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
       }),
