@@ -25,15 +25,15 @@ Object {
                   "babelrc": false,
                   "plugins": Array [
                     "react-hot-loader/babel",
-                    "transform-object-rest-spread",
-                    "transform-class-properties",
-                    "syntax-dynamic-import",
-                    "transform-es2015-classes",
-                    "transform-react-jsx-source",
+                    "@babel/plugin-proposal-object-rest-spread",
+                    "@babel/plugin-proposal-class-properties",
+                    "@babel/plugin-syntax-dynamic-import",
+                    "@babel/transform-classes",
+                    "@babel/transform-react-jsx-source",
                   ],
                   "presets": Array [
                     Array [
-                      "env",
+                      "@babel/preset-env",
                       Object {
                         "modules": false,
                         "targets": Object {
@@ -53,8 +53,8 @@ Object {
                         "useBuiltIns": true,
                       },
                     ],
-                    "react",
-                    "flow",
+                    "@babel/preset-react",
+                    "@babel/preset-flow",
                   ],
                 },
               },
@@ -243,15 +243,15 @@ Object {
                       },
                     ],
                     "react-hot-loader/babel",
-                    "transform-object-rest-spread",
-                    "transform-class-properties",
-                    "syntax-dynamic-import",
-                    "transform-es2015-classes",
-                    "transform-react-jsx-source",
+                    "@babel/plugin-proposal-object-rest-spread",
+                    "@babel/plugin-proposal-class-properties",
+                    "@babel/plugin-syntax-dynamic-import",
+                    "@babel/transform-classes",
+                    "@babel/transform-react-jsx-source",
                   ],
                   "presets": Array [
                     Array [
-                      "env",
+                      "@babel/preset-env",
                       Object {
                         "modules": false,
                         "targets": Object {
@@ -271,8 +271,8 @@ Object {
                         "useBuiltIns": true,
                       },
                     ],
-                    "react",
-                    "flow",
+                    "@babel/preset-react",
+                    "@babel/preset-flow",
                   ],
                 },
               },

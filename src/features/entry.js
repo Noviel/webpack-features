@@ -3,7 +3,7 @@ const builtinEntries = {
     webpack: 'webpack-hot-middleware/client',
     react: 'react-hot-loader/patch',
   },
-  polyfill: 'babel-polyfill',
+  polyfill: '@babel/polyfill',
 };
 
 export default (

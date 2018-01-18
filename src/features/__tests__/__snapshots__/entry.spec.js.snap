@@ -4,7 +4,7 @@ exports[`entry should produce correct entries with default options for legacy br
 Object {
   "entry": Object {
     "index": Array [
-      "babel-polyfill",
+      "@babel/polyfill",
       "react-hot-loader/patch",
       "webpack-hot-middleware/client",
       "index.js",
@@ -17,7 +17,7 @@ exports[`entry should produce correct entries with default options for legacy br
 Object {
   "entry": Object {
     "index": Array [
-      "babel-polyfill",
+      "@babel/polyfill",
       "index.js",
     ],
   },

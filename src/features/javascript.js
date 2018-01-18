@@ -1,16 +1,18 @@
 import createBabelEnvPresetOptions from '../lib/babelEnvPresetOptions';
 
 const syntaxExtendPlugins = [
-  'transform-object-rest-spread',
-  'transform-class-properties',
-  'syntax-dynamic-import',
+  '@babel/plugin-proposal-object-rest-spread',
+  '@babel/plugin-proposal-class-properties',
+  '@babel/plugin-syntax-dynamic-import',
 ];
 
 const createPresetsList = ({ env, react, flow }) =>
   []
-    .concat(env ? [['env', createBabelEnvPresetOptions(env)]] : [])
-    .concat(react ? 'react' : [])
-    .concat(flow ? 'flow' : []);
+    .concat(
+      env ? [['@babel/preset-env', createBabelEnvPresetOptions(env)]] : []
+    )
+    .concat(react ? '@babel/preset-react' : [])
+    .concat(flow ? '@babel/preset-flow' : []);
 
 export default (
   env,
@@ -46,8 +48,8 @@ export default (
               .concat(hot && react ? 'react-hot-loader/babel' : [])
               .concat(syntaxExtend ? syntaxExtendPlugins : [])
               .concat(babelPlugins)
-              .concat(hot && react ? 'transform-es2015-classes' : [])
-              .concat(hot && react ? 'transform-react-jsx-source' : []),
+              .concat(hot && react ? '@babel/transform-classes' : [])
+              .concat(hot && react ? '@babel/transform-react-jsx-source' : []),
           },
         })
         .concat(
