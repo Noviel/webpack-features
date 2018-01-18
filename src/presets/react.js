@@ -19,7 +19,7 @@ module.exports = (
     publicPath = '/',
     rootPath = fs.realpathSync(process.cwd()),
     distPath = browser ? 'static/dist' : 'server',
-    cssPreprocessor = null,
+    cssPreprocessors = [],
     cssExclude = false,
     babelExclude = /node_modules/,
     emotion = false,
@@ -77,7 +77,7 @@ module.exports = (
         [].concat(emotion ? require('../plugins/emotion').default() : [])
       ),
       styles({
-        preprocessors: ['css'].concat(cssPreprocessor || []),
+        preprocessors: ['css'].concat(cssPreprocessors),
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
       }),

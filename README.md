@@ -353,12 +353,11 @@ presetReact(
     // relative path for a built assets output
     distPath = browser ? 'static/dist' : 'server',
 
-    // css preprocessor
-    // should be one of:
-    // - null - for vanilla CSS
-    // - scss
-    // - less
-    cssPreprocessor = null,
+    // CSS preprocessors
+    // should be an array of strings
+    // empty array - vanilla CSS
+    // can contain 'scss' and 'less'
+    cssPreprocessors = null,
 
     // patterns to exclude from style loaders
     cssExclude = false,

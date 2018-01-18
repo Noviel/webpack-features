@@ -154,7 +154,7 @@ Object {
     "chunkFilename": "[name].chunk.js",
     "crossOriginLoading": "anonymous",
     "filename": "[name].js",
-    "path": "c:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
+    "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
     "publicPath": "/",
   },
   "plugins": Array [
@@ -180,7 +180,7 @@ Object {
       "options": Object {
         "allowExternal": false,
         "dry": false,
-        "root": "c:\\\\projects\\\\dev\\\\webpack-features",
+        "root": "C:\\\\projects\\\\dev\\\\webpack-features",
         "verbose": false,
       },
       "paths": Array [
@@ -372,7 +372,7 @@ Object {
     "chunkFilename": "[name].chunk.js",
     "crossOriginLoading": "anonymous",
     "filename": "[name].js",
-    "path": "c:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
+    "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
     "publicPath": "/",
   },
   "plugins": Array [
@@ -398,7 +398,7 @@ Object {
       "options": Object {
         "allowExternal": false,
         "dry": false,
-        "root": "c:\\\\projects\\\\dev\\\\webpack-features",
+        "root": "C:\\\\projects\\\\dev\\\\webpack-features",
         "verbose": false,
       },
       "paths": Array [
