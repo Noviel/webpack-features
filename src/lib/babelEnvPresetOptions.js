@@ -10,13 +10,15 @@ type Options = {
 const createBabelEnvPresetOptions = (options: Options): { [string]: any } => {
   const { target, modules = target.name === 'node' ? 'commonjs' : false } =
     options || {};
+  const useBuiltIns =
+    target.name === 'browsers' && target.value === 'legacy' ? 'entry' : false;
 
   return {
     targets: {
       [target.name]: getTargetValue(target),
     },
     modules,
-    useBuiltIns: true,
+    useBuiltIns,
   };
 };
 
