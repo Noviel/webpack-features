@@ -376,6 +376,11 @@ presetReact(
     // for example: `node_modules` for node target will be added to externals automatically
     externals = [],
 
+    // for build for node target
+    // array of strings or regular expressions which will be bundled
+    // usefull if you are using workspaces and include one package from another
+    externalsWhitelist = null,
+
     // path to `node_modules` to exclude them if needed
     modulesDir = 'node_modules'
   },
@@ -407,7 +412,6 @@ const env = {
   publicPath,
 };
 
-
 const {
   createConfig,
   entry,
@@ -418,8 +422,6 @@ const {
   media,
   emotion,
 } = createFeatures(env);
-
-const cssModulesPath = client.components;
 
 module.exports = createConfig(
   entry({ index: './src/client/index.js' }),
