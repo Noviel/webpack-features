@@ -26,7 +26,7 @@ module.exports = (
     library = false,
     legacy = false,
     externals = [],
-    externalsWhiteList = null,
+    externalsWhiteList = undefined,
     modulesDir = 'node_modules',
   },
   extend = {}

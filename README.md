@@ -379,7 +379,7 @@ presetReact(
     // for build for node target
     // array of strings or regular expressions which will be bundled
     // usefull if you are using workspaces and include one package from another
-    externalsWhitelist = null,
+    externalsWhitelist = undefined,
 
     // path to `node_modules` to exclude them if needed
     modulesDir = 'node_modules'
