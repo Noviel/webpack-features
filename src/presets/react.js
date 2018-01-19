@@ -26,7 +26,7 @@ module.exports = (
     library = false,
     legacy = false,
     externals = [],
-    externalsWhiteList = undefined,
+    externalsWhitelist = undefined,
     modulesDir = 'node_modules',
   },
   extend = {}
@@ -97,7 +97,7 @@ module.exports = (
         react: library,
         list: externals,
         modulesDir,
-        whitelist: externalsWhiteList,
+        whitelist: externalsWhitelist,
       }),
       output({
         library,
