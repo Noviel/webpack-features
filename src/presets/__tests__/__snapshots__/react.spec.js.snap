@@ -94,7 +94,7 @@ Object {
             ],
           },
           Object {
-            "test": /\\.css\\$/i,
+            "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
             "use": Array [
               Object {
                 "loader": "style-loader",
@@ -312,7 +312,7 @@ Object {
             ],
           },
           Object {
-            "test": /\\.css\\$/i,
+            "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
             "use": Array [
               Object {
                 "loader": "style-loader",

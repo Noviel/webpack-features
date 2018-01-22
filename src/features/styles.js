@@ -4,7 +4,10 @@ export const createTestRegExp = (preprocessor, cssModules) => {
   /* eslint-disable no-useless-escape */
   const extension = `\.${preprocessor || 'css'}`;
 
-  return new RegExp(`${cssModules ? `\.module` : ''}${extension}$`, 'i');
+  return new RegExp(
+    `${cssModules ? `\.module` : '^(?:(?!.module).)*'}${extension}$`,
+    'i'
+  );
   /* eslint-enable no-useless-escape */
 };
 
