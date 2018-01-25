@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.4.8",
+  "version": "3.5.0",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -66,14 +66,10 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
-    "node-sass": "^4.6.0",
     "postcss": "^6.0.13",
     "postcss-loader": "^2.0.8",
     "precss": "^2.0.0",
     "react-hot-loader": "^3.1.1",
-    "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.6.2",
@@ -83,7 +79,11 @@
   },
   "optionalDependencies": {
     "emotion": "^8.0.10",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.6.0",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "sass-loader": "^6.0.6"
   }
 }

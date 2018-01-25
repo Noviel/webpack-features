@@ -166,7 +166,7 @@ Parameters:
 
 ### styles
 
-Adds support for CSS and optionally for Scss and less.
+Adds support for styles.
 
 `styles(options)`
 
@@ -180,6 +180,19 @@ Parameters:
   - **extractFilename** - `string`, name of the file for extraction. **default**: `'[name].[contenthash].css'`
   - **postcss** - `false` means do not use postcss. Otherwise it should be a `callback` that returns a postcss config. It will be called as `postcss({ target, production })`, so you can conditionally include/exclude postcss parts. **default**: config with `precss` and `autoprefixer` based on browsers target.
   - **exclude** - items to exclude from processing. **default**: `[/node_modules/]`
+
+Supports Sass/less preprocessors, but you should manually add corresponding packages if you want to use them.
+
+Sass:
+
+```sh
+yarn add node-sass sass-loader --dev
+```
+
+less:
+```sh
+yarn add less less-loader --dev
+```
 
 **Important note**: CSS Modules (if enabled) will be applied to files with extension `.module.{css|less|scss}` only.
 
