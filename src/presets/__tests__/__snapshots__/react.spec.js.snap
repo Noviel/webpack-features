@@ -239,7 +239,10 @@ Object {
                     Array [
                       "emotion",
                       Object {
+                        "autoLabel": true,
                         "extractStatic": false,
+                        "hoist": false,
+                        "sourceMap": true,
                       },
                     ],
                     "react-hot-loader/babel",

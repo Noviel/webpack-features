@@ -11,9 +11,10 @@ Feature-based webpack configurator with built-in React support.
     - [createConfig](#createconfig)
     - [entry](#entry)
     - [javascript](#javascript)
+      - Plugins  
+        - [emotion](#emotion)
     - [styles](#styles)
     - [images](#images)
-    - [emotion](#emotion)
     - [production](#production)
     - [namedModules](#namedmodules)
     - [node](#node)
@@ -145,6 +146,23 @@ javascript({
   syntaxEnhance: false,
 })
 ```
+##### Plugins
+###### emotion
+
+Adds `babel-plugin-emotion` to the config.
+
+```javascript
+const { emotion } = require('webpack-features');
+/* ... */
+javacript(config, [emotion(options)])
+```
+
+Parameters:
+
+- **options**: `object`
+  - **hoist**: `boolean`, **default**: `production`
+  - **sourceMap**: `boolean`, **default**: `!production`
+  - **autoLabel**: `boolean`, **default**: `!production`
 
 ### styles
 
@@ -197,14 +215,6 @@ See [url-loader](https://github.com/webpack-contrib/url-loader) for more info.
 
 ```javascript
 media({ limit: 4096, name: 'assets/media/[hash:8].[ext]' })
-```
-
-### emotion
-
-Adds `babel-plugin-emotion` to the config.
-
-```javascript
-emotion()
 ```
 
 ### production

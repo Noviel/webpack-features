@@ -11,7 +11,7 @@ type Input = {
   },
 };
 
-export default ({ extractStatic = false }: Options = {}) => (
+export default ({ extractStatic = false, ...options }: Options = {}) => (
   { target, production }: Env,
   input: Input
 ) => {
@@ -24,6 +24,10 @@ export default ({ extractStatic = false }: Options = {}) => (
       'emotion',
       {
         extractStatic,
+        hoist: production,
+        sourceMap: !production,
+        autoLabel: !production,
+        ...options,
       },
     ]);
   }
