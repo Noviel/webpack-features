@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -76,14 +76,5 @@
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.0",
     "webpack-node-externals": "^1.6.0"
-  },
-  "optionalDependencies": {
-    "emotion": "^8.0.10",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
-    "node-sass": "^4.6.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "sass-loader": "^6.0.6"
   }
 }
