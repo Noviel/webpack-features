@@ -5,8 +5,6 @@ Object {
   "devtool": "cheap-module-source-map",
   "entry": Object {
     "index": Array [
-      "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },
@@ -24,12 +22,9 @@ Object {
                 "options": Object {
                   "babelrc": false,
                   "plugins": Array [
-                    "react-hot-loader/babel",
                     "@babel/plugin-proposal-object-rest-spread",
                     "@babel/plugin-proposal-class-properties",
                     "@babel/plugin-syntax-dynamic-import",
-                    "@babel/transform-classes",
-                    "@babel/transform-react-jsx-source",
                   ],
                   "presets": Array [
                     Array [
@@ -217,8 +212,6 @@ Object {
   "devtool": "cheap-module-source-map",
   "entry": Object {
     "index": Array [
-      "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },
@@ -245,12 +238,9 @@ Object {
                         "sourceMap": true,
                       },
                     ],
-                    "react-hot-loader/babel",
                     "@babel/plugin-proposal-object-rest-spread",
                     "@babel/plugin-proposal-class-properties",
                     "@babel/plugin-syntax-dynamic-import",
-                    "@babel/transform-classes",
-                    "@babel/transform-react-jsx-source",
                   ],
                   "presets": Array [
                     Array [
