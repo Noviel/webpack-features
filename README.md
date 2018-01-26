@@ -109,18 +109,24 @@ module.exports = createConfig(
 
 Include entries to the config.
 
-`entry(entries, options)`
+`entry(options)`
 
 Parameters:
 
-- **entries**: `object` where keys are entries names and values are strings or arrays of strings with paths. required
 - **options**: `object`
-  - **polyfill**: `boolean` - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
-  - **hot**: `boolean` - should include hot reloading support. **default**: `true` if `development` and any browsers target
-  - **react**: `boolean` - should include react-specific entries for hot reloading if the last is active. **default**: `true`
+  - **entries**: `object` where keys are entries names and values are strings or arrays of strings with paths. required
+  - **options**: `object`
+    - **polyfill**: `boolean` - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
+    - **hot**: `boolean` - should include hot reloading support. **default**: `true` if `development` and any browsers target
+    - **react**: `boolean` - should include react-specific entries for hot reloading if the last is active. **default**: `true`
 
 ```javascript
-entry({ index: './src/index.js' }, { polyfill: true, hot: true, react: true }),
+entry({ 
+  entries: { index: './src/index.js' },
+  polyfill: true,
+  hot: true,
+  react: true,
+}),
 ```
 
 ### javascript

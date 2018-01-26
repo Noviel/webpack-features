@@ -8,8 +8,8 @@ const builtinEntries = {
 
 export default (
   { target, production },
-  entries,
   {
+    entries,
     polyfill = target.name === 'browsers' && target.value === 'legacy',
     hot = !production && target.name === 'browsers',
     react = true,

@@ -4,24 +4,25 @@ import { envs } from '../../fixtures';
 
 describe('entry', () => {
   describe('should produce correct entries with default options', () => {
+    const entryOpts = { entries: { index: 'index.js' } };
     it('for modern browsers in production mode', () => {
       expect(
-        entry(envs.modernBrowsersProd, { index: 'index.js' })
+        entry(envs.modernBrowsersProd, entryOpts)
       ).toMatchSnapshot();
     });
     it('for modern browsers in development mode', () => {
       expect(
-        entry(envs.modernBrowsersDev, { index: 'index.js' })
+        entry(envs.modernBrowsersDev, entryOpts)
       ).toMatchSnapshot();
     });
     it('for legacy browsers in production mode', () => {
       expect(
-        entry(envs.legacyBrowsersProd, { index: 'index.js' })
+        entry(envs.legacyBrowsersProd, entryOpts)
       ).toMatchSnapshot();
     });
     it('for legacy browsers in development mode', () => {
       expect(
-        entry(envs.legacyBrowsersDev, { index: 'index.js' })
+        entry(envs.legacyBrowsersDev, entryOpts)
       ).toMatchSnapshot();
     });
   });

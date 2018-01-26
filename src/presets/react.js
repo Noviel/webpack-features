@@ -70,10 +70,11 @@ module.exports = (
 
   return createConfig(
     ...[
-      createEntry(entry, { hot }),
+      createEntry({ entries: entry, hot }),
       javascript(
         {
           exclude: babelExclude,
+          hot,
         },
         [].concat(emotion ? require('../plugins/emotion').default() : [])
       ),
