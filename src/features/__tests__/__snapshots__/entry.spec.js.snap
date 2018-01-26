@@ -45,3 +45,27 @@ Object {
   },
 }
 `;
+
+exports[`entry should work with \`entries\` arguments object 1`] = `
+Object {
+  "entry": Object {
+    "main": Array [
+      "react-hot-loader/patch",
+      "webpack-hot-middleware/client",
+      "index.js",
+    ],
+  },
+}
+`;
+
+exports[`entry should work with \`entries\` arguments string 1`] = `
+Object {
+  "entry": Object {
+    "index": Array [
+      "react-hot-loader/patch",
+      "webpack-hot-middleware/client",
+      "index.js",
+    ],
+  },
+}
+`;

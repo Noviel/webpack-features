@@ -18,4 +18,13 @@ describe('entry', () => {
       expect(entry(envs.legacyBrowsersDev, entryOpts)).toMatchSnapshot();
     });
   });
+
+  describe('should work with `entries` arguments', () => {
+    it('object', () => {
+      expect(entry(envs.modernBrowsersDev, { entries: { main: 'index.js' } })).toMatchSnapshot();  
+    })
+    it('string', () => {
+      expect(entry(envs.modernBrowsersDev, { entries: 'index.js' })).toMatchSnapshot();
+    })
+ });
 });
