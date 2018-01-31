@@ -10,6 +10,7 @@ Feature-based webpack configurator with built-in React support.
   - Features
     - [createConfig](#createconfig)
     - [entry](#entry)
+    - [output](#output)
     - [javascript](#javascript)
       - Plugins  
         - [emotion](#emotion)
@@ -126,6 +127,26 @@ entry({
   polyfill: true,
   hot: true,
   react: true,
+}),
+```
+
+### output
+
+Define where to output the resulting bundle.
+
+`output(options)`
+
+Parameters:
+
+- **options**: `object`
+  - **filename**: `string` name of the output file. **default**: for production `'[name].[chunkhash].js'`, otherwise `'[name].js'`.
+  - **chunkFilename**: `string`, name of chunks. **default**: for production `'[name].[chunkhash].chunk.js'`, otherwise `'[name].chunk.js'`.
+  - **library**: `string | false`, name of the library. Used for building libraries, not applications. **default**: `false`. 
+  - **libraryTarget**: `string`, type of the library module system. Used if `library` is not false. **default**: `'umd'`
+
+```javascript
+output({ 
+  filename: '[name]-[chunkhash].js',
 }),
 ```
 
