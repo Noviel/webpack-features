@@ -21,10 +21,14 @@ describe('entry', () => {
 
   describe('should work with `entries` arguments', () => {
     it('object', () => {
-      expect(entry(envs.modernBrowsersDev, { entries: { main: 'index.js' } })).toMatchSnapshot();  
-    })
+      expect(
+        entry(envs.modernBrowsersDev, { entries: { main: 'index.js' } })
+      ).toMatchSnapshot();
+    });
     it('string', () => {
-      expect(entry(envs.modernBrowsersDev, { entries: 'index.js' })).toMatchSnapshot();
-    })
- });
+      expect(
+        entry(envs.modernBrowsersDev, { entries: 'index.js' })
+      ).toMatchSnapshot();
+    });
+  });
 });
