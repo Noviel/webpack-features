@@ -14,7 +14,13 @@ Object {
               "babelrc": false,
               "plugins": Array [
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
                 "@babel/plugin-syntax-dynamic-import",
               ],
               "presets": Array [
@@ -59,7 +65,13 @@ Object {
               "plugins": Array [
                 "react-hot-loader/babel",
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/transform-classes",
                 "@babel/transform-react-jsx-source",
@@ -109,7 +121,13 @@ Object {
               "babelrc": false,
               "plugins": Array [
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
                 "@babel/plugin-syntax-dynamic-import",
               ],
               "presets": Array [
@@ -158,7 +176,13 @@ Object {
               "plugins": Array [
                 "react-hot-loader/babel",
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/transform-classes",
                 "@babel/transform-react-jsx-source",
@@ -215,7 +239,13 @@ Object {
               "babelrc": false,
               "plugins": Array [
                 "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
                 "@babel/plugin-syntax-dynamic-import",
               ],
               "presets": Array [

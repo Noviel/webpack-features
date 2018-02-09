@@ -158,7 +158,7 @@ Parameters:
 
 - **options**: `object`
   - **babelPlugins**: `array of strings`, additional `babel` plugins.
-  - **syntaxEnhance**: `boolean`, should include non-standard language features. Includes `transform-object-rest-spread`, `transform-class-properties`, `syntax-dynamic-import`. **default**: true
+  - **syntaxEnhance**: `boolean`, should include non-standard language features. Includes `object rest spread`, `decorators`, `class properties`, `dynamic import`. **default**: true
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
   - **flow**: `boolean`, should include `flow` support. **default**: true

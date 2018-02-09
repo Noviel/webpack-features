@@ -2,7 +2,8 @@ import createBabelEnvPresetOptions from '../lib/babelEnvPresetOptions';
 
 const syntaxExtendPlugins = [
   '@babel/plugin-proposal-object-rest-spread',
-  '@babel/plugin-proposal-class-properties',
+  '@babel/plugin-proposal-decorators',
+  ['@babel/plugin-proposal-class-properties', { loose: true }],
   '@babel/plugin-syntax-dynamic-import',
 ];
 
