@@ -266,9 +266,10 @@ Adds optimizations for production bundles.
 Parameters:
 
 - **options**: `object`
-  - **vendor**: `boolean`, extract `node_modules` to the separate bundle. **default**: true for browsers
+  - **vendor**: `boolean`, extract `node_modules` to the separate bundle. **default**: true for browsers in production mode
   - **manifest**: `boolean`, extract Webpack's runtime to the separate bundle. **default**: **vendor**
-  - **uglify**: `boolean`, should uglify code. **defualt**: true
+  - **uglify**: `boolean`, should uglify code. **defualt**: true for `production` mode
+  - **concatenation**: `boolean`, should scope hoisting be applied. **default**: true for browsers in production mode
 
 ### namedModules
 
@@ -433,6 +434,9 @@ presetReact(
 
     // path to `node_modules` to exclude them if needed
     modulesDir = 'node_modules'
+
+    // should use ModuleConcatenationPlugin
+    javascriptScopeHoisting = false,
   },
   // additional Webpack configuration. It will be merged with other options.
   extend = {}

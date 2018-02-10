@@ -28,6 +28,7 @@ module.exports = (
     externals = [],
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
+    javascriptScopeHoisting = false,
   },
   extend = {}
 ) => {
@@ -82,19 +83,18 @@ module.exports = (
         preprocessors: cssPreprocessors,
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
+        concatenation: javascriptScopeHoisting,
       }),
       media({
         limit: library ? undefined : 10000,
       }),
       namedModules(),
       define(defines),
-      env.production
-        ? createProduction({
-            vendor: !library && browser && env.production,
-            manifest: !library && browser && env.production,
-            uglify: browser && env.production,
-          })
-        : noopFeature(),
+      createProduction({
+        vendor: !library && browser && env.production,
+        manifest: !library && browser && env.production,
+        uglify: browser && env.production,
+      }),
       node ? createNode() : noopFeature(),
       createExternals({
         react: library,

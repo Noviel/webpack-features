@@ -2,8 +2,13 @@ import webpack from 'webpack';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 module.exports = (
-  { target },
-  { vendor = target.name === 'browsers', manifest = vendor, uglify = true } = {}
+  { target, production },
+  {
+    vendor = production && target.name === 'browsers',
+    manifest = vendor,
+    uglify = production,
+    concatenation = production && target.name === 'browsers',
+  } = {}
 ) => ({
   plugins: []
     .concat(
@@ -34,5 +39,7 @@ module.exports = (
           })
         : []
     )
-    .concat(new webpack.optimize.ModuleConcatenationPlugin()),
+    .concat(
+      concatenation ? new webpack.optimize.ModuleConcatenationPlugin() : []
+    ),
 });
