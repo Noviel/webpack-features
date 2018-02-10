@@ -88,11 +88,13 @@ module.exports = (
       }),
       namedModules(),
       define(defines),
-      createProduction({
-        vendor: !library && browser && env.production,
-        manifest: !library && browser && env.production,
-        uglify: browser && env.production,
-      }),
+      env.production
+        ? createProduction({
+            vendor: !library && browser && env.production,
+            manifest: !library && browser && env.production,
+            uglify: browser && env.production,
+          })
+        : noopFeature(),
       node ? createNode() : noopFeature(),
       createExternals({
         react: library,
