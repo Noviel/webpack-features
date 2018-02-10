@@ -177,6 +177,9 @@ Object {
         "process.env.NODE_ENV": "\\"development\\"",
       },
     },
+    ModuleConcatenationPlugin {
+      "options": Object {},
+    },
     CleanWebpackPlugin {
       "options": Object {
         "allowExternal": false,
@@ -398,6 +401,9 @@ Object {
       "definitions": Object {
         "process.env.NODE_ENV": "\\"development\\"",
       },
+    },
+    ModuleConcatenationPlugin {
+      "options": Object {},
     },
     CleanWebpackPlugin {
       "options": Object {
