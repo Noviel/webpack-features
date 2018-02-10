@@ -5,7 +5,7 @@ module.exports = (
   { target },
   { vendor = target.name === 'browsers', manifest = vendor, uglify = true } = {}
 ) => ({
-  plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
+  plugins: []
     .concat(
       vendor
         ? new webpack.optimize.CommonsChunkPlugin({
@@ -33,5 +33,6 @@ module.exports = (
             },
           })
         : []
-    ),
+    )
+    .concat(new webpack.optimize.ModuleConcatenationPlugin()),
 });
