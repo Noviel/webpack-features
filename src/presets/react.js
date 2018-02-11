@@ -83,7 +83,6 @@ module.exports = (
         preprocessors: cssPreprocessors,
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
-        concatenation: javascriptScopeHoisting,
       }),
       media({
         limit: library ? undefined : 10000,
@@ -94,6 +93,7 @@ module.exports = (
         vendor: !library && browser && env.production,
         manifest: !library && browser && env.production,
         uglify: browser && env.production,
+        concatenation: javascriptScopeHoisting,
       }),
       node ? createNode() : noopFeature(),
       createExternals({
