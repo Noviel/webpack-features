@@ -31,8 +31,8 @@ module.exports = (
     javascriptScopeHoisting = false,
     indexHtml = `${hot ? '' : '../'}index.html`,
   },
-  extend = {},
-  featuresOptions = {}
+  featuresOptions = {},
+  extend = {}
 ) => {
   const env = {
     publicPath,
