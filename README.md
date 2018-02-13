@@ -437,6 +437,12 @@ presetReact(
 
     // should use ModuleConcatenationPlugin
     javascriptScopeHoisting = false,
+
+    // output html filename
+    // by default we want it to be at the root of the public folder
+    // and because of default `distPath` the root is one level higher
+    // but for `hot` reloading we should point to the virtual `index.html`
+    indexHtml: `${hot ? '' : '../'}index.html`
   },
   // additional Webpack configuration. It will be merged with other options.
   extend = {}

@@ -29,6 +29,7 @@ module.exports = (
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
     javascriptScopeHoisting = false,
+    indexHtml = `${hot ? '' : '../'}index.html`,
   },
   extend = {}
 ) => {
@@ -120,7 +121,7 @@ module.exports = (
             browser && template
               ? new HtmlWebpackPlugin({
                   template,
-                  filename: `${hot ? '' : '../'}index.html`,
+                  filename: indexHtml,
                 })
               : []
           ),
