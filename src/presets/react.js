@@ -31,7 +31,8 @@ module.exports = (
     javascriptScopeHoisting = false,
     indexHtml = `${hot ? '' : '../'}index.html`,
   },
-  extend = {}
+  extend = {},
+  featuresOptions = {}
 ) => {
   const env = {
     publicPath,
@@ -70,13 +71,27 @@ module.exports = (
     externals: createExternals,
   } = initFeatures(env);
 
+  const {
+    entry: optsEntry = {},
+    output: optsOutput = {},
+    javascript: optsJavascript = {},
+    styles: optsStyles = {},
+    media: optsMedia = {},
+    namedModules: optsNamedModules = {},
+    define: optsDefine = {},
+    production: optsProduction = {},
+    externals: optsExternals = {},
+    htmlWebpackPlugin: optsHtmlWebpackPlugin = {},
+  } = featuresOptions;
+
   return createConfig(
     ...[
-      createEntry({ entries: entry, hot }),
+      createEntry({ entries: entry, hot, ...optsEntry }),
       javascript(
         {
           exclude: babelExclude,
           hot,
+          ...optsJavascript,
         },
         [].concat(emotion ? require('../plugins/emotion').default() : [])
       ),
@@ -84,17 +99,20 @@ module.exports = (
         preprocessors: cssPreprocessors,
         extractFilename: library ? '[name].css' : undefined,
         exclude: cssExclude,
+        ...optsStyles,
       }),
       media({
         limit: library ? undefined : 10000,
+        ...optsMedia,
       }),
-      namedModules(),
-      define(defines),
+      namedModules(optsNamedModules),
+      define({ ...defines, ...optsDefine }),
       createProduction({
         vendor: !library && browser && env.production,
         manifest: !library && browser && env.production,
         uglify: browser && env.production,
         concatenation: javascriptScopeHoisting,
+        ...optsProduction,
       }),
       node ? createNode() : noopFeature(),
       createExternals({
@@ -102,10 +120,12 @@ module.exports = (
         list: externals,
         modulesDir,
         whitelist: externalsWhitelist,
+        ...optsExternals,
       }),
       output({
         library,
         filename: library ? '[name].js' : undefined,
+        ...optsOutput,
       }),
       {
         plugins: []
@@ -122,6 +142,7 @@ module.exports = (
               ? new HtmlWebpackPlugin({
                   template,
                   filename: indexHtml,
+                  ...optsHtmlWebpackPlugin,
                 })
               : []
           ),
