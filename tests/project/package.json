@@ -1,0 +1,22 @@
+{
+  "name": "webpack-features-tests",
+  "version": "1.0.0",
+  "description": "E2E tests for webpack-features",
+  "license": "MIT",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start:react": "../../node_modules/.bin/static static",
+    "build:react": "../../node_modules/.bin/webpack --config config/reactClient.js",
+    "dev:react": "../../node_modules/.bin/webpack-dev-server --config=config/reactClientDev.js --hot --hot-only --inline"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-emotion": "^8.0.9"
+  },
+  "devDependencies": {
+  }
+}

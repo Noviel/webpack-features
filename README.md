@@ -16,7 +16,6 @@ Feature-based webpack configurator with built-in React support.
         - [emotion](#emotion)
     - [styles](#styles)
     - [images](#images)
-    - [production](#production)
     - [namedModules](#namedmodules)
     - [node](#node)
     - [browser](#browser)
@@ -256,20 +255,6 @@ See [url-loader](https://github.com/webpack-contrib/url-loader) for more info.
 ```javascript
 media({ limit: 4096, name: 'assets/media/[hash:8].[ext]' })
 ```
-
-### production
-
-Adds optimizations for production bundles.
-
-`production(options)`
-
-Parameters:
-
-- **options**: `object`
-  - **vendor**: `boolean`, extract `node_modules` to the separate bundle. **default**: true for browsers in production mode
-  - **manifest**: `boolean`, extract Webpack's runtime to the separate bundle. **default**: **vendor**
-  - **uglify**: `boolean`, should uglify code. **defualt**: true for `production` mode
-  - **concatenation**: `boolean`, should scope hoisting be applied. **default**: true for browsers in production mode
 
 ### namedModules
 

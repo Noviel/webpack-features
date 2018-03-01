@@ -2,13 +2,13 @@
 
 exports[`presetReact should be good 1`] = `
 Object {
-  "devtool": "cheap-module-source-map",
   "entry": Object {
     "index": Array [
       "index.js",
     ],
   },
   "externals": Array [],
+  "mode": "development",
   "module": Object {
     "rules": Array [
       Object {
@@ -159,19 +159,6 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
-    NamedModulesPlugin {
-      "options": Object {},
-    },
-    NamedChunksPlugin {
-      "nameResolver": [Function],
-    },
-    HashedModuleIdsPlugin {
-      "options": Object {
-        "hashDigest": "base64",
-        "hashDigestLength": 4,
-        "hashFunction": "md5",
-      },
-    },
     DefinePlugin {
       "definitions": Object {
         "process.env.NODE_ENV": "\\"development\\"",
@@ -215,13 +202,13 @@ Object {
 
 exports[`presetReact should be good with emotion 1`] = `
 Object {
-  "devtool": "cheap-module-source-map",
   "entry": Object {
     "index": Array [
       "index.js",
     ],
   },
   "externals": Array [],
+  "mode": "development",
   "module": Object {
     "rules": Array [
       Object {
@@ -381,19 +368,6 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
-    NamedModulesPlugin {
-      "options": Object {},
-    },
-    NamedChunksPlugin {
-      "nameResolver": [Function],
-    },
-    HashedModuleIdsPlugin {
-      "options": Object {
-        "hashDigest": "base64",
-        "hashDigestLength": 4,
-        "hashFunction": "md5",
-      },
-    },
     DefinePlugin {
       "definitions": Object {
         "process.env.NODE_ENV": "\\"development\\"",

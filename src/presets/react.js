@@ -65,8 +65,6 @@ module.exports = (
     styles,
     media,
     define,
-    namedModules,
-    production: createProduction,
     node: createNode,
     externals: createExternals,
   } = initFeatures(env);
@@ -77,15 +75,14 @@ module.exports = (
     javascript: optsJavascript = {},
     styles: optsStyles = {},
     media: optsMedia = {},
-    namedModules: optsNamedModules = {},
     define: optsDefine = {},
-    production: optsProduction = {},
     externals: optsExternals = {},
     htmlWebpackPlugin: optsHtmlWebpackPlugin = {},
   } = featuresOptions;
 
   return createConfig(
     ...[
+      { mode: production ? 'production' : 'development' },
       createEntry({ entries: entry, hot, ...optsEntry }),
       javascript(
         {
@@ -105,15 +102,7 @@ module.exports = (
         limit: library ? undefined : 10000,
         ...optsMedia,
       }),
-      namedModules(optsNamedModules),
       define({ ...defines, ...optsDefine }),
-      createProduction({
-        vendor: !library && browser && env.production,
-        manifest: !library && browser && env.production,
-        uglify: browser && env.production,
-        concatenation: javascriptScopeHoisting,
-        ...optsProduction,
-      }),
       node ? createNode() : noopFeature(),
       createExternals({
         react: library,
@@ -148,7 +137,6 @@ module.exports = (
           ),
       },
       {
-        devtool: env.production ? 'source-map' : 'cheap-module-source-map',
         stats: {
           children: false,
           modules: false,
