@@ -24,6 +24,9 @@ export default (
       publicPath: target.name === 'node' ? '/' : publicPath,
       filename,
       chunkFilename,
+      // HMR breaks WebWorkers with `window is not defined`
+      // this will mitigate it for now
+      globalObject: !production ? 'this' : undefined,
     },
   };
 

@@ -6,7 +6,19 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\.worker\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": false,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -56,7 +68,19 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\.worker\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": true,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -113,7 +137,19 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\.worker\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": false,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -167,7 +203,19 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\.worker\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": true,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -231,7 +279,19 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\.worker\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": false,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",

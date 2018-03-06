@@ -164,6 +164,7 @@ Parameters:
   - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
   - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
   - **exclude**: items to exclude from loading. **default**: `/node_modules/`
+  - **workers**: `boolean`, add support for WebWorkers. **default**: `true`
 
 ```javascript
 javascript({
@@ -405,6 +406,9 @@ presetReact(
 
     // patterns to exclude from babel transformations
     babelExclude = /node_modules/
+
+    // support for WebWorkers
+    webWorkers = true,
 
     // string will be used as a library name,
     // allow to create React-based libraries

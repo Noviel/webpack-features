@@ -15,7 +15,19 @@ Object {
         "oneOf": Array [
           Object {
             "exclude": /node_modules/,
-            "test": /\\\\\\.jsx\\?\\$/,
+            "test": /\\.worker\\.jsx\\?\\$/i,
+            "use": Object {
+              "loader": "worker-loader",
+              "options": Object {
+                "inline": true,
+                "name": "[name].[hash].js",
+                "publicPath": "/",
+              },
+            },
+          },
+          Object {
+            "exclude": /node_modules/,
+            "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
             "use": Array [
               Object {
                 "loader": "babel-loader",
@@ -155,6 +167,7 @@ Object {
     "chunkFilename": "[name].chunk.js",
     "crossOriginLoading": "anonymous",
     "filename": "[name].js",
+    "globalObject": "this",
     "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
     "publicPath": "/",
   },
@@ -215,7 +228,19 @@ Object {
         "oneOf": Array [
           Object {
             "exclude": /node_modules/,
-            "test": /\\\\\\.jsx\\?\\$/,
+            "test": /\\.worker\\.jsx\\?\\$/i,
+            "use": Object {
+              "loader": "worker-loader",
+              "options": Object {
+                "inline": true,
+                "name": "[name].[hash].js",
+                "publicPath": "/",
+              },
+            },
+          },
+          Object {
+            "exclude": /node_modules/,
+            "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
             "use": Array [
               Object {
                 "loader": "babel-loader",
@@ -364,6 +389,7 @@ Object {
     "chunkFilename": "[name].chunk.js",
     "crossOriginLoading": "anonymous",
     "filename": "[name].js",
+    "globalObject": "this",
     "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\static\\\\dist",
     "publicPath": "/",
   },

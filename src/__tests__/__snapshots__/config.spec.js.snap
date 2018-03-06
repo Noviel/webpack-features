@@ -6,6 +6,7 @@ Object {
     "chunkFilename": "[name].[chunkhash].chunk.js",
     "crossOriginLoading": false,
     "filename": "[name].[chunkhash].js",
+    "globalObject": undefined,
     "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\dist",
     "publicPath": "/",
   },

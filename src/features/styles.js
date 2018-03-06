@@ -1,15 +1,11 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-export const createTestRegExp = (preprocessor, cssModules) => {
-  /* eslint-disable no-useless-escape */
-  const extension = `\.${preprocessor || 'css'}`;
+import { includeExclude } from '../lib/regexp';
 
-  return new RegExp(
-    `${cssModules ? `\.module` : '^(?:(?!.module).)*'}${extension}$`,
-    'i'
-  );
-  /* eslint-enable no-useless-escape */
-};
+/* eslint-disable no-useless-escape */
+export const createTestRegExp = (preprocessor, cssModules) =>
+  includeExclude(`\.module`, `\.${preprocessor || 'css'}`, !cssModules);
+/* eslint-enable no-useless-escape */
 
 const createRule = (
   { production, target },

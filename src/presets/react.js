@@ -23,6 +23,7 @@ module.exports = (
     cssExclude = false,
     babelExclude = /node_modules/,
     emotion = false,
+    webWorkers = true,
     library = false,
     legacy = false,
     externals = [],
@@ -88,6 +89,7 @@ module.exports = (
         {
           exclude: babelExclude,
           hot,
+          webWorkers,
           ...optsJavascript,
         },
         [].concat(emotion ? require('../plugins/emotion').default() : [])
