@@ -5,7 +5,7 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "css-loader/locals",
@@ -30,7 +30,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "css-loader/locals",
@@ -65,7 +65,7 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -94,7 +94,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -133,7 +133,7 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
@@ -168,7 +168,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
@@ -219,7 +219,7 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -248,7 +248,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "style-loader",
@@ -287,7 +287,7 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\.module\\.css\\$/i,
+        "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
@@ -322,7 +322,7 @@ Object {
         ],
       },
       Object {
-        "test": /\\^\\(\\?:\\(\\?!\\.module\\)\\.\\)\\*\\.css\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",

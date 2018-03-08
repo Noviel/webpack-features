@@ -6,7 +6,7 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\.worker\\.jsx\\?\\$/i,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
         "use": Object {
           "loader": "worker-loader",
           "options": Object {
@@ -18,7 +18,7 @@ Object {
       },
       Object {
         "exclude": /node_modules/,
-        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -68,7 +68,7 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\.worker\\.jsx\\?\\$/i,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
         "use": Object {
           "loader": "worker-loader",
           "options": Object {
@@ -80,7 +80,7 @@ Object {
       },
       Object {
         "exclude": /node_modules/,
-        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -137,7 +137,7 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\.worker\\.jsx\\?\\$/i,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
         "use": Object {
           "loader": "worker-loader",
           "options": Object {
@@ -149,7 +149,7 @@ Object {
       },
       Object {
         "exclude": /node_modules/,
-        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -203,7 +203,7 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\.worker\\.jsx\\?\\$/i,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
         "use": Object {
           "loader": "worker-loader",
           "options": Object {
@@ -215,7 +215,7 @@ Object {
       },
       Object {
         "exclude": /node_modules/,
-        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -279,7 +279,7 @@ Object {
     "rules": Array [
       Object {
         "exclude": /node_modules/,
-        "test": /\\.worker\\.jsx\\?\\$/i,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
         "use": Object {
           "loader": "worker-loader",
           "options": Object {
@@ -291,7 +291,7 @@ Object {
       },
       Object {
         "exclude": /node_modules/,
-        "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
         "use": Array [
           Object {
             "loader": "babel-loader",

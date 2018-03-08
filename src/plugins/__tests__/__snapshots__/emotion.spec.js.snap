@@ -4,7 +4,7 @@ exports[`emotion should add emotion to the plugins list of the babel-loader's op
 Array [
   Object {
     "exclude": /node_modules/,
-    "test": /\\.worker\\.jsx\\?\\$/i,
+    "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
     "use": Object {
       "loader": "worker-loader",
       "options": Object {
@@ -16,7 +16,7 @@ Array [
   },
   Object {
     "exclude": /node_modules/,
-    "test": /\\^\\(\\?:\\(\\?!\\.worker\\)\\.\\)\\*\\.jsx\\?\\$/i,
+    "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
     "use": Array [
       Object {
         "loader": "babel-loader",

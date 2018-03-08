@@ -2,10 +2,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { includeExclude } from '../lib/regexp';
 
-/* eslint-disable no-useless-escape */
 export const createTestRegExp = (preprocessor, cssModules) =>
-  includeExclude(`\.module`, `\.${preprocessor || 'css'}`, !cssModules);
-/* eslint-enable no-useless-escape */
+  includeExclude(`\\.module`, `\\.${preprocessor || 'css'}`, !cssModules);
 
 const createRule = (
   { production, target },

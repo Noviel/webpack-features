@@ -17,10 +17,8 @@ const createPresetsList = ({ env, react, flow }) =>
     .concat(react ? '@babel/preset-react' : [])
     .concat(flow ? '@babel/preset-flow' : []);
 
-/* eslint-disable no-useless-escape */
 export const createTestRegExp = exclude =>
-  includeExclude(`\.worker`, `\.jsx?`, exclude);
-/* eslint-enable no-useless-escape */
+  includeExclude(`\\.worker`, `\\.jsx?`, exclude);
 
 export default (
   env,
