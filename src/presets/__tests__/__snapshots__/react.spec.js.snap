@@ -163,6 +163,9 @@ Object {
       },
     ],
   },
+  "optimization": Object {
+    "minimize": false,
+  },
   "output": Object {
     "chunkFilename": "[name].chunk.js",
     "crossOriginLoading": "anonymous",
@@ -384,6 +387,9 @@ Object {
         ],
       },
     ],
+  },
+  "optimization": Object {
+    "minimize": false,
   },
   "output": Object {
     "chunkFilename": "[name].chunk.js",
