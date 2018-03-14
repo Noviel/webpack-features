@@ -68,6 +68,7 @@ module.exports = (
     define,
     node: createNode,
     externals: createExternals,
+    optimization,
   } = initFeatures(env);
 
   const {
@@ -79,6 +80,7 @@ module.exports = (
     define: optsDefine = {},
     externals: optsExternals = {},
     htmlWebpackPlugin: optsHtmlWebpackPlugin = {},
+    optimization: optsOptimization = {},
   } = featuresOptions;
 
   return createConfig(
@@ -117,6 +119,11 @@ module.exports = (
         library,
         filename: library ? '[name].js' : undefined,
         ...optsOutput,
+      }),
+      optimization({
+        minimize: production && browser,
+        split: production && browser,
+        ...optsOptimization,
       }),
       {
         plugins: []

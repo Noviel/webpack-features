@@ -7,9 +7,9 @@ beforeEach(() => {
   config = configure(envs.modernBrowsersProd);
 });
 
-describe('output', () => {
-  it('should return correct object', () => {
-    const { output } = config;
-    expect(output()).toMatchSnapshot();
+describe('config', () => {
+  it('should return list of all features', () => {
+    //const { output } = config;
+    expect(config).toMatchSnapshot();
   });
 });

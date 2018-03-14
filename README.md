@@ -21,6 +21,7 @@ Feature-based webpack configurator with built-in React support.
     - [browser](#browser)
     - [define](#define)
     - [externals](#externals)
+    - [optimization](#optimization)
   - Presets
     - [React](#react)
   - [Example](#example)
@@ -337,6 +338,27 @@ externals({
       }
     }
   ]
+})
+```
+
+### optimization
+
+Add optimizations for bundles: minimizing, code splitting.
+
+```javascript
+optimization(options)
+```
+
+Parameters:
+
+- **options**: `object`
+  - **minimize**: `boolean`, minimize bundle code. **default**: `production`.
+  - **split**: `boolean`, should split code to `runtime`, `vendors`, `main` bundles. **default**: `true` for `browsers` target in `production` mode.
+
+```javascript
+optimizatione({
+  minimize: false,
+  split: true,
 })
 ```
 

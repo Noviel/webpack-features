@@ -11,6 +11,7 @@ import createMediaRule from './features/media';
 import createNamedModulesPlugins from './features/namedModules';
 import define from './features/define';
 import externals from './features/externals';
+import optimization from './features/optimization';
 
 import type { Env, PluginExtendOptions } from './lib/types';
 
@@ -40,6 +41,7 @@ export default (env: Env) => {
     browser,
     node,
     externals,
+    optimization,
   };
 
   const wrap = (fn: (Env, any, PluginExtendOptions) => any) => (

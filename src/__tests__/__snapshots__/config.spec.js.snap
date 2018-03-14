@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`output should return correct object 1`] = `
+exports[`config should return list of all features 1`] = `
 Object {
-  "output": Object {
-    "chunkFilename": "[name].[chunkhash].chunk.js",
-    "crossOriginLoading": false,
-    "filename": "[name].[chunkhash].js",
-    "globalObject": undefined,
-    "path": "C:\\\\projects\\\\dev\\\\webpack-features\\\\dist",
-    "publicPath": "/",
-  },
+  "browser": [Function],
+  "createConfig": [Function],
+  "define": [Function],
+  "entry": [Function],
+  "externals": [Function],
+  "javascript": [Function],
+  "media": [Function],
+  "namedModules": [Function],
+  "node": [Function],
+  "optimization": [Function],
+  "output": [Function],
+  "styles": [Function],
 }
 `;
