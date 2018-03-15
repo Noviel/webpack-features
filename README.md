@@ -139,8 +139,8 @@ Define where to output the resulting bundle.
 Parameters:
 
 - **options**: `object`
-  - **filename**: `string` name of the output file. **default**: for production `'[name].[chunkhash].js'`, otherwise `'[name].js'`.
-  - **chunkFilename**: `string`, name of chunks. **default**: for production `'[name].[chunkhash].chunk.js'`, otherwise `'[name].chunk.js'`.
+  - **filename**: `string` name of the output file. **default**: for production `'[name].[chunkhash:8].js'`, otherwise `'[name].js'`.
+  - **chunkFilename**: `string`, name of chunks. **default**: for production `'[name].[chunkhash:8].js'`, otherwise `'[name].js'`.
   - **library**: `string | false`, name of the library. Used for building libraries, not applications. **default**: `false`. 
   - **libraryTarget**: `string`, type of the library module system. Used if `library` is not false. **default**: `'umd'`
 
@@ -547,7 +547,7 @@ module.exports = createConfig(
       path: dist,
       publicPath,
       filename: '[name].[chunkhash].js',
-      chunkFilename: '[name].[chunkhash].chunk.js',
+      chunkFilename: '[name].[chunkhash].js',
     },
   },
   {

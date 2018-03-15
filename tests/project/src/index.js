@@ -6,6 +6,8 @@ import './global.css';
 /*eslint-disable import/no-webpack-loader-syntax */
 import Worker from './web.worker.js';
 
+import('./async').then(module => module.default(42));
+
 const worker = new Worker();
 
 worker.postMessage({ data: [1, 2, 3, 4, 5, 7] });

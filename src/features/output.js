@@ -5,11 +5,9 @@ export default (
   { target, production, rootPath, distPath, publicPath },
   {
     filename = production && target.name === 'browsers'
-      ? '[name].[chunkhash].js'
+      ? '[name].[chunkhash:8].js'
       : '[name].js',
-    chunkFilename = production
-      ? '[name].[chunkhash].chunk.js'
-      : '[name].chunk.js',
+    chunkFilename = production ? '[name].[chunkhash:8].js' : '[name].js',
     library = false,
     libraryTarget = 'umd',
   },
