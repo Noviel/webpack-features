@@ -1,8 +1,5 @@
 const builtinEntries = {
-  hot: {
-    express: 'webpack-hot-middleware/client',
-    react: 'react-hot-loader/patch',
-  },
+  hotMiddleware: 'webpack-hot-middleware/client',
   polyfill: '@babel/polyfill',
 };
 
@@ -11,9 +8,7 @@ export default (
   {
     entries,
     polyfill = target.name === 'browsers' && target.value === 'legacy',
-    hot = !production && target.name === 'browsers',
-    react = true,
-    express = false,
+    hotMiddleware = false,
   } = {}
 ) => {
   if (Array.isArray(entries) || typeof entries === 'string') {
@@ -28,8 +23,7 @@ export default (
     entry: Object.keys(entries).reduce((acc, curr) => {
       acc[curr] = []
         .concat(polyfill ? builtinEntries.polyfill : [])
-        .concat(hot && react ? builtinEntries.hot.react : [])
-        .concat(hot && express ? builtinEntries.hot.express : [])
+        .concat(hotMiddleware ? builtinEntries.hotMiddleware : [])
         .concat(entries[curr]);
 
       return acc;

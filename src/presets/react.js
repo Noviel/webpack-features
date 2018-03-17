@@ -82,14 +82,11 @@ module.exports = (
     optimization: optsOptimization = {},
   } = featuresOptions;
 
-  console.log(optsJavascript);
-
   return createConfig(
     ...[
       { mode: production ? 'production' : 'development' },
       createEntry({
         entries: entry,
-        hot,
         ...optsEntry,
       }),
       javascript(

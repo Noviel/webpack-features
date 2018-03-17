@@ -118,16 +118,13 @@ Parameters:
   - **entries**: `object` where keys are entries names and values are strings or arrays of strings with paths. required
   - **options**: `object`
     - **polyfill**: `boolean` - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
-    - **hot**: `boolean` - should include hot reloading support. **default**: `true` if `development` and any browsers target
-    - **react**: `boolean` - should include react-specific entries for hot reloading if the last is active. **default**: `true`
-    - **express**: `boolean` - should include express middleware for hot reloading. **default**: `false`
+    - **hotMiddleware**: `boolean` - should include express middleware for hot reloading. **default**: `false`
 
 ```javascript
 entry({ 
   entries: { index: './src/index.js' },
   polyfill: true,
   hot: true,
-  react: true,
 }),
 ```
 
