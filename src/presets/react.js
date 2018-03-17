@@ -9,15 +9,15 @@ const noopFeature = () => ({});
 
 module.exports = (
   {
-    entry,
+    entry = './src/index.js',
     production = process.env.NODE_ENV === 'production',
     node = false,
     browser = !node,
     hot = false,
     defines = {},
     template = './src/index.html',
-    publicPath = '/',
     rootPath = fs.realpathSync(process.cwd()),
+    publicPath = !production || node || hot ? '/' : './dist/',
     distPath = browser ? 'static/dist' : 'server',
     cssPreprocessors = [],
     cssExclude = false,
@@ -29,8 +29,7 @@ module.exports = (
     externals = [],
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
-    javascriptScopeHoisting = false,
-    indexHtml = `${hot ? '' : '../'}index.html`,
+    indexHtml = `${hot || !production ? '' : '../'}index.html`,
   },
   featuresOptions = {},
   extend = {}
@@ -83,10 +82,16 @@ module.exports = (
     optimization: optsOptimization = {},
   } = featuresOptions;
 
+  console.log(optsJavascript);
+
   return createConfig(
     ...[
       { mode: production ? 'production' : 'development' },
-      createEntry({ entries: entry, hot, ...optsEntry }),
+      createEntry({
+        entries: entry,
+        hot,
+        ...optsEntry,
+      }),
       javascript(
         {
           exclude: babelExclude,
@@ -128,7 +133,7 @@ module.exports = (
       {
         plugins: []
           .concat(
-            browser && !hot
+            production
               ? new CleanWebpackPlugin([env.distPath], {
                   root: env.rootPath,
                 })

@@ -4,7 +4,7 @@ import styles from './Scss.module.scss';
 
 class Scss extends Component {
   render() {
-    return <div className={styles.scss}>Scss style</div>;
+    return <div className={styles.scss}>SCSS</div>;
   }
 }
 

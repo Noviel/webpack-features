@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.11.0",
+  "version": "3.12.0",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -47,8 +47,8 @@
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
-    "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.1.0"
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
   },
   "peerDependencies": {},
   "dependencies": {

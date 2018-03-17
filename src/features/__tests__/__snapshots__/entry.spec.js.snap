@@ -6,7 +6,6 @@ Object {
     "index": Array [
       "@babel/polyfill",
       "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },
@@ -29,7 +28,6 @@ Object {
   "entry": Object {
     "index": Array [
       "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },
@@ -51,7 +49,6 @@ Object {
   "entry": Object {
     "main": Array [
       "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },
@@ -63,7 +60,6 @@ Object {
   "entry": Object {
     "index": Array [
       "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
       "index.js",
     ],
   },

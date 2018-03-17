@@ -1,10 +1,7 @@
 const { presetReact } = require('../../../dist');
-const config = require('./common');
 
 module.exports = presetReact({
-  ...config,
-  ...config.react,
+  cssPreprocessors: ['scss'],
+  emotion: true,
   production: true,
-  publicPath: './dist/',
-  distPath: './static/dist/',
 });

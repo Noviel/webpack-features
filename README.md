@@ -120,6 +120,7 @@ Parameters:
     - **polyfill**: `boolean` - should include `babel-polyfill` into every entry. **default**: `true` for 'legacy' browsers target, otherwise `false`
     - **hot**: `boolean` - should include hot reloading support. **default**: `true` if `development` and any browsers target
     - **react**: `boolean` - should include react-specific entries for hot reloading if the last is active. **default**: `true`
+    - **express**: `boolean` - should include express middleware for hot reloading. **default**: `false`
 
 ```javascript
 entry({ 
@@ -374,8 +375,6 @@ Ready to use preset for React applications.
 presetReact(presetOptions, featuresOptionsOverrides, webpackConfigOverrides)
 ```
 
-The only required parameter is `entry`. It should be an object where keys are entry names and values are entry paths.
-
 ```javascript
 // webpack.config.client.js
 const { presetReact } = require('webpack-features');
@@ -391,7 +390,13 @@ All list of options with default values:
 ```javascript
 presetReact(
   {
-    entry,
+    // for multiple entries use object
+    // entry = {
+    //  index: './src/index.js',
+    //  other: './src/other.js',
+    // }
+    entry = './src/index.js',
+
     production = process.env.NODE_ENV === 'production',
 
     // selects the target, one of these should be `true`
@@ -412,10 +417,10 @@ presetReact(
     rootPath = fs.realpathSync(process.cwd()),
 
     // webpack's publich path
-    publicPath = '/',
+    publicPath = !production || node || hot ? '/' : './dist/',
 
     // relative path for a built assets output
-    distPath = browser ? 'static/dist' : 'server',
+    distPath = browser ? './static/dist/' : 'server',
 
     // CSS preprocessors
     // should be an array of strings
@@ -451,14 +456,11 @@ presetReact(
     // path to `node_modules` to exclude them if needed
     modulesDir = 'node_modules'
 
-    // should use ModuleConcatenationPlugin
-    javascriptScopeHoisting = false,
-
     // output html filename
     // by default we want it to be at the root of the public folder
     // and because of default `distPath` the root is one level higher
     // but for `hot` reloading we should point to the virtual `index.html`
-    indexHtml: `${hot ? '' : '../'}index.html`
+    indexHtml: `${hot || !production ? '' : '../'}index.html`
   },
   featuresOptionsOverrides = {},
   webpackConfigOverrides = {},
