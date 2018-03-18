@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { hot } from 'react-hot-loader';
 import Scss from './Scss';
 
 import styles from './App.module.css';
@@ -8,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className={styles.app}>
-        <div className="globalClass">-__-</div>
+        <div className="globalClass">-_()_-</div>
         CSS
         <Scss />
       </div>
@@ -16,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(module)(App);

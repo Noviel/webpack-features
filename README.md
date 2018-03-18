@@ -362,27 +362,39 @@ optimizatione({
 
 ## Presets
 
-Presets are the complete sets of features with defined default parameters, which made them usefull without much configuring.
+Presets are the complete sets of features with defined default parameters, which is usefull for most of the projects without any configuration.
 
 ### React
 
-Ready to use preset for React applications.
+Ready to use preset for React applications. It makes following assumption about project structure:
+
+- `src/index.js` - entry point of an application
+- `src/index.html` - html-template
+- `static` - output directory, `index.html` will be placed here 
+- `static/dist` - bundled assets directory
+
+Notes:
+
+- for `node` target default output directory is `server`
+- CSS modules is enabled for `*.module.css` files (based on `styles` feature design decisions)
+
+Most of these settings are configurable. Usage:
 
 ```javascript
-presetReact(presetOptions, featuresOptionsOverrides, webpackConfigOverrides)
-```
-
-```javascript
-// webpack.config.client.js
+// webpack.config.js
 const { presetReact } = require('webpack-features');
 
 module.exports = presetReact({
-  // list of simple options described below
-  entry: { index: './src/index.js' }
+  entry: { index: './src/main.js' },
+  publicPath: './public/',
 });
 ```
 
-All list of options with default values:
+```sh
+ webpack --config=webpack.config.js
+```
+
+Complete list of options with default values:
 
 ```javascript
 presetReact(
