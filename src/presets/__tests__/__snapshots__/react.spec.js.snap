@@ -67,7 +67,6 @@ Object {
                       },
                     ],
                     "@babel/preset-react",
-                    "@babel/preset-flow",
                   ],
                 },
               },
@@ -198,6 +197,14 @@ Object {
       },
     },
   ],
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
+    ],
+  },
   "stats": Object {
     "children": false,
     "modules": false,
@@ -281,7 +288,6 @@ Object {
                       },
                     ],
                     "@babel/preset-react",
-                    "@babel/preset-flow",
                   ],
                 },
               },
@@ -412,6 +418,14 @@ Object {
       },
     },
   ],
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
+    ],
+  },
   "stats": Object {
     "children": false,
     "modules": false,

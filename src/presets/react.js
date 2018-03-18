@@ -19,6 +19,7 @@ module.exports = (
     rootPath = fs.realpathSync(process.cwd()),
     publicPath = !production || node || hot ? '/' : './dist/',
     distPath = browser ? 'static/dist' : 'server',
+    types = 'none',
     cssPreprocessors = [],
     cssExclude = false,
     babelExclude = /node_modules/,
@@ -91,6 +92,8 @@ module.exports = (
       }),
       javascript(
         {
+          flow: types === 'flow',
+          typescript: types.indexOf('typescript') > -1 ? types : false,
           exclude: babelExclude,
           hot,
           webWorkers,

@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.13.1",
+  "version": "3.14.0",
   "description": "Feature-based webpack configurator with built-in React support",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -47,6 +47,7 @@
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
+    "typescript": "^2.7.2",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1"
   },
@@ -80,6 +81,7 @@
     "precss": "^3.1.2",
     "react-hot-loader": "^4.0.0",
     "style-loader": "^0.20.2",
+    "ts-loader": "^4.1.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.1.1",
     "webpack-merge": "^4.1.0",

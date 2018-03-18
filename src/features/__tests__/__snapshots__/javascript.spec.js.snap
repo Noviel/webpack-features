@@ -47,7 +47,6 @@ Object {
                   },
                 ],
                 "@babel/preset-react",
-                "@babel/preset-flow",
               ],
             },
           },
@@ -57,6 +56,14 @@ Object {
           },
         ],
       },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
     ],
   },
 }
@@ -116,7 +123,6 @@ Object {
                   },
                 ],
                 "@babel/preset-react",
-                "@babel/preset-flow",
               ],
             },
           },
@@ -126,6 +132,14 @@ Object {
           },
         ],
       },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
     ],
   },
 }
@@ -182,7 +196,6 @@ Object {
                   },
                 ],
                 "@babel/preset-react",
-                "@babel/preset-flow",
               ],
             },
           },
@@ -192,6 +205,14 @@ Object {
           },
         ],
       },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
     ],
   },
 }
@@ -258,7 +279,6 @@ Object {
                   },
                 ],
                 "@babel/preset-react",
-                "@babel/preset-flow",
               ],
             },
           },
@@ -268,6 +288,14 @@ Object {
           },
         ],
       },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
     ],
   },
 }
@@ -331,7 +359,6 @@ Object {
                   },
                 ],
                 "@babel/preset-react",
-                "@babel/preset-flow",
               ],
             },
           },
@@ -341,6 +368,14 @@ Object {
           },
         ],
       },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
     ],
   },
 }

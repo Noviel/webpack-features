@@ -65,7 +65,6 @@ Array [
               },
             ],
             "@babel/preset-react",
-            "@babel/preset-flow",
           ],
         },
       },

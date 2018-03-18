@@ -5,6 +5,8 @@ import App from './components/App';
 import './global.css';
 import Worker from './web.worker.js';
 
+import { getContainer } from './lib.ts';
+
 import('./async').then(module => module.default(42));
 
 const worker = new Worker();
@@ -15,4 +17,4 @@ worker.addEventListener('message', function(event) {
   console.log(`Got answer from WebWorker: ${event.data}`);
 });
 
-render(<App />, document.getElementById('app'));
+render(<App />, getContainer('app'));

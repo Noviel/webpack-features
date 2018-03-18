@@ -20,11 +20,15 @@ const createPresetsList = ({ env, react, flow }) =>
 export const createTestRegExp = exclude =>
   includeExclude(`\\.worker`, `\\.jsx?`, exclude);
 
+export const createTestRegExpWithTS = exclude =>
+  includeExclude(`\\.worker`, `\\.(j|t)sx?`, exclude);
+
 export default (
   env,
   {
     eslint = true,
-    flow = true,
+    flow = false,
+    typescript = false,
     modules = false,
     react = true,
     webWorkers = true,
@@ -32,6 +36,7 @@ export default (
     hot = !env.production && env.target.name === 'browsers',
     babelPlugins = [],
     exclude = /node_modules/,
+    tsOptions = {},
   } = {},
   { plugins = [], next }
 ) => {
@@ -60,17 +65,31 @@ export default (
     options: typeof eslint === 'object' ? eslint : {},
   };
 
+  const tsLoader = {
+    loader: 'ts-loader',
+    options: {
+      configFile: `./node_modules/webpack-features/migration.tsconfig.json`,
+      ...tsOptions,
+    },
+  };
+
+  const testCreator = typescript ? createTestRegExpWithTS : createTestRegExp;
+  const standardRegexp = typescript ? /\.jsx?/ : /\.(j|t)sx?/;
+
   const rules = [
     {
-      test: webWorkers ? createTestRegExp(true) : /\.jsx?/,
+      test: webWorkers ? testCreator(true) : standardRegexp,
       exclude,
-      use: [].concat(babelLoader).concat(eslint ? eslintLoader : []),
+      use: []
+        .concat(babelLoader)
+        .concat(typescript ? tsLoader : [])
+        .concat(eslint ? eslintLoader : []),
     },
   ];
 
   if (webWorkers) {
     rules.unshift({
-      test: createTestRegExp(false),
+      test: testCreator(false),
       exclude,
       use: {
         loader: 'worker-loader',
@@ -83,5 +102,10 @@ export default (
     });
   }
 
-  return next(env, plugins, { module: { rules } });
+  return next(env, plugins, {
+    module: { rules },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },
+  });
 };

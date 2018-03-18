@@ -12,6 +12,7 @@ Feature-based webpack configurator with built-in React support.
     - [entry](#entry)
     - [output](#output)
     - [javascript](#javascript)
+      - [typescript](#typescript)
       - Plugins  
         - [emotion](#emotion)
     - [styles](#styles)
@@ -160,6 +161,8 @@ Parameters:
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
   - **flow**: `boolean`, should include `flow` support. **default**: true
+  - **typescript**: `boolean`, should support `typescript`. **default**: false
+  - **tsOptions**: `object`, `ts-loader` options. **default**: `{}`
   - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
   - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
   - **exclude**: items to exclude from loading. **default**: `/node_modules/`
@@ -172,6 +175,20 @@ javascript({
   syntaxEnhance: false,
 })
 ```
+
+##### TypeScript
+
+You should `yarn add typescript --dev` in order to use TypeScript. Then extend `./node_modules/webpack-features/migration.tsconfig.json` configuration in your `tsconfig.json` file. If your `tsconfig.json` is located in unusual place you probably should point to its location. Or you can specify default `webpack-features` config.
+
+```javascript
+javascript({
+  typescript: true,
+  tsOptions: {
+    configFile `./node_modules/webpack-features/migration.tsconfig.json`,
+  },
+})
+```
+
 ##### Plugins
 ###### emotion
 
@@ -430,6 +447,12 @@ presetReact(
 
     // relative path for a built assets output
     distPath = browser ? './static/dist/' : 'server',
+
+    // which type syntax should be used
+    // can be:
+    //  - flow
+    //  - typescript
+    types = 'none'
 
     // CSS preprocessors
     // should be an array of strings
