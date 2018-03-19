@@ -12,7 +12,7 @@ Feature-based webpack configurator with built-in React support.
     - [entry](#entry)
     - [output](#output)
     - [javascript](#javascript)
-      - [typescript](#typescript)
+      - [TypeScript](#typescript)
       - Plugins  
         - [emotion](#emotion)
     - [styles](#styles)
@@ -184,7 +184,7 @@ You should `yarn add typescript --dev` in order to use TypeScript. Then extend `
 javascript({
   typescript: true,
   tsOptions: {
-    configFile `./node_modules/webpack-features/migration.tsconfig.json`,
+    configFile: `./node_modules/webpack-features/migration.tsconfig.json`,
   },
 })
 ```
