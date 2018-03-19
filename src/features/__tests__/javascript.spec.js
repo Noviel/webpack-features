@@ -2,7 +2,6 @@ import javascript from '../javascript';
 import { callFeature, envs, captionForEnv } from '../../fixtures';
 
 describe('javascript', () => {
-  // test for every { production, target } combination
   for (const env in envs) {
     it(`should return a valid rule with default paremeters ${captionForEnv(
       envs[env]
@@ -11,25 +10,13 @@ describe('javascript', () => {
     });
   }
 
-  // it(`should apply a plugin that overrides any field`, () => {
-  //   const createExcludePlugin = newExclude => (env, result) => ({
-  //     ...result,
-  //     {
-  //       use: result.use
-  //     },
-  //   });
-  //   const excludeNothing = createExcludePlugin(null);
+  it('should apply migration TypeScript', () => {
+    expect(
+      callFeature(javascript, { typescript: 'migration' })
+    ).toMatchSnapshot();
+  });
 
-  //   expect(callFeature(javascript, {}, [excludeNothing])).toMatchSnapshot();
-  // });
-
-  // it(`should apply a plugin that adds a field`, () => {
-  //   const createFieldPlugin = (name, value) => (env, rule) => ({
-  //     ...rule,
-  //     [name]: value,
-  //   });
-  //   const myFieldPlugin = createFieldPlugin('myField', { value: 100 });
-
-  //   expect(callFeature(javascript, {}, [myFieldPlugin])).toMatchSnapshot();
-  // });
+  it('should apply strict TypeScript', () => {
+    expect(callFeature(javascript, { typescript: 'strict' })).toMatchSnapshot();
+  });
 });

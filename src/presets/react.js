@@ -83,6 +83,11 @@ module.exports = (
     optimization: optsOptimization = {},
   } = featuresOptions;
 
+  const tsType =
+    types && types.indexOf('typescript') > -1
+      ? types.indexOf('strict') > -1 ? 'strict' : 'migration'
+      : false;
+
   return createConfig(
     ...[
       { mode: production ? 'production' : 'development' },
@@ -93,7 +98,7 @@ module.exports = (
       javascript(
         {
           flow: types === 'flow',
-          typescript: types.indexOf('typescript') > -1 ? types : false,
+          typescript: tsType,
           exclude: babelExclude,
           hot,
           webWorkers,

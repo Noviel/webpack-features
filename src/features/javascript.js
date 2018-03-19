@@ -1,6 +1,7 @@
 import createBabelEnvPresetOptions from '../lib/babelEnvPresetOptions';
 
 import { includeExclude } from '../lib/regexp';
+import { tsConfigFile } from '../lib/tsConfig';
 
 const syntaxExtendPlugins = [
   '@babel/plugin-proposal-object-rest-spread',
@@ -68,13 +69,16 @@ export default (
   const tsLoader = {
     loader: 'ts-loader',
     options: {
-      configFile: `./node_modules/webpack-features/migration.tsconfig.json`,
+      configFile: tsConfigFile(typescript),
       ...tsOptions,
     },
   };
 
-  const testCreator = typescript ? createTestRegExpWithTS : createTestRegExp;
-  const standardRegexp = typescript ? /\.jsx?/ : /\.(j|t)sx?/;
+  const migrationTS = typescript === 'migration';
+  const strictTS = typescript && !migrationTS;
+
+  const testCreator = migrationTS ? createTestRegExpWithTS : createTestRegExp;
+  const standardRegexp = migrationTS ? /\.jsx?/ : /\.(j|t)sx?/;
 
   const rules = [
     {
@@ -82,10 +86,18 @@ export default (
       exclude,
       use: []
         .concat(babelLoader)
-        .concat(typescript ? tsLoader : [])
+        .concat(migrationTS ? tsLoader : [])
         .concat(eslint ? eslintLoader : []),
     },
   ];
+
+  if (strictTS) {
+    rules.push({
+      test: /\.tsx?/,
+      exclude,
+      use: [].concat(tsLoader).concat(eslint ? eslintLoader : []),
+    });
+  }
 
   if (webWorkers) {
     rules.unshift({
@@ -102,10 +114,12 @@ export default (
     });
   }
 
+  const extensions = ['.js', '.jsx'].concat(typescript ? ['.ts', '.tsx'] : []);
+
   return next(env, plugins, {
     module: { rules },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      extensions,
     },
   });
 };

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index should expose public API 1`] = `
+Object {
+  "default": [Function],
+  "pluginEmotion": [Function],
+  "presetReact": [Function],
+  "tsConfigFile": [Function],
+}
+`;

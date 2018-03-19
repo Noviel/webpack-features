@@ -199,8 +199,6 @@ Object {
   ],
   "resolve": Object {
     "extensions": Array [
-      ".ts",
-      ".tsx",
       ".js",
       ".jsx",
     ],
@@ -420,8 +418,6 @@ Object {
   ],
   "resolve": Object {
     "extensions": Array [
-      ".ts",
-      ".tsx",
       ".js",
       ".jsx",
     ],
