@@ -8,9 +8,9 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "serve:react": "../../node_modules/.bin/static static",
-    "build:react": "../../node_modules/.bin/webpack --config config/reactClient.js",
-    "dev:react": "../../node_modules/.bin/webpack-dev-server --config=config/reactClientDev.js --hot --hot-only --inline"
+    "serve": "../../node_modules/.bin/static static",
+    "build": "../../node_modules/.bin/webpack --config config/reactClient.js",
+    "dev": "../../node_modules/.bin/webpack-dev-server --config=config/reactClientDev.js --hot --hot-only --inline"
   },
   "dependencies": {
     "react": "^16.2.0",

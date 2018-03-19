@@ -16,6 +16,7 @@ module.exports = react(
   },
   {
     javascript: {
+      eslint: true,
       tsOptions: {
         configFile: '../../../migration.tsconfig.json',
       },

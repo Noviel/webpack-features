@@ -21,8 +21,8 @@ const createPresetsList = ({ env, react, flow }) =>
 export const createTestRegExp = exclude =>
   includeExclude(`\\.worker`, `\\.jsx?`, exclude);
 
-export const createTestRegExpWithTS = exclude =>
-  includeExclude(`\\.worker`, `\\.(j|t)sx?`, exclude);
+export const createTestRegExpTS = exclude =>
+  includeExclude(`\\.worker`, `\\.tsx?`, exclude);
 
 export default (
   env,
@@ -75,14 +75,10 @@ export default (
   };
 
   const migrationTS = typescript === 'migration';
-  const strictTS = typescript && !migrationTS;
-
-  const testCreator = migrationTS ? createTestRegExpWithTS : createTestRegExp;
-  const standardRegexp = migrationTS ? /\.jsx?/ : /\.(j|t)sx?/;
 
   const rules = [
     {
-      test: webWorkers ? testCreator(true) : standardRegexp,
+      test: webWorkers ? createTestRegExp(true) : /\.jsx?/,
       exclude,
       use: []
         .concat(babelLoader)
@@ -91,17 +87,19 @@ export default (
     },
   ];
 
-  if (strictTS) {
+  if (typescript) {
     rules.push({
-      test: /\.tsx?/,
+      test: webWorkers ? createTestRegExpTS(true) : /\.tsx?/,
       exclude,
-      use: [].concat(tsLoader).concat(eslint ? eslintLoader : []),
+      // use babel-loader only for `migration` mode
+      // in `strict` mode should be used pure TypeScript
+      use: [].concat(migrationTS ? babelLoader : []).concat(tsLoader),
     });
   }
 
   if (webWorkers) {
     rules.unshift({
-      test: testCreator(false),
+      test: createTestRegExp(false),
       exclude,
       use: {
         loader: 'worker-loader',
