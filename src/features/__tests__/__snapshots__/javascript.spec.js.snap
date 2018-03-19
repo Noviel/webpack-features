@@ -57,7 +57,6 @@ Object {
                     "useBuiltIns": false,
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -143,7 +142,6 @@ Object {
                     "useBuiltIns": false,
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -228,7 +226,6 @@ Object {
                     "useBuiltIns": false,
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -274,7 +271,6 @@ Object {
             "options": Object {
               "babelrc": false,
               "plugins": Array [
-                "react-hot-loader/babel",
                 "@babel/plugin-proposal-object-rest-spread",
                 "@babel/plugin-proposal-decorators",
                 Array [
@@ -284,8 +280,6 @@ Object {
                   },
                 ],
                 "@babel/plugin-syntax-dynamic-import",
-                "@babel/transform-classes",
-                "@babel/transform-react-jsx-source",
               ],
               "presets": Array [
                 Array [
@@ -302,7 +296,6 @@ Object {
                     "useBuiltIns": "entry",
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -373,7 +366,6 @@ Object {
                     "useBuiltIns": "entry",
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -419,7 +411,6 @@ Object {
             "options": Object {
               "babelrc": false,
               "plugins": Array [
-                "react-hot-loader/babel",
                 "@babel/plugin-proposal-object-rest-spread",
                 "@babel/plugin-proposal-decorators",
                 Array [
@@ -429,8 +420,6 @@ Object {
                   },
                 ],
                 "@babel/plugin-syntax-dynamic-import",
-                "@babel/transform-classes",
-                "@babel/transform-react-jsx-source",
               ],
               "presets": Array [
                 Array [
@@ -454,7 +443,6 @@ Object {
                     "useBuiltIns": false,
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },
@@ -532,7 +520,6 @@ Object {
                     "useBuiltIns": false,
                   },
                 ],
-                "@babel/preset-react",
               ],
             },
           },

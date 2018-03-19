@@ -4,7 +4,7 @@ exports[`presetReact should be good 1`] = `
 Object {
   "entry": Object {
     "index": Array [
-      "index.js",
+      "./src/index.js",
     ],
   },
   "externals": Array [],
@@ -214,7 +214,7 @@ exports[`presetReact should be good with emotion 1`] = `
 Object {
   "entry": Object {
     "index": Array [
-      "index.js",
+      "./src/index.js",
     ],
   },
   "externals": Array [],
@@ -244,15 +244,6 @@ Object {
                 "options": Object {
                   "babelrc": false,
                   "plugins": Array [
-                    Array [
-                      "emotion",
-                      Object {
-                        "autoLabel": true,
-                        "extractStatic": false,
-                        "hoist": false,
-                        "sourceMap": true,
-                      },
-                    ],
                     "@babel/plugin-proposal-object-rest-spread",
                     "@babel/plugin-proposal-decorators",
                     Array [

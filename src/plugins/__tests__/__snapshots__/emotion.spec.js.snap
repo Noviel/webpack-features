@@ -64,7 +64,6 @@ Array [
                 "useBuiltIns": false,
               },
             ],
-            "@babel/preset-react",
           ],
         },
       },

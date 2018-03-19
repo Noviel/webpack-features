@@ -2,9 +2,10 @@
 
 exports[`index should expose public API 1`] = `
 Object {
+  "base": [Function],
   "default": [Function],
   "pluginEmotion": [Function],
-  "presetReact": [Function],
+  "react": [Function],
   "tsConfigFile": [Function],
 }
 `;

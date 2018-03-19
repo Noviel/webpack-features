@@ -31,7 +31,7 @@ export default (
     flow = false,
     typescript = false,
     modules = false,
-    react = true,
+    react = false,
     webWorkers = true,
     syntaxExtend = true,
     hot = !env.production && env.target.name === 'browsers',

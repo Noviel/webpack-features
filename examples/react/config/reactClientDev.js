@@ -3,9 +3,9 @@ const fs = require('fs');
 const root = fs.realpathSync(process.cwd());
 
 //const { resolve } = require('path');
-const { presetReact } = require('../../../dist');
+const { react } = require('../../../dist');
 
-module.exports = presetReact(
+module.exports = react(
   {
     rootPath: root,
     cssPreprocessors: ['scss'],

@@ -9,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className={styles.app}>
-        <div className="globalClass">-_()_-</div>
-        CSS
+        I am using CSS Modules
+        <div className="globalClass">I am using global CSS</div>
         <Scss />
       </div>
     );

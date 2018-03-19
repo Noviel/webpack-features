@@ -1,4 +1,4 @@
-tests/project/static/
+examples/react/static/
 .idea/
 .vscode/
 dist/
