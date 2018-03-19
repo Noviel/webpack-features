@@ -1,12 +1,16 @@
 {
   "name": "webpack-features",
-  "version": "3.16.1",
+  "version": "3.16.2",
   "description": "Make Webpack configuration process quick and painless",
+  "author": "Aleksandr Snov <snov.contact@gmail.com>",
+  "license": "MIT",
+  "repository" :{ 
+    "type" : "git", 
+    "url" : "https://github.com/Noviel/webpack-features.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
-  "author": "Aleksandr Snov <snov.contact@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch --coverage=false",
