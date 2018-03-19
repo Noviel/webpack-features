@@ -1,7 +1,7 @@
 {
   "name": "webpack-features",
-  "version": "3.16.0",
-  "description": "Feature-based webpack configurator with built-in React support",
+  "version": "3.16.1",
+  "description": "Make Webpack configuration process quick and painless",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
