@@ -64,7 +64,7 @@ Object {
           Object {
             "loader": "ts-loader",
             "options": Object {
-              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\migration.tsconfig.json",
+              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\migration.tsconfig.json",
             },
           },
           Object {
@@ -160,7 +160,7 @@ Object {
           Object {
             "loader": "ts-loader",
             "options": Object {
-              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\strict.tsconfig.json",
+              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\strict.tsconfig.json",
             },
           },
           Object {

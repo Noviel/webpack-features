@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tsConfig should return valid path to \`migration\` config without arguments 1`] = `"C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\migration.tsconfig.json"`;
+exports[`tsConfig should return valid path to \`migration\` config without arguments 1`] = `"C:\\\\projects\\\\dev\\\\webpack-features\\\\migration.tsconfig.json"`;
 
-exports[`tsConfig should return valid path to provided config 1`] = `"C:\\\\projects\\\\dev\\\\webpack-features\\\\src\\\\strict.tsconfig.json"`;
+exports[`tsConfig should return valid path to provided config 1`] = `"C:\\\\projects\\\\dev\\\\webpack-features\\\\strict.tsconfig.json"`;
