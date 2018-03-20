@@ -10,13 +10,30 @@ describe('javascript', () => {
     });
   }
 
-  it('should apply migration TypeScript', () => {
-    expect(
-      callFeature(javascript, { typescript: 'migration' })
-    ).toMatchSnapshot();
-  });
+  describe('TypeScript', () => {
+    it('should apply migration TypeScript', () => {
+      expect(
+        callFeature(javascript, { typescript: 'migration' })
+      ).toMatchSnapshot();
+    });
 
-  it('should apply strict TypeScript', () => {
-    expect(callFeature(javascript, { typescript: 'strict' })).toMatchSnapshot();
+    it('should apply strict TypeScript', () => {
+      expect(
+        callFeature(javascript, { typescript: 'strict' })
+      ).toMatchSnapshot();
+    });
+
+    it('should correctly merge options', () => {
+      expect(
+        callFeature(javascript, {
+          typescript: 'migration',
+          tsOptions: {
+            compilerOptions: {
+              allowJs: true,
+            },
+          },
+        })
+      ).toMatchSnapshot();
+    });
   });
 });

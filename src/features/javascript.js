@@ -1,3 +1,5 @@
+import merge from 'deepmerge';
+
 import createBabelEnvPresetOptions from '../lib/babelEnvPresetOptions';
 
 import { includeExclude } from '../lib/regexp';
@@ -68,10 +70,12 @@ export default (
 
   const tsLoader = {
     loader: 'ts-loader',
-    options: {
-      configFile: tsConfigFile(typescript),
-      ...tsOptions,
-    },
+    options: merge(
+      {
+        configFile: tsConfigFile(typescript),
+      },
+      tsOptions
+    ),
   };
 
   const migrationTS = typescript === 'migration';

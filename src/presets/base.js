@@ -18,7 +18,7 @@ module.exports = (
     defines = {},
     template = './src/index.html',
     rootPath = fs.realpathSync(process.cwd()),
-    publicPath = !production || node || hot ? '/' : './dist/',
+    publicPath = !production || node || hot ? '/' : '/dist/',
     distPath = browser ? 'static/dist' : 'server',
     types = 'none',
     cssPreprocessors = [],
@@ -32,6 +32,7 @@ module.exports = (
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
     indexHtml = `${hot || !production ? '' : '../'}index.html`,
+    wasm = false,
   },
   featuresOptions = {},
   extend = {}
@@ -70,6 +71,7 @@ module.exports = (
     node: createNode,
     externals: createExternals,
     optimization,
+    webAssembly,
   } = initFeatures(env);
 
   const {
@@ -82,6 +84,7 @@ module.exports = (
     externals: optsExternals = {},
     htmlWebpackPlugin: optsHtmlWebpackPlugin = {},
     optimization: optsOptimization = {},
+    webAssembly: optsWebAssembly = {},
   } = featuresOptions;
 
   const tsType =
@@ -120,6 +123,13 @@ module.exports = (
         limit: library ? undefined : 10000,
         ...optsMedia,
       }),
+      wasm
+        ? webAssembly({
+            experimental: false,
+            inline: wasm === 'inline',
+            ...optsWebAssembly,
+          })
+        : noopFeature(),
       define({ ...defines, ...optsDefine }),
       node ? createNode() : noopFeature(),
       createExternals({

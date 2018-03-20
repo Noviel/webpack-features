@@ -1,9 +1,7 @@
 const fs = require('fs');
+const { react } = require('../../../dist');
 
 const root = fs.realpathSync(process.cwd());
-
-//const { resolve } = require('path');
-const { react } = require('../../../dist');
 
 module.exports = react(
   {
@@ -13,6 +11,7 @@ module.exports = react(
     production: false,
     indexHtml: 'index.html',
     types: 'typescript',
+    wasm: 'inline',
   },
   {
     javascript: {

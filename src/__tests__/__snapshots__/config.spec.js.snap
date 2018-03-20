@@ -14,5 +14,6 @@ Object {
   "optimization": [Function],
   "output": [Function],
   "styles": [Function],
+  "webAssembly": [Function],
 }
 `;

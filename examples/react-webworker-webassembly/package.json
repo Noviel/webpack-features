@@ -9,8 +9,8 @@
   },
   "scripts": {
     "serve": "../../node_modules/.bin/static static",
-    "build": "../../node_modules/.bin/webpack --config config/reactClient.js",
-    "dev": "../../node_modules/.bin/webpack-dev-server --config=config/reactClientDev.js --hot --hot-only --inline"
+    "build": "../../node_modules/.bin/webpack --config config/production.js",
+    "dev": "../../node_modules/.bin/webpack-dev-server --config=config/development.js --hot --hot-only --inline"
   },
   "dependencies": {
     "react": "^16.2.0",

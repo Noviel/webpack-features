@@ -12,6 +12,7 @@ import createNamedModulesPlugins from './features/namedModules';
 import define from './features/define';
 import externals from './features/externals';
 import optimization from './features/optimization';
+import webAssembly from './features/webAssembly';
 
 import type { Env, PluginExtendOptions } from './lib/types';
 
@@ -42,6 +43,7 @@ export default (env: Env) => {
     node,
     externals,
     optimization,
+    webAssembly,
   };
 
   const wrap = (fn: (Env, any, PluginExtendOptions) => any) => (

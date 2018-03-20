@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`javascript should apply migration TypeScript 1`] = `
+exports[`javascript TypeScript should apply migration TypeScript 1`] = `
 Object {
   "module": Object {
     "rules": Array [
@@ -137,7 +137,7 @@ Object {
 }
 `;
 
-exports[`javascript should apply strict TypeScript 1`] = `
+exports[`javascript TypeScript should apply strict TypeScript 1`] = `
 Object {
   "module": Object {
     "rules": Array [
@@ -211,6 +211,149 @@ Object {
             "loader": "ts-loader",
             "options": Object {
               "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\strict.tsconfig.json",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx",
+    ],
+  },
+}
+`;
+
+exports[`javascript TypeScript should correctly merge options 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
+        "use": Object {
+          "loader": "worker-loader",
+          "options": Object {
+            "inline": false,
+            "name": "[name].[hash].js",
+            "publicPath": "/",
+          },
+        },
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+            "options": Object {
+              "babelrc": false,
+              "plugins": Array [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
+                "@babel/plugin-syntax-dynamic-import",
+              ],
+              "presets": Array [
+                Array [
+                  "@babel/preset-env",
+                  Object {
+                    "modules": false,
+                    "targets": Object {
+                      "browsers": Array [
+                        "last 2 Chrome versions",
+                        "not Chrome < 60",
+                        "last 2 Safari versions",
+                        "not Safari < 10.1",
+                        "last 2 iOS versions",
+                        "not iOS < 10.3",
+                        "last 2 Firefox versions",
+                        "not Firefox < 54",
+                        "last 2 Edge versions",
+                        "not Edge < 15",
+                      ],
+                    },
+                    "useBuiltIns": false,
+                  },
+                ],
+              ],
+            },
+          },
+          Object {
+            "loader": "ts-loader",
+            "options": Object {
+              "compilerOptions": Object {
+                "allowJs": true,
+              },
+              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\migration.tsconfig.json",
+            },
+          },
+          Object {
+            "loader": "eslint-loader",
+            "options": Object {},
+          },
+        ],
+      },
+      Object {
+        "exclude": /node_modules/,
+        "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.tsx\\?\\$/i,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+            "options": Object {
+              "babelrc": false,
+              "plugins": Array [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/plugin-proposal-decorators",
+                Array [
+                  "@babel/plugin-proposal-class-properties",
+                  Object {
+                    "loose": true,
+                  },
+                ],
+                "@babel/plugin-syntax-dynamic-import",
+              ],
+              "presets": Array [
+                Array [
+                  "@babel/preset-env",
+                  Object {
+                    "modules": false,
+                    "targets": Object {
+                      "browsers": Array [
+                        "last 2 Chrome versions",
+                        "not Chrome < 60",
+                        "last 2 Safari versions",
+                        "not Safari < 10.1",
+                        "last 2 iOS versions",
+                        "not iOS < 10.3",
+                        "last 2 Firefox versions",
+                        "not Firefox < 54",
+                        "last 2 Edge versions",
+                        "not Edge < 15",
+                      ],
+                    },
+                    "useBuiltIns": false,
+                  },
+                ],
+              ],
+            },
+          },
+          Object {
+            "loader": "ts-loader",
+            "options": Object {
+              "compilerOptions": Object {
+                "allowJs": true,
+              },
+              "configFile": "C:\\\\projects\\\\dev\\\\webpack-features\\\\migration.tsconfig.json",
             },
           },
         ],

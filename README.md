@@ -1,6 +1,6 @@
 # Webpack Features
 
-Make Webpack configuration process quick and painless
+Make Webpack configuration process quick and painless.
 
 ## Content
 
@@ -18,6 +18,7 @@ Make Webpack configuration process quick and painless
       - [TypeScript](#typescript)
       - Plugins  
         - [emotion](#emotion)
+    - [webAssembly](#webassembly)
     - [styles](#styles)
     - [images](#images)
     - [namedModules](#namedmodules)
@@ -108,7 +109,7 @@ base(
     rootPath = fs.realpathSync(process.cwd()),
 
     // webpack's publich path
-    publicPath = !production || node || hot ? '/' : './dist/',
+    publicPath = !production || node || hot ? '/' : '/dist/',
 
     // relative path for a built assets output
     distPath = browser ? './static/dist/' : 'server',
@@ -117,7 +118,7 @@ base(
     // can be:
     //  - flow
     //  - typescript
-    types = 'none'
+    types = 'none',
 
     // CSS preprocessors
     // should be an array of strings
@@ -129,7 +130,7 @@ base(
     cssExclude = false,
 
     // patterns to exclude from babel transformations
-    babelExclude = /node_modules/
+    babelExclude = /node_modules/,
 
     // support for WebWorkers
     webWorkers = true,
@@ -151,13 +152,17 @@ base(
     externalsWhitelist = undefined,
 
     // path to `node_modules` to exclude them if needed
-    modulesDir = 'node_modules'
+    modulesDir = 'node_modules',
 
     // output html filename
     // by default we want it to be at the root of the public folder
     // and because of default `distPath` the root is one level higher
     // but for `hot` reloading we should point to the virtual `index.html`
-    indexHtml: `${hot || !production ? '' : '../'}index.html`
+    indexHtml: `${hot || !production ? '' : '../'}index.html`,
+
+    // true - add support for WebAssembly
+    // `inline` - do not output *.wasm files, embed code in JavaScript
+    wasm = false,
   },
   featuresOptionsOverrides = {},
   webpackConfigOverrides = {},
@@ -386,6 +391,24 @@ Parameters:
   - **hoist**: `boolean`, **default**: `production`
   - **sourceMap**: `boolean`, **default**: `!production`
   - **autoLabel**: `boolean`, **default**: `!production`
+
+### webAssembly
+
+Add support for WebAssembly.
+
+`webAssembly(options)`
+
+Parameters:
+
+- **options**: `object`
+  - **inline**: `boolean` - embed WebAssembly code into JavaScript. Multiple entries of the same code will be embedded for every entry. **default**: `false`
+  - **experimental**: `boolean` - enable Webpack 4 WebAssembly module type. **default**: `false`
+
+`experimental` flag is off by default, because of current Webpack's WebAssembly module type stage. There are problems with `.wasm` files larger than 4Kb and usage inside WebWorker.
+
+```javascript
+webAssembly({ inline: true, experimental: true )
+```
 
 ### styles
 
