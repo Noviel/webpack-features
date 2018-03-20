@@ -8,7 +8,7 @@ Make Webpack configuration process quick and painless.
   - Presets
     - [Base](#base)
     - [React](#react)
-    - [Examples](#example)
+    - [Examples](#examples)
   - [Features](#features)
     - [Initializing](#initializing)
     - [createConfig](#createconfig)
@@ -220,7 +220,7 @@ module.exports = react({
 ### Examples
 
 - [webpack-features/examples](https://github.com/Noviel/webpack-features/tree/master/examples)
-- [modern-javascript-starter](https://github.com/Noviel/modern-javascript-starter)
+- [modern-frontend-starter](https://github.com/Noviel/modern-frontend-starter)
 
 ## Features
 
