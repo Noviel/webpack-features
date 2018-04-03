@@ -1,4 +1,4 @@
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { includeExclude } from '../lib/regexp';
 
@@ -65,10 +65,7 @@ const createRule = (
   }
 
   if (extract) {
-    loaders = ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: loaders,
-    });
+    loaders.unshift(MiniCssExtractPlugin.loader);
   } else if (target.name === 'browsers') {
     loaders.unshift(styleLoader);
   }
@@ -87,7 +84,7 @@ export default (
     cssModules = 'both',
     extract = env.target.name === 'browsers' && env.production,
     extractPlugin = extract,
-    extractFilename = '[name].[contenthash].css',
+    extractFilename = '[name].css',
     postcss = require('../lib/postcss.config.js'),
     exclude = false,
   },
@@ -128,8 +125,9 @@ export default (
 
   if (extractPlugin) {
     webpackPlugins.push(
-      new ExtractTextPlugin({
+      new MiniCssExtractPlugin({
         filename: extractFilename,
+        chunkFilename: '[id].[chunkhash].css',
       })
     );
   }

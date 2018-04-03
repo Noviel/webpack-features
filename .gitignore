@@ -1,4 +1,4 @@
-examples/react/static/
+examples/react-webworker-webassembly/static/
 .idea/
 .vscode/
 dist/

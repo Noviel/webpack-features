@@ -135,16 +135,7 @@ Object {
       Object {
         "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
-          Object {
-            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
-            "options": Object {
-              "omit": 1,
-              "remove": true,
-            },
-          },
-          Object {
-            "loader": "style-loader",
-          },
+          "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\mini-css-extract-plugin\\\\dist\\\\loader.js",
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
@@ -170,16 +161,7 @@ Object {
       Object {
         "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
-          Object {
-            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
-            "options": Object {
-              "omit": 1,
-              "remove": true,
-            },
-          },
-          Object {
-            "loader": "style-loader",
-          },
+          "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\mini-css-extract-plugin\\\\dist\\\\loader.js",
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
@@ -205,10 +187,11 @@ Object {
     ],
   },
   "plugins": Array [
-    ExtractTextPlugin {
-      "filename": "[name].[contenthash].css",
-      "id": 2,
-      "options": Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[id].[chunkhash].css",
+        "filename": "[name].css",
+      },
     },
   ],
 }
@@ -289,16 +272,7 @@ Object {
       Object {
         "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
-          Object {
-            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
-            "options": Object {
-              "omit": 1,
-              "remove": true,
-            },
-          },
-          Object {
-            "loader": "style-loader",
-          },
+          "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\mini-css-extract-plugin\\\\dist\\\\loader.js",
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
@@ -324,16 +298,7 @@ Object {
       Object {
         "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
-          Object {
-            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\extract-text-webpack-plugin\\\\dist\\\\loader.js",
-            "options": Object {
-              "omit": 1,
-              "remove": true,
-            },
-          },
-          Object {
-            "loader": "style-loader",
-          },
+          "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\mini-css-extract-plugin\\\\dist\\\\loader.js",
           Object {
             "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
@@ -359,10 +324,11 @@ Object {
     ],
   },
   "plugins": Array [
-    ExtractTextPlugin {
-      "filename": "[name].[contenthash].css",
-      "id": 1,
-      "options": Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[id].[chunkhash].css",
+        "filename": "[name].css",
+      },
     },
   ],
 }
