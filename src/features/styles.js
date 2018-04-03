@@ -16,7 +16,9 @@ const createRule = (
   }
 
   const cssLoader = {
-    loader: `css-loader${target.name === 'node' ? '/locals' : ''}`,
+    loader: require.resolve(
+      `css-loader${target.name === 'node' ? '/locals' : ''}`
+    ),
     options: {
       sourceMap: !production,
       minimize: production,
@@ -28,7 +30,7 @@ const createRule = (
   };
 
   const styleLoader = {
-    loader: 'style-loader',
+    loader: require.resolve('style-loader'),
     options: {},
   };
 
@@ -36,12 +38,17 @@ const createRule = (
 
   if (postcss) {
     loaders[0].options.importLoaders = 1;
-    loaders = loaders.concat({ loader: 'postcss-loader', options: postcss });
+    loaders = loaders.concat({
+      loader: require.resolve('postcss-loader'),
+      options: postcss,
+    });
   }
 
   if (preprocessor === 'scss') {
     loaders[0].options.importLoaders++;
     loaders = loaders.concat({
+      // we do not `require.resolve` because sass-loader
+      // should be installed by user
       loader: 'sass-loader',
       options: {
         sourceMap: !production,

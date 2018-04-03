@@ -46,7 +46,7 @@ export default (
   const { target } = env;
 
   const babelLoader = {
-    loader: 'babel-loader',
+    loader: require.resolve('babel-loader'),
     options: {
       babelrc: false,
       presets: createPresetsList({
@@ -64,12 +64,12 @@ export default (
   };
 
   const eslintLoader = {
-    loader: 'eslint-loader',
+    loader: require.resolve('eslint-loader'),
     options: typeof eslint === 'object' ? eslint : {},
   };
 
   const tsLoader = {
-    loader: 'ts-loader',
+    loader: require.resolve('ts-loader'),
     options: merge(
       {
         configFile: tsConfigFile(typescript),
@@ -106,7 +106,7 @@ export default (
       test: createTestRegExp(false),
       exclude,
       use: {
-        loader: 'worker-loader',
+        loader: require.resolve('worker-loader'),
         options: {
           inline: !env.production,
           publicPath: env.publicPath,

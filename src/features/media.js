@@ -11,7 +11,7 @@ export default (env, { limit, name, ...rest } = {}) => {
     {
       test: /\.(jpe?g|png|gif|svg)$/i,
       use: {
-        loader: 'url-loader',
+        loader: require.resolve('url-loader'),
         options: {
           publicPath: env.publicPath,
           limit,
@@ -24,7 +24,7 @@ export default (env, { limit, name, ...rest } = {}) => {
     {
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
       use: {
-        loader: 'file-loader',
+        loader: require.resolve('file-loader'),
         options: {
           publicPath: env.publicPath,
           limit,

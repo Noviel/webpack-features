@@ -17,7 +17,7 @@ Object {
             "exclude": /node_modules/,
             "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
             "use": Object {
-              "loader": "worker-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\worker-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "inline": true,
                 "name": "[name].[hash].js",
@@ -30,7 +30,7 @@ Object {
             "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
             "use": Array [
               Object {
-                "loader": "babel-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "babelrc": false,
                   "plugins": Array [
@@ -71,7 +71,7 @@ Object {
                 },
               },
               Object {
-                "loader": "eslint-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\eslint-loader\\\\index.js",
                 "options": Object {},
               },
             ],
@@ -80,11 +80,11 @@ Object {
             "test": /\\\\\\.module\\\\\\.css\\$/i,
             "use": Array [
               Object {
-                "loader": "style-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
                 "options": Object {},
               },
               Object {
-                "loader": "css-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
                 "options": Object {
                   "importLoaders": 1,
                   "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -94,7 +94,7 @@ Object {
                 },
               },
               Object {
-                "loader": "postcss-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "plugins": Array [
                     [Function],
@@ -109,11 +109,11 @@ Object {
             "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
             "use": Array [
               Object {
-                "loader": "style-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
                 "options": Object {},
               },
               Object {
-                "loader": "css-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
                 "options": Object {
                   "importLoaders": 1,
                   "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -123,7 +123,7 @@ Object {
                 },
               },
               Object {
-                "loader": "postcss-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "plugins": Array [
                     [Function],
@@ -137,7 +137,7 @@ Object {
           Object {
             "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
             "use": Object {
-              "loader": "url-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\url-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "emitFile": true,
                 "limit": 10000,
@@ -149,7 +149,7 @@ Object {
           Object {
             "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
             "use": Object {
-              "loader": "file-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\file-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "emitFile": true,
                 "limit": 10000,
@@ -227,7 +227,7 @@ Object {
             "exclude": /node_modules/,
             "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
             "use": Object {
-              "loader": "worker-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\worker-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "inline": true,
                 "name": "[name].[hash].js",
@@ -240,19 +240,10 @@ Object {
             "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
             "use": Array [
               Object {
-                "loader": "babel-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "babelrc": false,
                   "plugins": Array [
-                    Array [
-                      "emotion",
-                      Object {
-                        "autoLabel": true,
-                        "extractStatic": false,
-                        "hoist": false,
-                        "sourceMap": true,
-                      },
-                    ],
                     "@babel/plugin-proposal-object-rest-spread",
                     "@babel/plugin-proposal-decorators",
                     Array [
@@ -290,7 +281,7 @@ Object {
                 },
               },
               Object {
-                "loader": "eslint-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\eslint-loader\\\\index.js",
                 "options": Object {},
               },
             ],
@@ -299,11 +290,11 @@ Object {
             "test": /\\\\\\.module\\\\\\.css\\$/i,
             "use": Array [
               Object {
-                "loader": "style-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
                 "options": Object {},
               },
               Object {
-                "loader": "css-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
                 "options": Object {
                   "importLoaders": 1,
                   "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -313,7 +304,7 @@ Object {
                 },
               },
               Object {
-                "loader": "postcss-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "plugins": Array [
                     [Function],
@@ -328,11 +319,11 @@ Object {
             "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
             "use": Array [
               Object {
-                "loader": "style-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
                 "options": Object {},
               },
               Object {
-                "loader": "css-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
                 "options": Object {
                   "importLoaders": 1,
                   "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -342,7 +333,7 @@ Object {
                 },
               },
               Object {
-                "loader": "postcss-loader",
+                "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
                 "options": Object {
                   "plugins": Array [
                     [Function],
@@ -356,7 +347,7 @@ Object {
           Object {
             "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
             "use": Object {
-              "loader": "url-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\url-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "emitFile": true,
                 "limit": 10000,
@@ -368,7 +359,7 @@ Object {
           Object {
             "test": /\\\\\\.\\(woff\\|woff2\\|eot\\|ttf\\|otf\\)\\$/i,
             "use": Object {
-              "loader": "file-loader",
+              "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\file-loader\\\\dist\\\\cjs.js",
               "options": Object {
                 "emitFile": true,
                 "limit": 10000,

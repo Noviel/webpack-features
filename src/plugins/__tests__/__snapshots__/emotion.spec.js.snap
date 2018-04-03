@@ -6,7 +6,7 @@ Array [
     "exclude": /node_modules/,
     "test": /\\\\\\.worker\\\\\\.jsx\\?\\$/i,
     "use": Object {
-      "loader": "worker-loader",
+      "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\worker-loader\\\\dist\\\\cjs.js",
       "options": Object {
         "inline": false,
         "name": "[name].[hash].js",
@@ -19,19 +19,10 @@ Array [
     "test": /\\^\\(\\?:\\(\\?!\\\\\\.worker\\)\\.\\)\\*\\\\\\.jsx\\?\\$/i,
     "use": Array [
       Object {
-        "loader": "babel-loader",
+        "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js",
         "options": Object {
           "babelrc": false,
           "plugins": Array [
-            Array [
-              "emotion",
-              Object {
-                "autoLabel": false,
-                "extractStatic": false,
-                "hoist": true,
-                "sourceMap": false,
-              },
-            ],
             "@babel/plugin-proposal-object-rest-spread",
             "@babel/plugin-proposal-decorators",
             Array [
@@ -68,7 +59,7 @@ Array [
         },
       },
       Object {
-        "loader": "eslint-loader",
+        "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\eslint-loader\\\\index.js",
         "options": Object {},
       },
     ],

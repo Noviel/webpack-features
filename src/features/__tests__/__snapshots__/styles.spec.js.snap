@@ -8,7 +8,7 @@ Object {
         "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "css-loader/locals",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\locals.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -18,7 +18,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -33,7 +33,7 @@ Object {
         "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "css-loader/locals",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\locals.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -43,7 +43,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -68,11 +68,11 @@ Object {
         "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "style-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
             "options": Object {},
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -82,7 +82,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -97,11 +97,11 @@ Object {
         "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "style-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
             "options": Object {},
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -111,7 +111,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -146,7 +146,7 @@ Object {
             "loader": "style-loader",
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -156,7 +156,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -181,7 +181,7 @@ Object {
             "loader": "style-loader",
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -191,7 +191,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -222,11 +222,11 @@ Object {
         "test": /\\\\\\.module\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "style-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
             "options": Object {},
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -236,7 +236,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -251,11 +251,11 @@ Object {
         "test": /\\^\\(\\?:\\(\\?!\\\\\\.module\\)\\.\\)\\*\\\\\\.css\\$/i,
         "use": Array [
           Object {
-            "loader": "style-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\style-loader\\\\index.js",
             "options": Object {},
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[path][name]__[local]--[hash:base64:5]",
@@ -265,7 +265,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -300,7 +300,7 @@ Object {
             "loader": "style-loader",
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -310,7 +310,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
@@ -335,7 +335,7 @@ Object {
             "loader": "style-loader",
           },
           Object {
-            "loader": "css-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\css-loader\\\\index.js",
             "options": Object {
               "importLoaders": 1,
               "localIdentName": "[hash:base64]",
@@ -345,7 +345,7 @@ Object {
             },
           },
           Object {
-            "loader": "postcss-loader",
+            "loader": "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\postcss-loader\\\\lib\\\\index.js",
             "options": Object {
               "plugins": Array [
                 [Function],
