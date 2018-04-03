@@ -46,7 +46,7 @@ Presets provide complete configuration that can be used directly by Webpack.
 
 ### Base
 
-Preset suitable for most applications. It makes following assumption about structure of the project:
+Preset suitable for most applications with following features: ESNext syntax, CSS and media files loading, production/development environment, browsers/node.js targets and other (see options). Preset makes following assumption about structure of the project:
 
 - `src/index.js` - entry point of an application
 - `src/index.html` - html-template
@@ -112,7 +112,7 @@ base(
     publicPath = !production || node || hot ? '/' : '/dist/',
 
     // relative path for a built assets output
-    distPath = browser ? './static/dist/' : 'server',
+    distPath = browser ? 'static/dist/' : 'server',
 
     // which type syntax should be used
     // can be:
@@ -355,7 +355,7 @@ Parameters:
 
 ```javascript
 javascript({
-  // for exmaple: we do not want include every extended syntax plugin, but want this one
+  // for example: we do not want to include every extended syntax plugin, but want specific one
   babelPlugins: ['transform-object-rest-spread'],
   syntaxEnhance: false,
 })
