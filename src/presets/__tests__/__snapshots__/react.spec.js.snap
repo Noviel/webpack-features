@@ -244,6 +244,15 @@ Object {
                 "options": Object {
                   "babelrc": false,
                   "plugins": Array [
+                    Array [
+                      "emotion",
+                      Object {
+                        "autoLabel": true,
+                        "extractStatic": false,
+                        "hoist": false,
+                        "sourceMap": true,
+                      },
+                    ],
                     "@babel/plugin-proposal-object-rest-spread",
                     "@babel/plugin-proposal-decorators",
                     Array [

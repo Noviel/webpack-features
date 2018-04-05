@@ -23,6 +23,15 @@ Array [
         "options": Object {
           "babelrc": false,
           "plugins": Array [
+            Array [
+              "emotion",
+              Object {
+                "autoLabel": false,
+                "extractStatic": false,
+                "hoist": true,
+                "sourceMap": false,
+              },
+            ],
             "@babel/plugin-proposal-object-rest-spread",
             "@babel/plugin-proposal-decorators",
             Array [

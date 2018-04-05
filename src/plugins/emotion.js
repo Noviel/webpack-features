@@ -19,7 +19,7 @@ export default ({ extractStatic = false, ...options }: Options = {}) => (
     // ensure that rule.use is an array
     if (rule.use.filter) {
       const babelLoaders = rule.use.filter(
-        ({ loader }) => loader === 'babel-loader'
+        ({ loader }) => loader.indexOf('babel-loader') > -1
       );
       // iterate through every babel-loader
       for (const loader of babelLoaders) {
