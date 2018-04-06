@@ -346,7 +346,7 @@ Parameters:
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
   - **flow**: `boolean`, should include `flow` support. **default**: true
-  - **typescript**: `boolean`, should support `typescript`. **default**: false
+  - **typescript**: `'strict'|'migration'|false`, add support for `TypeScript`. **default**: false
   - **tsOptions**: `object`, `ts-loader` options. **default**: `{}`
   - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
   - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
@@ -363,15 +363,19 @@ javascript({
 
 ##### TypeScript
 
-You should `yarn add typescript --dev` in order to use TypeScript. Then extend `./node_modules/webpack-features/migration.tsconfig.json` configuration in your `tsconfig.json` file. If your `tsconfig.json` is located in unusual place you probably should point to its location. Or you can specify default `webpack-features` config.
+You should `yarn add typescript --dev` in order to use TypeScript. There are two default modes for TypeScript: `migration` and `strict`. One of built-in `tsconfig.json` files will be used depending on mode by default. Or you can use your own `tsconfig.json` pointing to this file in `javascript` feature options:
 
 ```javascript
 javascript({
   typescript: true,
   tsOptions: {
-    configFile: `./node_modules/webpack-features/migration.tsconfig.json`,
+    configFile: require.resolve(`../tsconfig.json`),
   },
 })
+```
+
+```json
+
 ```
 
 ##### Plugins

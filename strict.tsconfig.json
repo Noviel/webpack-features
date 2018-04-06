@@ -1,6 +1,18 @@
 {
   "compilerOptions": {
-    "outDir": "./static/dist/",
-    "sourceMap": true
+    "target": "esnext",
+    "module": "esnext",
+    "allowJs": false,
+    "sourceMap": true,
+
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   }
 }
