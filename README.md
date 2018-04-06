@@ -346,7 +346,7 @@ Parameters:
   - **eslint**: `boolean`, should include `eslint` for linting before transpiling. **default**: true
   - **react**: `boolean`, should include `react` syntax support. **default**: true
   - **flow**: `boolean`, should include `flow` support. **default**: true
-  - **typescript**: `'strict'|'migration'|false`, add support for `TypeScript`. **default**: false
+  - **typescript**: `'strict'|'migration'|false`, add support for `TypeScript`. `true` value is treated as `'strict'` **default**: `false`
   - **tsOptions**: `object`, `ts-loader` options. **default**: `{}`
   - **modules**: transform modules to specific format. `false` - do not transpile. **default**: `false` for browsers, `commonjs` for node
   - **hot**: `boolean`, should include support for hot reloading. **defaul**: true for non-production browsers target
@@ -372,10 +372,6 @@ javascript({
     configFile: require.resolve(`../tsconfig.json`),
   },
 })
-```
-
-```json
-
 ```
 
 ##### Plugins

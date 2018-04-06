@@ -68,6 +68,10 @@ export default (
     options: typeof eslint === 'object' ? eslint : {},
   };
 
+  if (typescript === true) {
+    typescript = 'strict';
+  }
+
   const tsLoader = {
     loader: require.resolve('ts-loader'),
     options: merge(
