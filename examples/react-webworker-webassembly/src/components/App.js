@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
 import Scss from './Scss';
+import Emotion from './Emotion';
 
 import styles from './App.module.css';
 import svg from './tools.svg';
@@ -15,6 +16,7 @@ class App extends Component {
         <Scss />
         SVG Icon
         <img src={svg} width={32} height={32} />
+        <Emotion />
       </div>
     );
   }

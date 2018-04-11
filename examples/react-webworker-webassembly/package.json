@@ -13,9 +13,11 @@
     "dev": "../../node_modules/.bin/webpack-dev-server --config=config/development.js --hot --hot-only --inline"
   },
   "dependencies": {
+    "emotion": "^9.1.1",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-emotion": "^8.0.9",
+    "react-emotion": "^9.1.1",
     "webpack": "^4.1.1"
   },
   "devDependencies": {}

@@ -245,7 +245,7 @@ Object {
                   "babelrc": false,
                   "plugins": Array [
                     Array [
-                      "emotion",
+                      "C:\\\\projects\\\\dev\\\\webpack-features\\\\node_modules\\\\babel-plugin-emotion\\\\lib\\\\index.js",
                       Object {
                         "autoLabel": true,
                         "extractStatic": false,

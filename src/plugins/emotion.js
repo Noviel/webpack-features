@@ -26,11 +26,13 @@ export default ({ extractStatic = false, ...options }: Options = {}) => (
         // add emotion plugin if one is not defined already
         if (
           !loader.options.plugins.filter(
-            p => p === 'emotion' || (p && p[0] === 'emotion')
+            p =>
+              (typeof p === 'string' && p.indexOf('emotion') > -1) ||
+              (p && typeof p[0] === 'string' && p[0].indexOf('emotion') > -1)
           ).length
         ) {
           loader.options.plugins.unshift([
-            'emotion',
+            require.resolve('babel-plugin-emotion'),
             {
               extractStatic,
               hoist: production,
