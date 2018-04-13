@@ -57,6 +57,8 @@ const createRule = (
   } else if (preprocessor === 'less') {
     loaders[0].options.importLoaders++;
     loaders = loaders.concat({
+      // we do not `require.resolve` because less-loader
+      // should be installed by user
       loader: 'less-loader',
       options: {
         sourceMap: !production,

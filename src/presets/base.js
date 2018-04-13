@@ -27,7 +27,6 @@ module.exports = (
     emotion = false,
     webWorkers = true,
     library = false,
-    legacy = false,
     externals = [],
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
@@ -48,11 +47,14 @@ module.exports = (
     if (library) {
       throw new Error(`'library' should be used only for browsers target`);
     }
-    env.target = { name: 'node', value: 'current' };
+    env.target = {
+      name: 'node',
+      value: typeof node === 'string' ? node : 'current',
+    };
   } else if (browser) {
     env.target = {
       name: 'browsers',
-      value: legacy ? 'legacy' : 'modern',
+      value: browser === true ? 'modern' : browser,
     };
   } else {
     throw new Error(

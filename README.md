@@ -91,8 +91,12 @@ base(
 
     production = process.env.NODE_ENV === 'production',
 
-    // selects the target, one of these should be `true`
+    // selects the target, one of `node` or `browser` should be truthy
+    // 
+    // node: if 'true' target will be set to 'current` node 
     node = false,
+    // browser: allowed values: 'legacy', 'modern' or [string]
+    // [string] - is a browserlist format, see https://github.com/browserslist/browserslist
     browser = !node,
 
     // enables hot reloading
@@ -138,9 +142,6 @@ base(
     // string will be used as a library name,
     // allow to create React-based libraries
     library = false,
-
-    // should add polyfills for legacy browsers support
-    legacy = false,
 
     // list of external imports that should not be bundled
     // for example: `node_modules` for node target will be added to externals automatically
