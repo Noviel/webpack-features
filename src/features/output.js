@@ -9,7 +9,7 @@ export default (
       : '[name].js',
     chunkFilename = production ? '[name].[chunkhash:8].js' : '[name].js',
     library = false,
-    libraryTarget = 'umd',
+    libraryTarget = false,
   },
   { plugins, next }
 ) => {
@@ -30,7 +30,12 @@ export default (
 
   if (library) {
     result.output.library = typeof library === 'string' ? library : 'lib';
-    result.output.libraryTarget = libraryTarget;
+  }
+  if (libraryTarget) {
+    result.output.libraryTarget =
+      typeof libraryTarget === 'string'
+        ? libraryTarget
+        : target.name === 'node' ? 'commonjs' : 'umd';
   }
 
   return applyPlugins(

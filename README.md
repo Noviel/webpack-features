@@ -139,6 +139,7 @@ base(
     // support for WebWorkers
     webWorkers = true,
 
+    // should build library instead of application
     // string will be used as a library name,
     library = false,
 
