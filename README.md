@@ -140,7 +140,6 @@ base(
     webWorkers = true,
 
     // string will be used as a library name,
-    // allow to create React-based libraries
     library = false,
 
     // list of external imports that should not be bundled
@@ -326,7 +325,7 @@ Parameters:
 - **options**: `object`
   - **filename**: `string` name of the output file. **default**: for production `'[name].[chunkhash:8].js'`, otherwise `'[name].js'`.
   - **chunkFilename**: `string`, name of chunks. **default**: for production `'[name].[chunkhash:8].js'`, otherwise `'[name].js'`.
-  - **library**: `string | false`, name of the library. Used for building libraries, not applications. **default**: `false`. 
+  - **library**: `string | boolean`. Used for building libraries, not applications. **default**: `false`. 
   - **libraryTarget**: `string`, type of the library module system. Used if `library` is not false. **default**: `'umd'`
 
 ```javascript

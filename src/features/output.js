@@ -28,8 +28,8 @@ export default (
     },
   };
 
-  if (typeof library === 'string') {
-    result.output.library = library;
+  if (library) {
+    result.output.library = typeof library === 'string' ? library : 'lib';
     result.output.libraryTarget = libraryTarget;
   }
 

@@ -44,9 +44,6 @@ module.exports = (
   };
 
   if (node) {
-    if (library) {
-      throw new Error(`'library' should be used only for browsers target`);
-    }
     env.target = {
       name: 'node',
       value: typeof node === 'string' ? node : 'current',
