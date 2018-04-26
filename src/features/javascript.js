@@ -36,6 +36,9 @@ export default (
     react = false,
     webWorkers = true,
     syntaxExtend = true,
+    polyfill = env.target.name === 'browsers' && env.target.value === 'legacy'
+      ? 'entry'
+      : false,
     hot = !env.production && env.target.name === 'browsers',
     babelPlugins = [],
     exclude = /node_modules/,
@@ -50,7 +53,7 @@ export default (
     options: {
       babelrc: false,
       presets: createPresetsList({
-        env: { target, modules },
+        env: { target, modules, polyfill },
         react,
         flow,
       }),

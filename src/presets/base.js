@@ -24,6 +24,7 @@ module.exports = (
     cssPreprocessors = [],
     cssExclude = false,
     babelExclude = /node_modules/,
+    babelPolyfill = true,
     emotion = false,
     webWorkers = true,
     library = false,
@@ -93,17 +94,21 @@ module.exports = (
 
   const react = frameworks.indexOf('react') > -1;
 
+  const polyfill = babelPolyfill ? 'entry' : false;
+
   return createConfig(
     ...[
       { mode: production ? 'production' : 'development' },
       createEntry({
         entries: entry,
+        polyfill: !!polyfill,
         ...optsEntry,
       }),
       javascript(
         {
           flow: types === 'flow',
           typescript: tsType,
+          polyfill,
           react,
           exclude: babelExclude,
           hot,
