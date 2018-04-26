@@ -149,8 +149,8 @@ module.exports = (
         ...optsOutput,
       }),
       optimization({
-        minimize: production && browser,
-        split: production && browser,
+        minimize: production && !!browser,
+        split: production && !!browser,
         ...optsOptimization,
       }),
       {
