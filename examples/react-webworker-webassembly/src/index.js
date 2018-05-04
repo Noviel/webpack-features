@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import App from './components/App';
 import './global.css';
 import Worker from './web.worker.js';
+import TSWorker from './ts.web.worker.ts';
 import WasmWorker from './wasm.web.worker.js';
 
 import { getContainer } from './lib.ts';
@@ -27,6 +28,14 @@ worker.addEventListener('message', function(event) {
 
 wasmWorker.addEventListener('message', event => {
   console.log(event);
+});
+
+const tsworker = new TSWorker();
+
+tsworker.postMessage({ data: [2, 2, 3, 4, 5, 7] });
+
+tsworker.addEventListener('message', function(event) {
+  console.log(`Got answer from TSWebWorker: ${event.data}`);
 });
 
 render(<App />, getContainer('app'));

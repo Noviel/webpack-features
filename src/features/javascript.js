@@ -91,10 +91,7 @@ export default (
     {
       test: webWorkers ? createTestRegExp(true) : /\.jsx?/,
       exclude,
-      use: []
-        .concat(babelLoader)
-        .concat(migrationTS ? tsLoader : [])
-        .concat(eslint ? eslintLoader : []),
+      use: [].concat(babelLoader).concat(eslint ? eslintLoader : []),
     },
   ];
 
@@ -109,18 +106,29 @@ export default (
   }
 
   if (webWorkers) {
+    const webWorkerLoader = {
+      loader: require.resolve('worker-loader'),
+      options: {
+        inline: !env.production,
+        publicPath: env.publicPath,
+        name: `[name].[hash].js`,
+      },
+    };
+
     rules.unshift({
       test: createTestRegExp(false),
       exclude,
-      use: {
-        loader: require.resolve('worker-loader'),
-        options: {
-          inline: !env.production,
-          publicPath: env.publicPath,
-          name: `[name].[hash].js`,
-        },
-      },
+      use: webWorkerLoader,
     });
+    if (typescript) {
+      rules.unshift({
+        test: createTestRegExpTS(false),
+        exclude,
+        use: [webWorkerLoader]
+          .concat(migrationTS ? babelLoader : [])
+          .concat(tsLoader),
+      });
+    }
   }
 
   const extensions = ['.js', '.jsx'].concat(typescript ? ['.ts', '.tsx'] : []);
