@@ -54,7 +54,7 @@ Array [
                     "not op_mini all",
                   ],
                 },
-                "useBuiltIns": false,
+                "useBuiltIns": "entry",
               },
             ],
           ],
