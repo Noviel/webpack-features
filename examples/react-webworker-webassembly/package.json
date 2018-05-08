@@ -8,7 +8,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "serve": "../../node_modules/.bin/static static",
+    "serve": "../../node_modules/.bin/static static --port=8082",
     "build": "../../node_modules/.bin/webpack --config config/production.js",
     "dev": "../../node_modules/.bin/webpack-dev-server --config=config/development.js --hot --hot-only --inline"
   },

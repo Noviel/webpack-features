@@ -18,13 +18,18 @@ const createBabelEnvPresetOptions = (options: Options): { [string]: any } => {
         ? 'entry'
         : false;
 
-  return {
-    targets: {
-      [target.name]: getTargetValue(target),
-    },
+  const result = {
     modules,
     useBuiltIns,
   };
+
+  if (target.name === 'node' || target.value) {
+    result.targets = {
+      [target.name]: getTargetValue(target),
+    };
+  }
+
+  return result;
 };
 
 export default createBabelEnvPresetOptions;

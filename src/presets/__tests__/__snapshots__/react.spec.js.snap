@@ -50,13 +50,6 @@ Object {
                       "@babel/preset-env",
                       Object {
                         "modules": false,
-                        "targets": Object {
-                          "browsers": Array [
-                            ">0.25%",
-                            "not ie 11",
-                            "not op_mini all",
-                          ],
-                        },
                         "useBuiltIns": "entry",
                       },
                     ],
@@ -266,13 +259,6 @@ Object {
                       "@babel/preset-env",
                       Object {
                         "modules": false,
-                        "targets": Object {
-                          "browsers": Array [
-                            ">0.25%",
-                            "not ie 11",
-                            "not op_mini all",
-                          ],
-                        },
                         "useBuiltIns": "entry",
                       },
                     ],

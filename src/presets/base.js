@@ -52,7 +52,8 @@ module.exports = (
   } else if (browser) {
     env.target = {
       name: 'browsers',
-      value: browser === true ? 'modern' : browser,
+      // use browserlist sources for `true`
+      value: browser === true ? undefined : browser,
     };
   } else {
     throw new Error(

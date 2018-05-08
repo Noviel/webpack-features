@@ -1,6 +1,6 @@
 {
   "name": "webpack-features",
-  "version": "3.20.0",
+  "version": "3.21.0",
   "description": "Make Webpack configuration process quick and painless",
   "author": "Aleksandr Snov <snov.contact@gmail.com>",
   "license": "MIT",

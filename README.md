@@ -240,14 +240,14 @@ Parameters:
 
 - **env**: `object`, required
   - **target**: `object`, required
-    - **browsers**: `'modern'|'legacy'|string`
-    - **node**: `string`
+    - **name**: `'browser'|'node'`
+    - **value**: `'modern'|'legacy'|'string'|undefined`
   - **production**: `boolean`, required
   - **rootPath**: `string`, absolute path to the project's root, **default**: `process.cwd()`
   - **publicPath**: `string`, **default**: `'/'`
   - **distPath**: `string`, relative path for output assets, **default**: `'dist'`
 
-`env` defines an environment for which the config should be created. `env.target` must be **either** `{ browsers: <string> }` or `{ node: <string> }`, not both simultaneously.
+`env` defines an environment for which the config should be created. if `env.target.value` is undefined, will be used browserlist sources for `browser` target.
 
 ```javascript
 // webpack.config.js
