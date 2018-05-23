@@ -5,6 +5,7 @@ const root = fs.realpathSync(process.cwd());
 
 module.exports = react(
   {
+    debug: true,
     rootPath: root,
     cssPreprocessors: ['scss'],
     emotion: true,
@@ -12,6 +13,7 @@ module.exports = react(
     indexHtml: 'index.html',
     types: 'typescript',
     wasm: 'inline',
+    babelPolyfill: 'usage',
   },
   {
     javascript: {

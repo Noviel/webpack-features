@@ -136,8 +136,15 @@ base(
     // patterns to exclude from babel transformations
     babelExclude = /node_modules/,
 
-    // add polyfill for features unsupported by environment
-    babelPolyfill = true,
+    // add polyfills for features unsupported by environment
+    // 'inject' - add an entire babel polyfill to every entry,
+    //            so you don't need to import it from the code
+    // 'usage' - use @babel/preset-env to find only needed polyfills
+    //           and automatically import them
+    // true|'entry' - use @babel/preset-env, but you need to 
+    //                write `import "@babel/polyfill"` in the code
+    // false - don't use polyfills
+    babelPolyfill = 'usage',
 
     // support for WebWorkers
     webWorkers = true,

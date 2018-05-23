@@ -24,7 +24,7 @@ module.exports = (
     cssPreprocessors = [],
     cssExclude = false,
     babelExclude = /node_modules/,
-    babelPolyfill = true,
+    babelPolyfill = 'usage',
     emotion = false,
     webWorkers = true,
     library = false,
@@ -97,14 +97,17 @@ module.exports = (
 
   const react = frameworks.indexOf('react') > -1;
 
-  const polyfill = babelPolyfill ? 'entry' : false;
+  const polyfill =
+    babelPolyfill === 'entry' || babelPolyfill === 'usage'
+      ? babelPolyfill
+      : babelPolyfill === true ? 'entry' : false;
 
   return createConfig(
     ...[
       { mode: production ? 'production' : 'development' },
       createEntry({
         entries: entry,
-        polyfill: !!polyfill,
+        polyfill: babelPolyfill === 'inject',
         ...optsEntry,
       }),
       javascript(

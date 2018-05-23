@@ -4,7 +4,6 @@ exports[`presetReact should be good 1`] = `
 Object {
   "entry": Object {
     "index": Array [
-      "@babel/polyfill",
       "index.js",
     ],
   },
@@ -51,7 +50,7 @@ Object {
                       Object {
                         "debug": false,
                         "modules": false,
-                        "useBuiltIns": "entry",
+                        "useBuiltIns": "usage",
                       },
                     ],
                     "@babel/preset-react",
@@ -205,7 +204,6 @@ exports[`presetReact should be good with emotion 1`] = `
 Object {
   "entry": Object {
     "index": Array [
-      "@babel/polyfill",
       "index.js",
     ],
   },
@@ -261,7 +259,7 @@ Object {
                       Object {
                         "debug": false,
                         "modules": false,
-                        "useBuiltIns": "entry",
+                        "useBuiltIns": "usage",
                       },
                     ],
                     "@babel/preset-react",
