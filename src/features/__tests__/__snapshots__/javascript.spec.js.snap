@@ -35,6 +35,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -92,6 +93,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -135,6 +137,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -229,6 +232,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -309,6 +313,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -369,6 +374,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -412,6 +418,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -489,6 +496,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "node": "current",
@@ -555,6 +563,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -625,6 +634,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -695,6 +705,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [
@@ -765,6 +776,7 @@ Object {
                 Array [
                   "@babel/preset-env",
                   Object {
+                    "debug": false,
                     "modules": false,
                     "targets": Object {
                       "browsers": Array [

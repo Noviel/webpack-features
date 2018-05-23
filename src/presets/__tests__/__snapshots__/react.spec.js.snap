@@ -49,6 +49,7 @@ Object {
                     Array [
                       "@babel/preset-env",
                       Object {
+                        "debug": false,
                         "modules": false,
                         "useBuiltIns": "entry",
                       },
@@ -258,6 +259,7 @@ Object {
                     Array [
                       "@babel/preset-env",
                       Object {
+                        "debug": false,
                         "modules": false,
                         "useBuiltIns": "entry",
                       },

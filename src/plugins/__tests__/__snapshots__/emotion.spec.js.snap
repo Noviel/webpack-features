@@ -46,6 +46,7 @@ Array [
             Array [
               "@babel/preset-env",
               Object {
+                "debug": false,
                 "modules": false,
                 "targets": Object {
                   "browsers": Array [
