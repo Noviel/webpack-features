@@ -167,6 +167,9 @@ base(
     // true - add support for WebAssembly
     // `inline` - do not output *.wasm files, embed code in JavaScript
     wasm = false,
+
+    // add debug information output on bundling stage
+    debug = false
   },
   featuresOptionsOverrides = {},
   webpackConfigOverrides = {},
@@ -246,6 +249,7 @@ Parameters:
   - **rootPath**: `string`, absolute path to the project's root, **default**: `process.cwd()`
   - **publicPath**: `string`, **default**: `'/'`
   - **distPath**: `string`, relative path for output assets, **default**: `'dist'`
+  - **debug**: `boolean`, output debug information on bundling stage, **default**: `false`
 
 `env` defines an environment for which the config should be created. if `env.target.value` is undefined, will be used browserlist sources for `browser` target.
 

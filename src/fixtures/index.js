@@ -46,30 +46,35 @@ export const targets: { [string]: { [string]: Target } } = {
 
 export const envs: { [string]: Env } = {
   modernBrowsersDev: {
+    debug: false,
     target: targets.browsers.modern,
     production: false,
     ...paths,
   },
 
   modernBrowsersProd: {
+    debug: false,
     target: targets.browsers.modern,
     production: true,
     ...paths,
   },
 
   legacyBrowsersProd: {
+    debug: false,
     target: targets.browsers.legacy,
     production: true,
     ...paths,
   },
 
   legacyBrowsersDev: {
+    debug: false,
     target: targets.browsers.legacy,
     production: false,
     ...paths,
   },
 
   nodeProd: {
+    debug: false,
     target: targets.node.current,
     production: true,
     ...paths,

@@ -3,13 +3,18 @@ import { getTargetValue } from './targets';
 import type { Target } from './types';
 
 type Options = {
+  debug: boolean,
   target: Target,
   modules: false | string,
   polyfill: boolean,
 };
 
 const createBabelEnvPresetOptions = (options: Options): { [string]: any } => {
-  const { target, modules = target.name === 'node' ? 'commonjs' : false } =
+  const {
+    debug,
+    target,
+    modules = target.name === 'node' ? 'commonjs' : false,
+  } =
     options || {};
   const useBuiltIns =
     options.polyfill !== undefined
@@ -21,6 +26,7 @@ const createBabelEnvPresetOptions = (options: Options): { [string]: any } => {
   const result = {
     modules,
     useBuiltIns,
+    debug,
   };
 
   if (target.name === 'node' || target.value) {

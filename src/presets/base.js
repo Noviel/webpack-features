@@ -33,6 +33,7 @@ module.exports = (
     modulesDir = 'node_modules',
     indexHtml = `${hot || !production ? '' : '../'}index.html`,
     wasm = false,
+    debug = false,
   },
   featuresOptions = {},
   extend = {}
@@ -42,6 +43,7 @@ module.exports = (
     distPath,
     rootPath,
     production,
+    debug,
   };
 
   if (node) {

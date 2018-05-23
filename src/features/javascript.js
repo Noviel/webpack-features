@@ -53,7 +53,7 @@ export default (
     options: {
       babelrc: false,
       presets: createPresetsList({
-        env: { target, modules, polyfill },
+        env: { target, modules, polyfill, debug: env.debug },
         react,
         flow,
       }),

@@ -15,6 +15,7 @@ export type EnvInexact = {
   rootPath?: string,
   publicPath?: string,
   distPath?: string,
+  debug?: boolean,
 };
 
 export type Env = Exact<EnvInexact>;

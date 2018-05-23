@@ -46,6 +46,10 @@ export default (env: Env) => {
     webAssembly,
   };
 
+  if (env.debug === undefined) {
+    env.debug = false;
+  }
+
   const wrap = (fn: (Env, any, PluginExtendOptions) => any) => (
     options: any = {},
     plugins: any[] = []
