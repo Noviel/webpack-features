@@ -33,7 +33,12 @@ Array [
               },
             ],
             "@babel/plugin-proposal-object-rest-spread",
-            "@babel/plugin-proposal-decorators",
+            Array [
+              "@babel/plugin-proposal-decorators",
+              Object {
+                "legacy": true,
+              },
+            ],
             Array [
               "@babel/plugin-proposal-class-properties",
               Object {
