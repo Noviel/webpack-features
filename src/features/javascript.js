@@ -29,6 +29,7 @@ export const createTestRegExpTS = exclude =>
 export default (
   env,
   {
+    babelrc = false,
     eslint = true,
     flow = false,
     typescript = false,
@@ -50,7 +51,10 @@ export default (
 
   const babelLoader = {
     loader: require.resolve('babel-loader'),
-    options: {
+  };
+
+  if (!babelrc) {
+    babelLoader.options = {
       babelrc: false,
       presets: createPresetsList({
         env: { target, modules, polyfill, debug: env.debug },
@@ -63,8 +67,8 @@ export default (
         .concat(babelPlugins)
         .concat(hot && react ? '@babel/transform-classes' : [])
         .concat(hot && react ? '@babel/transform-react-jsx-source' : []),
-    },
-  };
+    };
+  }
 
   const eslintLoader = {
     loader: require.resolve('eslint-loader'),

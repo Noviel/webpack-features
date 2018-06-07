@@ -23,6 +23,7 @@ module.exports = (
     types = 'none',
     cssPreprocessors = [],
     cssExclude = false,
+    babelrc = false,
     babelExclude = /node_modules/,
     babelPolyfill = 'usage',
     emotion = false,
@@ -112,6 +113,7 @@ module.exports = (
       }),
       javascript(
         {
+          babelrc,
           flow: types === 'flow',
           typescript: tsType,
           polyfill,

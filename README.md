@@ -133,6 +133,9 @@ base(
     // patterns to exclude from style loaders
     cssExclude = false,
 
+    // use external babel configuration
+    babelrc = false,
+
     // patterns to exclude from babel transformations
     babelExclude = /node_modules/,
 
@@ -356,6 +359,7 @@ Includes in the config support of a modern javascript syntax. It uses `babel` an
 Parameters:
 
 - **options**: `object`
+  - **babelrc**: `boolean`, use external babel configuration. **default**: `false`.
   - **babelPlugins**: `array of strings`, additional `babel` plugins.
   - **polyfill**: `'usage'|'entry'|false`, apply `@babel/preset-env` for `@babel/polyfill`. **default**: `'entry'` for legacy browsers.
   - **syntaxEnhance**: `boolean`, should include non-standard language features. Includes `object rest spread`, `decorators`, `class properties`, `dynamic import`. **default**: `true`
