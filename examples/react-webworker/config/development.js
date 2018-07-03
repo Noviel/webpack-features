@@ -12,7 +12,7 @@ module.exports = react(
     production: false,
     indexHtml: 'index.html',
     types: 'typescript',
-    wasm: 'inline',
+    wasm: 'builtin',
     babelPolyfill: 'usage',
   },
   {
