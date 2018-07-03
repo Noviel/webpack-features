@@ -1,6 +1,6 @@
 export default (
   env,
-  { inline = false, experimental = false },
+  { inline = false, builtin = true },
   { plugins = [], next }
 ) => {
   const result = {
@@ -14,7 +14,7 @@ export default (
   };
 
   // override Webpack default type
-  if (!experimental) {
+  if (!builtin) {
     result.module.rules[0].type = 'javascript/auto';
     result.module.rules[0].use = {
       loader: require.resolve('./awasm-loader'),

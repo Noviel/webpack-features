@@ -174,9 +174,10 @@ base(
     // but for `hot` reloading we should point to the virtual `index.html`
     indexHtml: `${hot || !production ? '' : '../'}index.html`,
 
-    // true - add support for WebAssembly
-    // `inline` - do not output *.wasm files, embed code in JavaScript
-    wasm = false,
+    // 'builtin' - use builtin Webpack WebAssembly loader
+    // `inline` - use specific loader, do not output *.wasm files, 
+    //            embed code in JavaScript
+    wasm = 'builtin',
 
     // add debug information output on bundling stage
     debug = false
@@ -422,12 +423,10 @@ Parameters:
 
 - **options**: `object`
   - **inline**: `boolean` - embed WebAssembly code into JavaScript. Multiple entries of the same code will be embedded for every entry. **default**: `false`
-  - **experimental**: `boolean` - enable Webpack 4 WebAssembly module type. **default**: `false`
-
-`experimental` flag is off by default, because of current Webpack's WebAssembly module type stage. There are problems with `.wasm` files larger than 4Kb and usage inside WebWorker.
+  - **builtin**: `boolean` - enable Webpack 4 WebAssembly builtin loader. **default**: `true`
 
 ```javascript
-webAssembly({ inline: true, experimental: true )
+webAssembly({ inline: true, builtin: false )
 ```
 
 ### styles

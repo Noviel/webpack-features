@@ -33,7 +33,7 @@ module.exports = (
     externalsWhitelist = undefined,
     modulesDir = 'node_modules',
     indexHtml = `${hot || !production ? '' : '../'}index.html`,
-    wasm = false,
+    wasm = 'builtin',
     debug = false,
   },
   featuresOptions = {},
@@ -137,7 +137,7 @@ module.exports = (
       }),
       wasm
         ? webAssembly({
-            experimental: false,
+            builtin: wasm === 'builtin',
             inline: wasm === 'inline',
             ...optsWebAssembly,
           })
