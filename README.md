@@ -174,6 +174,7 @@ base(
     // but for `hot` reloading we should point to the virtual `index.html`
     indexHtml: `${hot || !production ? '' : '../'}index.html`,
 
+    // false - do not support WebAssembly
     // 'builtin' - use builtin Webpack WebAssembly loader
     // `inline` - use specific loader, do not output *.wasm files, 
     //            embed code in JavaScript
